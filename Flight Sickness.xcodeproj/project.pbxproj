@@ -28,6 +28,9 @@
 		1B93E1FE1F979FBC0078B4EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B93E2011F979FBC0078B4EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B93E2031F979FBC0078B4EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B93E2091F97A4CB0078B4EF /* DDCHardware-Compressed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDCHardware-Compressed.otf"; sourceTree = "<group>"; };
+		1B93E20A1F97A4CB0078B4EF /* DDCHardware-Condensed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDCHardware-Condensed.otf"; sourceTree = "<group>"; };
+		1B93E20B1F97A4CC0078B4EF /* DDCHardware-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDCHardware-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,11 +69,22 @@
 				1B93E1F71F979FBC0078B4EF /* GameScene.swift */,
 				1B93E1F91F979FBC0078B4EF /* GameViewController.swift */,
 				1B93E1FB1F979FBC0078B4EF /* Main.storyboard */,
+				1B93E20C1F97A5160078B4EF /* Resources */,
 				1B93E1FE1F979FBC0078B4EF /* Assets.xcassets */,
 				1B93E2001F979FBC0078B4EF /* LaunchScreen.storyboard */,
 				1B93E2031F979FBC0078B4EF /* Info.plist */,
 			);
 			path = "Flight Sickness";
+			sourceTree = "<group>";
+		};
+		1B93E20C1F97A5160078B4EF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1B93E2091F97A4CB0078B4EF /* DDCHardware-Compressed.otf */,
+				1B93E20A1F97A4CB0078B4EF /* DDCHardware-Condensed.otf */,
+				1B93E20B1F97A4CC0078B4EF /* DDCHardware-Regular.otf */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
