@@ -17,6 +17,8 @@
 		1B93E1FD1F979FBC0078B4EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B93E1FB1F979FBC0078B4EF /* Main.storyboard */; };
 		1B93E1FF1F979FBC0078B4EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B93E1FE1F979FBC0078B4EF /* Assets.xcassets */; };
 		1B93E2021F979FBC0078B4EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B93E2001F979FBC0078B4EF /* LaunchScreen.storyboard */; };
+		CCDCE3011FA18CF900BC6486 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDCE2FF1FA18CF800BC6486 /* Settings.swift */; };
+		CCDCE3021FA18CF900BC6486 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		1B93E2091F97A4CB0078B4EF /* DDCHardware-Compressed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDCHardware-Compressed.otf"; sourceTree = "<group>"; };
 		1B93E20A1F97A4CB0078B4EF /* DDCHardware-Condensed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDCHardware-Condensed.otf"; sourceTree = "<group>"; };
 		1B93E20B1F97A4CC0078B4EF /* DDCHardware-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDCHardware-Regular.otf"; sourceTree = "<group>"; };
+		CCDCE2FF1FA18CF800BC6486 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,8 @@
 		1B93E1F01F979FBC0078B4EF /* Flight Sickness */ = {
 			isa = PBXGroup;
 			children = (
+				CCDCE2FF1FA18CF800BC6486 /* Settings.swift */,
+				CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */,
 				1B93E1F11F979FBC0078B4EF /* AppDelegate.swift */,
 				1B93E1F31F979FBC0078B4EF /* GameScene.sks */,
 				1B93E1F51F979FBC0078B4EF /* Actions.sks */,
@@ -167,7 +173,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCDCE3011FA18CF900BC6486 /* Settings.swift in Sources */,
 				1B7D10061FA15EE8009110B4 /* Sprite.swift in Sources */,
+				CCDCE3021FA18CF900BC6486 /* SettingsViewController.swift in Sources */,
 				1B7D10041FA15E8F009110B4 /* Player.swift in Sources */,
 				1B93E1F81F979FBC0078B4EF /* GameScene.swift in Sources */,
 				1B93E1FA1F979FBC0078B4EF /* GameViewController.swift in Sources */,
