@@ -9,20 +9,22 @@
 import SpriteKit
 import GameplayKit
 
+
 class GameScene: SKScene {
     
     //swipes
     
     let swipeRightRec = UISwipeGestureRecognizer()
     let swipeLeftRec = UISwipeGestureRecognizer()
-    private var player:SKSpriteNode!
+    private var player: Player!
     private var leftAisle:SKSpriteNode!
     private var rightAisle:SKSpriteNode!
     
     
     
     override func didMove(to view: SKView) {
-        player = self.childNode(withName: "player") as! SKSpriteNode
+        player = Player(node: self.childNode(withName: "player") as! SKSpriteNode)
+        //player = self.childNode(withName: "player") as! SKSpriteNode
         rightAisle = self.childNode(withName: "rightAisle") as! SKSpriteNode
         leftAisle = self.childNode(withName: "leftAisle") as! SKSpriteNode
         swipeRightRec.addTarget(self, action: #selector(GameScene.swipedRight) )
@@ -39,14 +41,14 @@ class GameScene: SKScene {
     @objc func swipedRight() {
         
         print("Right")
-        let moveRight = SKAction.move(to: CGPoint(x: rightAisle.position.x, y: player.position.y), duration: 0.1)
-        player.run(moveRight)
+        let moveRight = SKAction.move(to: CGPoint(x: rightAisle.position.x, y: player.getNode().position.y), duration: 0.1)
+        player.getNode().run(moveRight)
         
     }
     
     @objc func swipedLeft() {
-        let moveLeft = SKAction.move(to: CGPoint(x: leftAisle.position.x, y: player.position.y), duration: 0.1)
-        player.run(moveLeft)
+        let moveLeft = SKAction.move(to: CGPoint(x: leftAisle.position.x, y: player.getNode().position.y), duration: 0.1)
+        player.getNode().run(moveLeft)
         print("Left")
     }
     
