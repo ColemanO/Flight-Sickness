@@ -124,6 +124,10 @@
                         <color key="backgroundColor" red="0.41489166021347046" green="0.78131741285324097" blue="0.98142677545547485" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="PZZ-IX-Zw7"/>
                     </view>
+                    <connections>
+                        <outlet property="soundEffectsSwitch" destination="OnR-yj-cMb" id="UXH-04-O2f"/>
+                        <outlet property="soundtrackSwitch" destination="LwF-e5-eul" id="buc-L4-sIP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZw-BI-cRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

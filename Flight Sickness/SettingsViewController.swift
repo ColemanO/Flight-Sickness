@@ -10,11 +10,20 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    @IBOutlet weak var soundtrackSwitch: UISwitch!
+    @IBOutlet weak var soundEffectsSwitch: UISwitch!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        soundtrackSwitch.isOn = Settings.soundtrack()
+        soundEffectsSwitch.isOn = Settings.soundEffects()
+    }
+    
     @IBAction func soundtrackToggle(_ sender: UISwitch) {
-        Settings.settings.soundtrack = sender.isOn
+        Settings.setSoundtrack(sender.isOn)
     }
     
     @IBAction func soundEffectToggle(_ sender: UISwitch) {
-        Settings.settings.soundEffects = sender.isOn
+        Settings.setSoundEffects(sender.isOn)
     }
 }

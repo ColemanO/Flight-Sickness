@@ -7,11 +7,24 @@
 //
 
 import Foundation
-import UIKit
 
-class Settings {
-    static let settings = Settings()
-
-    var soundtrack: Bool = true
-    var soundEffects: Bool = true
+class Settings: NSObject {
+    fileprivate static let soundtrackKey = "soundtrack"
+    fileprivate static let soundEffectsKey = "soundEffects"
+    
+    class func setSoundtrack(_ isOn: Bool) {
+        UserDefaults.standard.set(isOn, forKey: soundtrackKey)
+        UserDefaults.standard.synchronize()
+    }
+    class func setSoundEffects(_ isOn: Bool) {
+        UserDefaults.standard.set(isOn, forKey: soundEffectsKey)
+        UserDefaults.standard.synchronize()
+    }
+    
+    class func soundtrack() -> Bool {
+        return UserDefaults.standard.bool(forKey: soundtrackKey)
+    }
+    class func soundEffects() -> Bool {
+        return UserDefaults.standard.bool(forKey: soundEffectsKey)
+    }
 }
