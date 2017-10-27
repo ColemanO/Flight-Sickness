@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B6787BF1FA3E8BC00CCA154 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6787BE1FA3E8BC00CCA154 /* GameKit.framework */; };
+		1B6787C31FA3F05500CCA154 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6787C21FA3F05500CCA154 /* HomeViewController.swift */; };
+		1B6787C71FA3F85D00CCA154 /* GameCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6787C61FA3F85D00CCA154 /* GameCenter.swift */; };
 		1B7D10041FA15E8F009110B4 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D10031FA15E8F009110B4 /* Player.swift */; };
 		1B7D10061FA15EE8009110B4 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D10051FA15EE8009110B4 /* Sprite.swift */; };
 		1B93E1F21F979FBC0078B4EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B93E1F11F979FBC0078B4EF /* AppDelegate.swift */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B6787BE1FA3E8BC00CCA154 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		1B6787C21FA3F05500CCA154 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1B6787C61FA3F85D00CCA154 /* GameCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenter.swift; sourceTree = "<group>"; };
 		1B7D10031FA15E8F009110B4 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1B7D10051FA15EE8009110B4 /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
 		1B93E1EE1F979FBC0078B4EF /* Flight Sickness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flight Sickness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,17 +52,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B6787BF1FA3E8BC00CCA154 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B6787BD1FA3E8BC00CCA154 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1B6787BE1FA3E8BC00CCA154 /* GameKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1B93E1E51F979FBC0078B4EF = {
 			isa = PBXGroup;
 			children = (
 				1B93E1F01F979FBC0078B4EF /* Flight Sickness */,
 				1B93E1EF1F979FBC0078B4EF /* Products */,
+				1B6787BD1FA3E8BC00CCA154 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,9 +94,11 @@
 				1B93E1F51F979FBC0078B4EF /* Actions.sks */,
 				1B93E1F71F979FBC0078B4EF /* GameScene.swift */,
 				1B7D10051FA15EE8009110B4 /* Sprite.swift */,
+				1B6787C61FA3F85D00CCA154 /* GameCenter.swift */,
 				1B7D10031FA15E8F009110B4 /* Player.swift */,
 				1B93E1F91F979FBC0078B4EF /* GameViewController.swift */,
 				1B93E1FB1F979FBC0078B4EF /* Main.storyboard */,
+				1B6787C21FA3F05500CCA154 /* HomeViewController.swift */,
 				1B93E20C1F97A5160078B4EF /* Resources */,
 				1B93E1FE1F979FBC0078B4EF /* Assets.xcassets */,
 				1B93E2001F979FBC0078B4EF /* LaunchScreen.storyboard */,
@@ -132,6 +150,11 @@
 					1B93E1ED1F979FBC0078B4EF = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -178,6 +201,8 @@
 				CCDCE3021FA18CF900BC6486 /* SettingsViewController.swift in Sources */,
 				1B7D10041FA15E8F009110B4 /* Player.swift in Sources */,
 				1B93E1F81F979FBC0078B4EF /* GameScene.swift in Sources */,
+				1B6787C71FA3F85D00CCA154 /* GameCenter.swift in Sources */,
+				1B6787C31FA3F05500CCA154 /* HomeViewController.swift in Sources */,
 				1B93E1FA1F979FBC0078B4EF /* GameViewController.swift in Sources */,
 				1B93E1F21F979FBC0078B4EF /* AppDelegate.swift in Sources */,
 			);
@@ -320,7 +345,7 @@
 				DEVELOPMENT_TEAM = R35MH2L54T;
 				INFOPLIST_FILE = "Flight Sickness/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Coleman.Flight-Sickness";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Coleman.FS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -335,7 +360,7 @@
 				DEVELOPMENT_TEAM = R35MH2L54T;
 				INFOPLIST_FILE = "Flight Sickness/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Coleman.Flight-Sickness";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Coleman.FS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
