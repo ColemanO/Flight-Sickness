@@ -20,13 +20,18 @@ class GameScene: SKScene {
     private var leftAisle:SKSpriteNode!
     private var rightAisle:SKSpriteNode!
     private var seat:SKSpriteNode!
+    private var cam = SKCameraNode()
+    
     private var initialSeatPos:CGFloat!
-    
-    
+    private var playerOffset:CGFloat!
     
     override func didMove(to view: SKView) {
         player = Player(node: self.childNode(withName: "player") as! SKSpriteNode)
-        //player = self.childNode(withName: "player") as! SKSpriteNode
+        addChild(cam)
+        camera = cam
+        camera?.zPosition = 1
+        playerOffset = cam.position.y - player.getNode().position.y
+        
         seat = self.childNode(withName: "seat") as! SKSpriteNode
         initialSeatPos = seat.position.y
         rightAisle = self.childNode(withName: "rightAisle") as! SKSpriteNode
@@ -41,8 +46,12 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        print(seat.position)
-        if (seat.position.y < -((self.view?.frame.height)! / 2)){
+        let newCenter = player.getNode().position.y + playerOffset
+        camera?.position.y = newCenter
+        rightAisle.position.y = newCenter
+        leftAisle.position.y = newCenter
+        
+        if (seat.position.y < -(initialSeatPos)){
             print("got outside screen");
             seat.position.y = initialSeatPos
         }

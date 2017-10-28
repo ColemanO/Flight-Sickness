@@ -27,19 +27,19 @@ class GameCenter{
 //        let localPlayer = GKLocalPlayer.localPlayer()
 //        var ret:UIViewController? = nil
 //        localPlayer.authenticateHandler = {
-//            
+//
 //            (view, error) in
 //            if view != nil {
 //                ret = view!
 //                print("setting view!!!!!")
 //                //self.present(view!, animated: true, completion: nil)
-//                
+//
 //            }
 //            else {
 //                print(GKLocalPlayer.localPlayer().isAuthenticated)
-//                
+//
 //            }
-//            
+//
 //        }
 //        if(ret == nil){print("NIIIIIIIL")}
 //        return ret

@@ -40,6 +40,7 @@ class HomeViewController: UIViewController, GKGameCenterControllerDelegate {
         viewController?.present(gcvc, animated: true, completion: nil)
     }
     
+    //Game Center
     func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
         gameCenterViewController.dismiss(animated: true, completion: nil)
     }
