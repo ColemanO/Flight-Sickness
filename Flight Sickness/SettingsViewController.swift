@@ -15,8 +15,14 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let backButton = UIBarButtonItem(image: #imageLiteral(resourceName: "back").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(popCurrentViewController))
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        self.navigationItem.leftBarButtonItem = backButton
         soundtrackSwitch.isOn = Settings.soundtrack()
         soundEffectsSwitch.isOn = Settings.soundEffects()
+    }
+    @objc func popCurrentViewController(_ animated: Bool) {
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func soundtrackToggle(_ sender: UISwitch) {
