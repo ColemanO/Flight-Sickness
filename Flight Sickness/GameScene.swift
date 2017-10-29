@@ -9,8 +9,13 @@
 import SpriteKit
 import GameplayKit
 
+/* bit masks used for detecting collisions */
+struct BitMask {
+    static let player: UInt32 = 0x1 << 0
+    static let seat: UInt32 = 0x1 << 1
+}
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //swipes
     
@@ -21,18 +26,29 @@ class GameScene: SKScene {
     private var rightAisle:SKSpriteNode!
     private var seat:SKSpriteNode!
     private var cam = SKCameraNode()
+    private var seats = [SKSpriteNode]() //TODO: remove this and everything that depends on it
+    private var seatIndexToCheck:Int!
     
     private var initialSeatPos:CGFloat!
     private var playerOffset:CGFloat!
     
     override func didMove(to view: SKView) {
         player = Player(node: self.childNode(withName: "player") as! SKSpriteNode)
+        player.getNode().physicsBody?.categoryBitMask = BitMask.player
+        player.getNode().physicsBody?.collisionBitMask = 0
+        player.getNode().physicsBody?.contactTestBitMask = BitMask.seat
+        player.getNode().physicsBody?.usesPreciseCollisionDetection = true
         addChild(cam)
         camera = cam
         camera?.zPosition = 1
         playerOffset = cam.position.y - player.getNode().position.y
         
         seat = self.childNode(withName: "seat") as! SKSpriteNode
+        seat.isHidden = true
+        seat.physicsBody?.categoryBitMask = BitMask.seat
+        seat.physicsBody?.collisionBitMask = 0
+        seat.physicsBody?.contactTestBitMask = BitMask.player
+        seat.physicsBody?.usesPreciseCollisionDetection = true
         initialSeatPos = seat.position.y
         rightAisle = self.childNode(withName: "rightAisle") as! SKSpriteNode
         leftAisle = self.childNode(withName: "leftAisle") as! SKSpriteNode
@@ -43,6 +59,10 @@ class GameScene: SKScene {
         swipeLeftRec.addTarget(self, action: #selector(GameScene.swipedLeft) )
         swipeLeftRec.direction = .left
         self.view!.addGestureRecognizer(swipeLeftRec)
+        
+        self.physicsWorld.contactDelegate = self //assign the contact delegate for collisions
+        setUpSeats()
+        seatIndexToCheck = seats.count - 1
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -50,11 +70,76 @@ class GameScene: SKScene {
         camera?.position.y = newCenter
         rightAisle.position.y = newCenter
         leftAisle.position.y = newCenter
-        
-        if (seat.position.y < -(initialSeatPos)){
-            print("got outside screen");
-            seat.position.y = initialSeatPos
+        let seatToCheck = seats[seatIndexToCheck]
+        let distanceToOffscreen = (self.frame.height/2) + seatToCheck.frame.height/2
+        if(seatToCheck.position.y < cam.position.y - distanceToOffscreen){
+            seatToCheck.position.y = cam.position.y + distanceToOffscreen
+            if(seatIndexToCheck == 0){
+                seatIndexToCheck = seats.count - 1
+            }
+            seatIndexToCheck? -= 1
         }
+    }
+    
+    func setUpSeats(){
+        let spaceBetweenSeats = player.getNode().frame.height * 3
+//        var curSeat = seat
+//        var curSeatPos = seat.position
+//        let distanceToOffscreen = (self.frame.height/2) + seat.frame.height/2
+//        while ((curSeat?.position.y)! > cam.position.y - distanceToOffscreen){
+//            seats.append(curSeat!)
+//            seat.position = curSeatPos
+//            curSeatPos.y = curSeatPos.y - (curSeat?.frame.height)! - spaceBetweenSeats
+//            curSeat = SKSpriteNode(imageNamed: "seat")
+//            self.addChild(curSeat!)
+//
+//        }
+        let distanceToOffscreen = (self.frame.height/2) + seat.frame.height/2
+        var curSeatPos = CGPoint(x: 0, y: distanceToOffscreen)
+        while ((curSeatPos.y) > cam.position.y - distanceToOffscreen){
+            let seat = SKSpriteNode(imageNamed: "seat")
+            seat.setScale(2.5)
+            seat.position = curSeatPos
+            seat.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "seat"), alphaThreshold: 0, size: seat.size)
+            seat.physicsBody?.affectedByGravity = false
+            seat.physicsBody?.categoryBitMask = BitMask.seat
+            seat.physicsBody?.collisionBitMask = 0
+            seat.physicsBody?.contactTestBitMask = BitMask.player
+            seat.physicsBody?.usesPreciseCollisionDetection = true
+            self.addChild(seat)
+            seats.append(seat)
+            curSeatPos.y += -((seat.frame.height) + spaceBetweenSeats)
+        }
+    }
+    
+    func gameOver(){
+        //present game over screen
+        player.getNode().physicsBody?.pinned = true
+    }
+    
+    /* a collision happend */
+    func didBegin(_ contact: SKPhysicsContact) {
+        print("COLLISION")
+        var playerBody: SKPhysicsBody
+        var otherBody: SKPhysicsBody
+        if (contact.bodyA.categoryBitMask == BitMask.player) {
+            playerBody = contact.bodyA
+            otherBody = contact.bodyB
+        }
+        else {
+            playerBody = contact.bodyB
+            otherBody = contact.bodyA
+        }
+        assert(playerBody.categoryBitMask == BitMask.player)
+        switch (otherBody.categoryBitMask){
+        case BitMask.seat:
+            //collision happened game over
+            gameOver()
+            print("game over")
+        default:
+            break
+        }
+        
     }
     
     //swipe funcs
@@ -62,13 +147,13 @@ class GameScene: SKScene {
     @objc func swipedRight() {
         
         print("Right")
-        let moveRight = SKAction.move(to: CGPoint(x: rightAisle.position.x, y: player.getNode().position.y), duration: 0.1)
+        let moveRight = SKAction.moveTo(x: rightAisle.position.x, duration: 0.1)
         player.getNode().run(moveRight)
         
     }
     
     @objc func swipedLeft() {
-        let moveLeft = SKAction.move(to: CGPoint(x: leftAisle.position.x, y: player.getNode().position.y), duration: 0.1)
+        let moveLeft = SKAction.moveTo(x: leftAisle.position.x, duration: 0.1)
         player.getNode().run(moveLeft)
         print("Left")
     }
