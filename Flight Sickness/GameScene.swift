@@ -65,6 +65,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         seatIndexToCheck = seats.count - 1
     }
     
+    //run after each frame
     override func update(_ currentTime: TimeInterval) {
         let newCenter = player.getNode().position.y + playerOffset
         camera?.position.y = newCenter
@@ -81,19 +82,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    //set up the seats according to the screen size
     func setUpSeats(){
         let spaceBetweenSeats = player.getNode().frame.height * 3
-//        var curSeat = seat
-//        var curSeatPos = seat.position
-//        let distanceToOffscreen = (self.frame.height/2) + seat.frame.height/2
-//        while ((curSeat?.position.y)! > cam.position.y - distanceToOffscreen){
-//            seats.append(curSeat!)
-//            seat.position = curSeatPos
-//            curSeatPos.y = curSeatPos.y - (curSeat?.frame.height)! - spaceBetweenSeats
-//            curSeat = SKSpriteNode(imageNamed: "seat")
-//            self.addChild(curSeat!)
-//
-//        }
         let distanceToOffscreen = (self.frame.height/2) + seat.frame.height/2
         var curSeatPos = CGPoint(x: 0, y: distanceToOffscreen)
         while ((curSeatPos.y) > cam.position.y - distanceToOffscreen){
@@ -111,7 +102,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             curSeatPos.y += -((seat.frame.height) + spaceBetweenSeats)
         }
     }
-    
+    //called when the user loses
     func gameOver(){
         //present game over screen
         player.getNode().physicsBody?.pinned = true
