@@ -32,6 +32,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var initialSeatPos:CGFloat!
     private var playerOffset:CGFloat!
     
+    var count = 0
+    
     override func didMove(to view: SKView) {
         player = Player(node: self.childNode(withName: "player") as! SKSpriteNode)
         player.getNode().physicsBody?.categoryBitMask = BitMask.player
@@ -80,6 +82,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             seatIndexToCheck? -= 1
         }
+        
+        //GET RID OF THIS - TESTING CODE
+        count+=1
+        
+        if (count == 10)
+        {
+            gameOver()
+        }
     }
     
     //set up the seats according to the screen size
@@ -106,6 +116,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func gameOver(){
         //present game over screen
         player.getNode().physicsBody?.pinned = true
+        let transition = SKTransition.flipHorizontal(withDuration: 0.5)
+        let gameOver = SKScene(fileNamed: "GameOverScreen") as! GameOverScreen
+        self.view?.presentScene(gameOver, transition: transition)
     }
     
     /* a collision happend */
