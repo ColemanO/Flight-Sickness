@@ -23,11 +23,16 @@
 		1B93E1FD1F979FBC0078B4EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B93E1FB1F979FBC0078B4EF /* Main.storyboard */; };
 		1B93E1FF1F979FBC0078B4EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B93E1FE1F979FBC0078B4EF /* Assets.xcassets */; };
 		1B93E2021F979FBC0078B4EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B93E2001F979FBC0078B4EF /* LaunchScreen.storyboard */; };
+		3A179FDC1FA8F9A3001A9143 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A179FDB1FA8F9A3001A9143 /* LoginScreen.swift */; };
+		3A179FDE1FA8FF19001A9143 /* SignupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A179FDD1FA8FF19001A9143 /* SignupScreen.swift */; };
+		96408F553CC46695592E54B8 /* Pods_Flight_Sickness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0484F3BCB46C511686653BAF /* Pods_Flight_Sickness.framework */; };
 		CCDCE3011FA18CF900BC6486 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDCE2FF1FA18CF800BC6486 /* Settings.swift */; };
 		CCDCE3021FA18CF900BC6486 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0484F3BCB46C511686653BAF /* Pods_Flight_Sickness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flight_Sickness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0898E3109EBE362643042EDF /* Pods-Flight Sickness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flight Sickness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flight Sickness/Pods-Flight Sickness.debug.xcconfig"; sourceTree = "<group>"; };
 		1B6787BE1FA3E8BC00CCA154 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		1B6787C21FA3F05500CCA154 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1B6787C61FA3F85D00CCA154 /* GameCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenter.swift; sourceTree = "<group>"; };
@@ -46,8 +51,11 @@
 		1B93E2091F97A4CB0078B4EF /* DDCHardware-Compressed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDCHardware-Compressed.otf"; sourceTree = "<group>"; };
 		1B93E20A1F97A4CB0078B4EF /* DDCHardware-Condensed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDCHardware-Condensed.otf"; sourceTree = "<group>"; };
 		1B93E20B1F97A4CC0078B4EF /* DDCHardware-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDCHardware-Regular.otf"; sourceTree = "<group>"; };
+		3A179FDB1FA8F9A3001A9143 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		3A179FDD1FA8FF19001A9143 /* SignupScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupScreen.swift; sourceTree = "<group>"; };
 		CCDCE2FF1FA18CF800BC6486 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D50407CABA4F7D3C99696B17 /* Pods-Flight Sickness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flight Sickness.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flight Sickness/Pods-Flight Sickness.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,16 +64,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B6787BF1FA3E8BC00CCA154 /* GameKit.framework in Frameworks */,
+				96408F553CC46695592E54B8 /* Pods_Flight_Sickness.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		013DA57A970208F5E4EBBBC5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0898E3109EBE362643042EDF /* Pods-Flight Sickness.debug.xcconfig */,
+				D50407CABA4F7D3C99696B17 /* Pods-Flight Sickness.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		1B6787BD1FA3E8BC00CCA154 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				1B6787BE1FA3E8BC00CCA154 /* GameKit.framework */,
+				0484F3BCB46C511686653BAF /* Pods_Flight_Sickness.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -76,6 +95,7 @@
 				1B93E1F01F979FBC0078B4EF /* Flight Sickness */,
 				1B93E1EF1F979FBC0078B4EF /* Products */,
 				1B6787BD1FA3E8BC00CCA154 /* Frameworks */,
+				013DA57A970208F5E4EBBBC5 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +121,8 @@
 				1B7D10031FA15E8F009110B4 /* Player.swift */,
 				1B93E1F91F979FBC0078B4EF /* GameViewController.swift */,
 				1B93E1FB1F979FBC0078B4EF /* Main.storyboard */,
+				3A179FDD1FA8FF19001A9143 /* SignupScreen.swift */,
+				3A179FDB1FA8F9A3001A9143 /* LoginScreen.swift */,
 				1B6787C21FA3F05500CCA154 /* HomeViewController.swift */,
 				1B93E20C1F97A5160078B4EF /* Resources */,
 				1B93E1FE1F979FBC0078B4EF /* Assets.xcassets */,
@@ -127,9 +149,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B93E2061F979FBC0078B4EF /* Build configuration list for PBXNativeTarget "Flight Sickness" */;
 			buildPhases = (
+				4ED01B04DE2E538391A357B7 /* [CP] Check Pods Manifest.lock */,
 				1B93E1EA1F979FBC0078B4EF /* Sources */,
 				1B93E1EB1F979FBC0078B4EF /* Frameworks */,
 				1B93E1EC1F979FBC0078B4EF /* Resources */,
+				24820819A5A1CBAE4E9C9D60 /* [CP] Embed Pods Frameworks */,
+				E2BF553125EE3E7A43D395D7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -197,6 +222,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		24820819A5A1CBAE4E9C9D60 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Flight Sickness/Pods-Flight Sickness-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Flight Sickness/Pods-Flight Sickness-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4ED01B04DE2E538391A357B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Flight Sickness-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2BF553125EE3E7A43D395D7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Flight Sickness/Pods-Flight Sickness-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1B93E1EA1F979FBC0078B4EF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -204,6 +285,7 @@
 			files = (
 				CCDCE3011FA18CF900BC6486 /* Settings.swift in Sources */,
 				1B7D10061FA15EE8009110B4 /* Sprite.swift in Sources */,
+				3A179FDE1FA8FF19001A9143 /* SignupScreen.swift in Sources */,
 				CCDCE3021FA18CF900BC6486 /* SettingsViewController.swift in Sources */,
 				1B7D10041FA15E8F009110B4 /* Player.swift in Sources */,
 				1B93E1F81F979FBC0078B4EF /* GameScene.swift in Sources */,
@@ -211,6 +293,7 @@
 				1B6787C31FA3F05500CCA154 /* HomeViewController.swift in Sources */,
 				1B93E1FA1F979FBC0078B4EF /* GameViewController.swift in Sources */,
 				1B93E1F21F979FBC0078B4EF /* AppDelegate.swift in Sources */,
+				3A179FDC1FA8F9A3001A9143 /* LoginScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +428,7 @@
 		};
 		1B93E2071F979FBC0078B4EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0898E3109EBE362643042EDF /* Pods-Flight Sickness.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -360,6 +444,7 @@
 		};
 		1B93E2081F979FBC0078B4EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D50407CABA4F7D3C99696B17 /* Pods-Flight Sickness.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
