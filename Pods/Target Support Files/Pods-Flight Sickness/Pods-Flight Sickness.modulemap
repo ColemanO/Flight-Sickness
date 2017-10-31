@@ -1,0 +1,6 @@
+framework module Pods_Flight_Sickness {
+  umbrella header "Pods-Flight Sickness-umbrella.h"
+
+  export *
+  module * { export * }
+}
