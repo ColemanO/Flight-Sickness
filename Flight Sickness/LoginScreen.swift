@@ -10,11 +10,15 @@ import UIKit
 import FirebaseDatabase
 import Firebase
 
-class LoginScreen: UIViewController {
+class LoginScreen: UIViewController, UITextFieldDelegate {
+    
     @IBOutlet weak var usernameLabel: UITextField!
     @IBOutlet weak var passwordLabel: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        usernameLabel.delegate = self
+        passwordLabel.delegate = self
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         DataStore.shared.loadUsers()
@@ -53,6 +57,17 @@ class LoginScreen: UIViewController {
         print("Fields are empty")
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // 'First Responder' is the same as 'input focus'.
+        // We are removing input focus from the text field.
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Called when the user touches on the main view (outside the UITextField).
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     /*
      // MARK: - Navigation

@@ -10,15 +10,23 @@ import UIKit
 import FirebaseDatabase
 import Firebase
 
-class SignupScreen: UIViewController {
+class SignupScreen: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var usernameSignupLabel: UITextField!
     @IBOutlet weak var passwordSignupLabel: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        usernameSignupLabel.delegate = self
+        passwordSignupLabel.delegate = self
+        let backButton = UIBarButtonItem(image: #imageLiteral(resourceName: "back").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(popCurrentViewController))
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        self.navigationItem.leftBarButtonItem = backButton
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func popCurrentViewController(_ animated: Bool) {
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,6 +51,19 @@ class SignupScreen: UIViewController {
             })
         }
         print("Empty Fields")
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // 'First Responder' is the same as 'input focus'.
+        // We are removing input focus from the text field.
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Called when the user touches on the main view (outside the UITextField).
+    //
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     /*
