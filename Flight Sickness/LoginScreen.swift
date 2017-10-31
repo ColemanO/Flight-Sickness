@@ -13,6 +13,8 @@ class LoginScreen: UIViewController {
     @IBOutlet weak var passwordLabel: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
          DataStore.shared.loadUsers()
         // Do any additional setup after loading the view.
     }
@@ -20,6 +22,15 @@ class LoginScreen: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func btnLoginAction(_ sender: Any) {
+       /* ref.child("users").equalTo(usernameLabel.text).once(passwordLabel.text,snapshot => {
+            const userData = snapshot.val();
+            if (userData){
+                console.log("exists!");
+            }
+            }); */
     }
     
 

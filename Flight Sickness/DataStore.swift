@@ -43,10 +43,10 @@ class DataStore {
             if let userTemp = value {
                 // Iterate over the person objects and store in our internal people array.
                 for u in userTemp {
-                    let user = u.value as! [String:String]
-                    let username = user["username"]
-                    let password = user["password"]
-                    let newUser = User(username: username!, password: password!)
+                    //let user = u.value as! [String:String]
+                    let username = u.key as! String
+                    let password = u.value as! String
+                    let newUser = User(username: username, password: password)
                     self.users.append(newUser)
                 }
             }

@@ -13,8 +13,6 @@ class HomeViewController: UIViewController, GKGameCenterControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
         authenticatePlayer()
 //        let signIn = authenticatePlayer()
 //        if(signIn != nil){
