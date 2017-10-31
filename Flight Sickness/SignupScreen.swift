@@ -10,6 +10,10 @@ import UIKit
 
 class SignupScreen: UIViewController {
 
+    @IBOutlet weak var usernameSignupLabel: UITextField!
+    @IBOutlet weak var passwordSignupLabel: UITextField!
+    @IBOutlet weak var outputLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +25,12 @@ class SignupScreen: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func btnSaveUser(_ sender: Any) {
+        let user = User(username: usernameSignupLabel.text!, password: passwordSignupLabel.text!)
+        DataStore.shared.addUser(user: user)
+        outputLabel.text = "Person Added!"
+    }
+    
     /*
     // MARK: - Navigation
 

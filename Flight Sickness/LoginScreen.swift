@@ -9,10 +9,11 @@
 import UIKit
 
 class LoginScreen: UIViewController {
-
+    @IBOutlet weak var usernameLabel: UITextField!
+    @IBOutlet weak var passwordLabel: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+         DataStore.shared.loadUsers()
         // Do any additional setup after loading the view.
     }
 

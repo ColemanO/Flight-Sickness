@@ -7,5 +7,6 @@ target 'Flight Sickness' do
 
   # Pods for Flight Sickness
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
 
 end
