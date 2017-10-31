@@ -20,13 +20,13 @@
         <!--Home View Controller-->
         <scene sceneID="cp2-ej-EDL">
             <objects>
-                <viewController id="a4X-Pd-3iy" customClass="HomeViewController" customModule="Flight_Sickness" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" id="a4X-Pd-3iy" customClass="HomeViewController" customModule="Flight_Sickness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="slX-bw-CIO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Sickness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nc-aU-pae">
-                                <rect key="frame" x="26" y="190.5" width="324.5" height="56"/>
+                                <rect key="frame" x="25.5" y="190" width="324.5" height="56"/>
                                 <fontDescription key="fontDescription" name="DDCHardware-Condensed" family="DDC Hardware" pointSize="48"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -35,21 +35,21 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdC-hA-npQ">
-                                <rect key="frame" x="98" y="314.5" width="179" height="53"/>
+                                <rect key="frame" x="98" y="314" width="179" height="53"/>
                                 <state key="normal" image="StartButton"/>
                                 <connections>
                                     <segue destination="BV1-FR-VrT" kind="presentation" id="FLn-vK-TxL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="621-l5-FIV">
-                                <rect key="frame" x="121" y="418.5" width="59" height="59"/>
+                                <rect key="frame" x="121" y="418" width="59" height="59"/>
                                 <state key="normal" image="Settings"/>
                                 <connections>
                                     <segue destination="dVr-Hf-TfW" kind="show" id="ScB-Ut-OTI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93Q-Ly-207">
-                                <rect key="frame" x="197" y="420.5" width="55" height="55"/>
+                                <rect key="frame" x="197" y="420" width="55" height="55"/>
                                 <state key="normal" image="Leaderboard"/>
                                 <connections>
                                     <action selector="leaderBoardPressed:" destination="a4X-Pd-3iy" eventType="touchUpInside" id="80h-bM-ch7"/>
@@ -179,7 +179,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHn-pe-I6g">
-                                <rect key="frame" x="127.5" y="159" width="119.5" height="56"/>
+                                <rect key="frame" x="128" y="159" width="119.5" height="56"/>
                                 <fontDescription key="fontDescription" name="DDCHardware-Condensed" family="DDC Hardware" pointSize="48"/>
                                 <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -289,13 +289,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnU-Qp-bpo">
-                                <rect key="frame" x="166" y="493" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4B-Pv-BkE">
                                 <rect key="frame" x="70" y="409.5" width="236" height="56"/>
                                 <state key="normal" image="create account"/>
@@ -322,7 +315,6 @@
                         <viewLayoutGuide key="safeArea" id="how-GV-kyy"/>
                     </view>
                     <connections>
-                        <outlet property="outputLabel" destination="XnU-Qp-bpo" id="NK9-o3-Mvh"/>
                         <outlet property="passwordSignupLabel" destination="Fgv-bp-3Qg" id="Ldg-Lh-Xwp"/>
                         <outlet property="usernameSignupLabel" destination="CGe-51-Ojr" id="Kod-ra-gUG"/>
                     </connections>

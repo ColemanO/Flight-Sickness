@@ -30,6 +30,15 @@ class DataStore {
         return users[index]
     }
     
+    func matchingPassword(username: String, password:String) -> Bool {
+        for u in users {
+            if (u.username == username && u.password == password) {
+                return true
+            }
+        }
+        return false
+    }
+    
     func loadUsers() {
         // Start with an empty array.
         users = [User]()
@@ -73,3 +82,4 @@ class User {
         self.password = password
     }
 }
+
