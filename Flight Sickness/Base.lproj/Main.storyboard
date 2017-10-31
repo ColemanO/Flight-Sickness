@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Sickness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nc-aU-pae">
-                                <rect key="frame" x="35" y="187.5" width="306" height="61.5"/>
+                                <rect key="frame" x="26" y="190.5" width="324.5" height="56"/>
                                 <fontDescription key="fontDescription" name="DDCHardware-Condensed" family="DDC Hardware" pointSize="48"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -32,21 +32,21 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdC-hA-npQ">
-                                <rect key="frame" x="98" y="317" width="179" height="53"/>
+                                <rect key="frame" x="98" y="314.5" width="179" height="53"/>
                                 <state key="normal" image="StartButton"/>
                                 <connections>
                                     <segue destination="BV1-FR-VrT" kind="presentation" id="FLn-vK-TxL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="621-l5-FIV">
-                                <rect key="frame" x="121" y="421" width="59" height="59"/>
+                                <rect key="frame" x="121" y="418.5" width="59" height="59"/>
                                 <state key="normal" image="Settings"/>
                                 <connections>
                                     <segue destination="dVr-Hf-TfW" kind="show" id="ScB-Ut-OTI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93Q-Ly-207">
-                                <rect key="frame" x="197" y="423" width="55" height="55"/>
+                                <rect key="frame" x="197" y="420.5" width="55" height="55"/>
                                 <state key="normal" image="Leaderboard"/>
                                 <connections>
                                     <action selector="leaderBoardPressed:" destination="a4X-Pd-3iy" eventType="touchUpInside" id="80h-bM-ch7"/>

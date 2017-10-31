@@ -25,6 +25,7 @@
 		1B93E2021F979FBC0078B4EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B93E2001F979FBC0078B4EF /* LaunchScreen.storyboard */; };
 		3A179FDC1FA8F9A3001A9143 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A179FDB1FA8F9A3001A9143 /* LoginScreen.swift */; };
 		3A179FDE1FA8FF19001A9143 /* SignupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A179FDD1FA8FF19001A9143 /* SignupScreen.swift */; };
+		3A80460F1FA90A9A0013B8AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A80460E1FA90A9A0013B8AE /* GoogleService-Info.plist */; };
 		96408F553CC46695592E54B8 /* Pods_Flight_Sickness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0484F3BCB46C511686653BAF /* Pods_Flight_Sickness.framework */; };
 		CCDCE3011FA18CF900BC6486 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDCE2FF1FA18CF800BC6486 /* Settings.swift */; };
 		CCDCE3021FA18CF900BC6486 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */; };
@@ -53,6 +54,7 @@
 		1B93E20B1F97A4CC0078B4EF /* DDCHardware-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDCHardware-Regular.otf"; sourceTree = "<group>"; };
 		3A179FDB1FA8F9A3001A9143 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		3A179FDD1FA8FF19001A9143 /* SignupScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupScreen.swift; sourceTree = "<group>"; };
+		3A80460E1FA90A9A0013B8AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CCDCE2FF1FA18CF800BC6486 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D50407CABA4F7D3C99696B17 /* Pods-Flight Sickness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flight Sickness.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flight Sickness/Pods-Flight Sickness.release.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		1B93E20C1F97A5160078B4EF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3A80460E1FA90A9A0013B8AE /* GoogleService-Info.plist */,
 				1B93E2091F97A4CB0078B4EF /* DDCHardware-Compressed.otf */,
 				1B93E20A1F97A4CB0078B4EF /* DDCHardware-Condensed.otf */,
 				1B93E20B1F97A4CC0078B4EF /* DDCHardware-Regular.otf */,
@@ -211,6 +214,7 @@
 			files = (
 				1B6787C81FA4076800CCA154 /* DDCHardware-Compressed.otf in Resources */,
 				1B6787C91FA4076800CCA154 /* DDCHardware-Condensed.otf in Resources */,
+				3A80460F1FA90A9A0013B8AE /* GoogleService-Info.plist in Resources */,
 				1B6787CA1FA4076800CCA154 /* DDCHardware-Regular.otf in Resources */,
 				1B93E1FD1F979FBC0078B4EF /* Main.storyboard in Resources */,
 				1B93E1F41F979FBC0078B4EF /* GameScene.sks in Resources */,
