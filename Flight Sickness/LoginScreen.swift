@@ -14,6 +14,7 @@ class LoginScreen: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var usernameLabel: UITextField!
     @IBOutlet weak var passwordLabel: UITextField!
+    var alertController:UIAlertController? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,17 @@ class LoginScreen: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func presentAlert(msg: String){
+        self.alertController = UIAlertController(title: "Invalid Login", message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+            print("Ok Button Pressed 1");
+        }
+        self.alertController!.addAction(OKAction)
+        
+        self.present(self.alertController!, animated: true, completion:nil)
     }
     
     @IBAction func btnLoginAction(_ sender: Any) {
@@ -46,10 +58,12 @@ class LoginScreen: UIViewController, UITextFieldDelegate {
                         self.present(newViewController, animated: true, completion: nil)
                     }
                     else {
+                        self.presentAlert(msg: "Invalid username or password")
                         print("Invalid password")
                     }
                     
                 }else{
+                    self.presentAlert(msg: "Invalid username or password")
                     print("Invalid username")
                 }
             })

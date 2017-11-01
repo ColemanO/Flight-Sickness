@@ -14,6 +14,7 @@ class SignupScreen: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var usernameSignupLabel: UITextField!
     @IBOutlet weak var passwordSignupLabel: UITextField!
+    var alertController:UIAlertController? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,7 @@ class SignupScreen: UIViewController, UITextFieldDelegate {
             ref.child("users").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
                 if snapshot.hasChild(self.usernameSignupLabel.text!){
                     print("Username is already taken!")
+                    self.presentAlert(title: "Username Taken", msg: "That username is already taken")
                 }else{
                     let user = User(username: self.usernameSignupLabel.text!, password: self.passwordSignupLabel.text!)
                     DataStore.shared.addUser(user: user)
@@ -51,6 +53,17 @@ class SignupScreen: UIViewController, UITextFieldDelegate {
             })
         }
         print("Empty Fields")
+    }
+    
+    func presentAlert(title: String, msg: String){
+        self.alertController = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+            print("Ok Button Pressed 1");
+        }
+        self.alertController!.addAction(OKAction)
+        
+        self.present(self.alertController!, animated: true, completion:nil)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
