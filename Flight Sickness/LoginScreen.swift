@@ -52,6 +52,8 @@ class LoginScreen: UIViewController, UITextFieldDelegate {
                     //TODO: Add Firebase Authentication for a scalable application
                     if (DataStore.shared.matchingPassword(username: self.usernameLabel.text!, password: self.passwordLabel.text!))
                     {
+                        // save username
+                        Settings.setUsername(self.usernameLabel.text!)
                         print("Valid username and password!")
                         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                         let newViewController = storyBoard.instantiateViewController(withIdentifier: "Home") as! HomeViewController

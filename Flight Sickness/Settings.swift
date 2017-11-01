@@ -11,7 +11,12 @@ import Foundation
 class Settings: NSObject {
     fileprivate static let soundtrackKey = "soundtrack"
     fileprivate static let soundEffectsKey = "soundEffects"
+    fileprivate static let usernameKey = "usernameKey"
     
+    class func setUsername(_ username: String) {
+        UserDefaults.standard.set(username, forKey: usernameKey)
+        UserDefaults.standard.synchronize()
+    }
     class func setSoundtrack(_ isOn: Bool) {
         UserDefaults.standard.set(isOn, forKey: soundtrackKey)
         UserDefaults.standard.synchronize()
@@ -21,6 +26,9 @@ class Settings: NSObject {
         UserDefaults.standard.synchronize()
     }
     
+    class func username() -> String {
+        return UserDefaults.standard.string(forKey: usernameKey)!
+    }
     class func soundtrack() -> Bool {
         return UserDefaults.standard.bool(forKey: soundtrackKey)
     }
