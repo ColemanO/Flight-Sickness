@@ -16,6 +16,5 @@ class Player: Sprite {
     
     required init(node: SKSpriteNode) {
         spriteNode = node
-        //animation = createAnimation(atlasName: "PlayerRun")
     }
 }

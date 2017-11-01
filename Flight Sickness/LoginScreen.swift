@@ -31,17 +31,6 @@ class LoginScreen: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func presentAlert(msg: String){
-        self.alertController = UIAlertController(title: "Invalid Login", message: msg, preferredStyle: UIAlertControllerStyle.alert)
-        
-        let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
-            print("Ok Button Pressed 1");
-        }
-        self.alertController!.addAction(OKAction)
-        
-        self.present(self.alertController!, animated: true, completion:nil)
-    }
-    
     @IBAction func btnLoginAction(_ sender: Any) {
         
         if (usernameLabel.text?.isEmpty == false && passwordLabel.text?.isEmpty == false) {
@@ -56,21 +45,31 @@ class LoginScreen: UIViewController, UITextFieldDelegate {
                         Settings.setUsername(self.usernameLabel.text!)
                         print("Valid username and password!")
                         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "Home") as! HomeViewController
+                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "Home") as! UINavigationController
                         self.present(newViewController, animated: true, completion: nil)
                     }
                     else {
-                        self.presentAlert(msg: "Invalid username or password")
+                        self.presentAlert(title: "Invalid Login", msg: "Invalid username or password")
                         print("Invalid password")
                     }
                     
                 }else{
-                    self.presentAlert(msg: "Invalid username or password")
+                    self.presentAlert(title: "Invalid Login", msg: "Invalid username or password")
                     print("Invalid username")
                 }
             })
         }
         print("Fields are empty")
+    }
+    
+    func presentAlert(title: String, msg: String){
+        self.alertController = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+        }
+        self.alertController!.addAction(OKAction)
+        
+        self.present(self.alertController!, animated: true, completion:nil)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

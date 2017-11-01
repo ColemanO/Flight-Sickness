@@ -22,34 +22,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var player: Player!
     private var leftAisle:SKSpriteNode!
     private var rightAisle:SKSpriteNode!
-    private var seat:SKSpriteNode!
     private var cam = SKCameraNode()
-    private var seats = [SKSpriteNode]() //TODO: remove this and everything that depends on it
+    private var seats = [SKSpriteNode]()
     private var seatIndexToCheck:Int!
-    
-    private var initialSeatPos:CGFloat!
     private var playerOffset:CGFloat!
     
     override func didMove(to view: SKView) {
+        //set up the player
         player = Player(node: self.childNode(withName: "player") as! SKSpriteNode)
         player.getNode().physicsBody?.categoryBitMask = BitMask.player
         player.getNode().physicsBody?.collisionBitMask = 0
         player.getNode().physicsBody?.contactTestBitMask = BitMask.seat
         player.getNode().physicsBody?.usesPreciseCollisionDetection = true
+        
+        //set up the camera
         addChild(cam)
         camera = cam
         camera?.zPosition = 1
+        
+        //offset of the player from the camera's center
         playerOffset = cam.position.y - player.getNode().position.y
         
-        seat = self.childNode(withName: "seat") as! SKSpriteNode
-        seat.isHidden = true
-        seat.physicsBody?.categoryBitMask = BitMask.seat
-        seat.physicsBody?.collisionBitMask = 0
-        seat.physicsBody?.contactTestBitMask = BitMask.player
-        seat.physicsBody?.usesPreciseCollisionDetection = true
-        initialSeatPos = seat.position.y
+        //set aisles up
         rightAisle = self.childNode(withName: "rightAisle") as! SKSpriteNode
         leftAisle = self.childNode(withName: "leftAisle") as! SKSpriteNode
+        
+        //set up swipe recognizers
         swipeRightRec.addTarget(self, action: #selector(GameScene.swipedRight) )
         swipeRightRec.direction = .right
         self.view!.addGestureRecognizer(swipeRightRec)
@@ -58,17 +56,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         swipeLeftRec.direction = .left
         self.view!.addGestureRecognizer(swipeLeftRec)
         
-        self.physicsWorld.contactDelegate = self //assign the contact delegate for collisions
+        //assign contact delegate for collisions
+        self.physicsWorld.contactDelegate = self
+        
+        //initialize all of the seats
         setUpSeats()
-        seatIndexToCheck = seats.count - 1
+        seatIndexToCheck = seats.count - 1 //keeps index of the bottom most seat on the screen
     }
     
     //run after each frame
     override func update(_ currentTime: TimeInterval) {
-        let newCenter = player.getNode().position.y + playerOffset
+        let newCenter = player.getNode().position.y + playerOffset //calculates the center relative to the center
+        //update positions based on where the player moved
         camera?.position.y = newCenter
         rightAisle.position.y = newCenter
         leftAisle.position.y = newCenter
+        
+        //check if the bottom seat is still on the screen
         let seatToCheck = seats[seatIndexToCheck]
         let distanceToOffscreen = (self.frame.height/2) + seatToCheck.frame.height/2
         if(seatToCheck.position.y < cam.position.y - distanceToOffscreen){
@@ -83,10 +87,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //set up the seats according to the screen size
     func setUpSeats(){
         let spaceBetweenSeats = player.getNode().frame.height * 3
+        var seat = SKSpriteNode(imageNamed: "seat")
+        seat.setScale(2.5)
         let distanceToOffscreen = (self.frame.height/2) + seat.frame.height/2
         var curSeatPos = CGPoint(x: 0, y: distanceToOffscreen)
         while ((curSeatPos.y) > cam.position.y - distanceToOffscreen){
-            let seat = SKSpriteNode(imageNamed: "seat")
+            seat = SKSpriteNode(imageNamed: "seat")
             seat.setScale(2.5)
             seat.position = curSeatPos
             seat.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "seat"), alphaThreshold: 0, size: seat.size)
@@ -102,13 +108,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     //called when the user loses
     func gameOver(){
-        //present game over screen
+        //TODO: present game over screen
         player.getNode().physicsBody?.pinned = true
     }
     
-    /* a collision happend */
+    // a collision happend
     func didBegin(_ contact: SKPhysicsContact) {
-        print("COLLISION")
         var playerBody: SKPhysicsBody
         var otherBody: SKPhysicsBody
         if (contact.bodyA.categoryBitMask == BitMask.player) {
@@ -119,19 +124,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             playerBody = contact.bodyB
             otherBody = contact.bodyA
         }
-        assert(playerBody.categoryBitMask == BitMask.player)
         switch (otherBody.categoryBitMask){
         case BitMask.seat:
-            //collision happened game over
+            //ran into seat game should be over
             gameOver()
-            print("game over")
         default:
             break
         }
     }
     
+    //swipes
     @objc func swipedRight() {
-        print("Right")
         let moveRight = SKAction.moveTo(x: rightAisle.position.x, duration: 0.1)
         player.getNode().run(moveRight)
     }
@@ -139,7 +142,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     @objc func swipedLeft() {
         let moveLeft = SKAction.moveTo(x: leftAisle.position.x, duration: 0.1)
         player.getNode().run(moveLeft)
-        print("Left")
     }
     
 }
