@@ -66,6 +66,7 @@ class SignupScreen: UIViewController, UITextFieldDelegate {
         self.present(self.alertController!, animated: true, completion:nil)
     }
     
+    //Allows you to hit return to exit the text field
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // 'First Responder' is the same as 'input focus'.
         // We are removing input focus from the text field.
@@ -73,21 +74,9 @@ class SignupScreen: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    // Called when the user touches on the main view (outside the UITextField).
-    //
+    // Called when the user touches on the main view (outside the UITextField)
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-    }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    }    
 }
 

@@ -9,6 +9,7 @@
 import Foundation
 
 class Settings: NSObject {
+    
     fileprivate static let soundtrackKey = "soundtrack"
     fileprivate static let soundEffectsKey = "soundEffects"
     fileprivate static let usernameKey = "usernameKey"

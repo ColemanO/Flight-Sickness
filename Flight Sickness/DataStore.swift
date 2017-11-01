@@ -73,6 +73,7 @@ class DataStore {
     }
 }
 
+//User class
 class User {
     var username: String
     var password: String

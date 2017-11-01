@@ -14,22 +14,10 @@ class HomeViewController: UIViewController, GKGameCenterControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         authenticatePlayer()
-//        let signIn = authenticatePlayer()
-//        if(signIn != nil){
-//            print("got in here")
-//            self.present(signIn!, animated: true, completion: nil)
-//        }else{
-//            print("view was NULL")
-//        }
-        
-        //saveHighscore(number: 5)
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func leaderBoardPressed(_ sender: Any) {
@@ -47,34 +35,15 @@ class HomeViewController: UIViewController, GKGameCenterControllerDelegate {
     
     func authenticatePlayer(){
         let localPlayer = GKLocalPlayer.localPlayer()
-        
         localPlayer.authenticateHandler = {
             (view, error) in
-            
             if view != nil {
-                
                 self.present(view!, animated: true, completion: nil)
                 
             }
             else {
-                
                 print(GKLocalPlayer.localPlayer().isAuthenticated)
-                
             }
-            
-            
         }
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

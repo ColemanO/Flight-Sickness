@@ -16,9 +16,7 @@ struct BitMask {
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    
-    //swipes
-    
+
     let swipeRightRec = UISwipeGestureRecognizer()
     let swipeLeftRec = UISwipeGestureRecognizer()
     private var player: Player!
@@ -130,17 +128,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         default:
             break
         }
-        
     }
     
-    //swipe funcs
-    
     @objc func swipedRight() {
-        
         print("Right")
         let moveRight = SKAction.moveTo(x: rightAisle.position.x, duration: 0.1)
         player.getNode().run(moveRight)
-        
     }
     
     @objc func swipedLeft() {

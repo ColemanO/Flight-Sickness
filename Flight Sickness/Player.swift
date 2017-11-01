@@ -10,6 +10,7 @@ import SpriteKit
 import GameplayKit
 
 class Player: Sprite {
+    
     var animation: [SKTexture] = [SKTexture]()
     var spriteNode: SKSpriteNode
     
