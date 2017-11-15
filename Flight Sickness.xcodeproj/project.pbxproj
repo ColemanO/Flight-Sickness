@@ -116,22 +116,16 @@
 		1B93E1F01F979FBC0078B4EF /* Flight Sickness */ = {
 			isa = PBXGroup;
 			children = (
-				CCDCE2FF1FA18CF800BC6486 /* Settings.swift */,
-				CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */,
 				1B93E1F11F979FBC0078B4EF /* AppDelegate.swift */,
+				CC3658741FBCD31A00E0342F /* View Controllers */,
+				CC3658751FBCD37A00E0342F /* Sprites */,
+				1B93E1F71F979FBC0078B4EF /* GameScene.swift */,
+				1B6787C61FA3F85D00CCA154 /* GameCenter.swift */,
+				1B93E1FB1F979FBC0078B4EF /* Main.storyboard */,
+				CCDCE2FF1FA18CF800BC6486 /* Settings.swift */,
+				3A8046101FA910490013B8AE /* DataStore.swift */,
 				1B93E1F31F979FBC0078B4EF /* GameScene.sks */,
 				1B93E1F51F979FBC0078B4EF /* Actions.sks */,
-				1B93E1F71F979FBC0078B4EF /* GameScene.swift */,
-				1B7D10051FA15EE8009110B4 /* Sprite.swift */,
-				1B7D10031FA15E8F009110B4 /* Player.swift */,
-				1BE7B5431FBC65840017D99B /* Cart.swift */,
-				1B6787C61FA3F85D00CCA154 /* GameCenter.swift */,
-				1B93E1F91F979FBC0078B4EF /* GameViewController.swift */,
-				3A8046101FA910490013B8AE /* DataStore.swift */,
-				1B93E1FB1F979FBC0078B4EF /* Main.storyboard */,
-				3A179FDD1FA8FF19001A9143 /* SignupScreen.swift */,
-				3A179FDB1FA8F9A3001A9143 /* LoginScreen.swift */,
-				1B6787C21FA3F05500CCA154 /* HomeViewController.swift */,
 				1B93E20C1F97A5160078B4EF /* Resources */,
 				1B93E1FE1F979FBC0078B4EF /* Assets.xcassets */,
 				1B93E2001F979FBC0078B4EF /* LaunchScreen.storyboard */,
@@ -149,6 +143,28 @@
 				1B93E20B1F97A4CC0078B4EF /* DDCHardware-Regular.otf */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		CC3658741FBCD31A00E0342F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1B93E1F91F979FBC0078B4EF /* GameViewController.swift */,
+				CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */,
+				1B6787C21FA3F05500CCA154 /* HomeViewController.swift */,
+				3A179FDD1FA8FF19001A9143 /* SignupScreen.swift */,
+				3A179FDB1FA8F9A3001A9143 /* LoginScreen.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		CC3658751FBCD37A00E0342F /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				1B7D10051FA15EE8009110B4 /* Sprite.swift */,
+				1B7D10031FA15E8F009110B4 /* Player.swift */,
+				1BE7B5431FBC65840017D99B /* Cart.swift */,
+			);
+			path = Sprites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
