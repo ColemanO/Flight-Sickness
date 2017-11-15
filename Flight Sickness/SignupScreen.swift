@@ -15,6 +15,8 @@ class SignupScreen: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameSignupLabel: UITextField!
     @IBOutlet weak var passwordSignupLabel: UITextField!
     var alertController:UIAlertController? = nil
+    //Valid characters you can use for login and password info
+    let characterset = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +37,10 @@ class SignupScreen: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    //Saves the username and password when you create an account, checks for string validity
     @IBAction func btnSaveUser(_ sender: Any) {
-        if (usernameSignupLabel.text?.isEmpty == false && passwordSignupLabel.text?.isEmpty == false) {
+        if (usernameSignupLabel.text?.isEmpty == false && passwordSignupLabel.text?.isEmpty == false && usernameSignupLabel.text?.rangeOfCharacter(from: characterset.inverted) == nil &&
+            passwordSignupLabel.text?.rangeOfCharacter(from: characterset.inverted) == nil) {
             let ref = Database.database().reference()
             ref.child("users").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
                 if snapshot.hasChild(self.usernameSignupLabel.text!){
@@ -52,9 +56,12 @@ class SignupScreen: UIViewController, UITextFieldDelegate {
                 }
             })
         }
-        print("Empty Fields")
+        else {
+            self.presentAlert(title: "Invalid Input", msg: "Can't leave empty or use special characters")
+        }
     }
     
+    //Alert method for presenting alerts
     func presentAlert(title: String, msg: String){
         self.alertController = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
         
@@ -77,6 +84,6 @@ class SignupScreen: UIViewController, UITextFieldDelegate {
     // Called when the user touches on the main view (outside the UITextField)
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-    }    
+    }
 }
 

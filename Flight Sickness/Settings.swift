@@ -14,6 +14,7 @@ class Settings: NSObject {
     fileprivate static let soundEffectsKey = "soundEffects"
     fileprivate static let usernameKey = "usernameKey"
     
+    //Sets the username, soundtrack, and sound effects
     class func setUsername(_ username: String) {
         UserDefaults.standard.set(username, forKey: usernameKey)
         UserDefaults.standard.synchronize()
