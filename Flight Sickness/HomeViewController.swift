@@ -13,7 +13,7 @@ class HomeViewController: UIViewController, GKGameCenterControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        authenticatePlayer()
+        //authenticatePlayer()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
     }
@@ -34,14 +34,14 @@ class HomeViewController: UIViewController, GKGameCenterControllerDelegate {
     func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
         gameCenterViewController.dismiss(animated: true, completion: nil)
     }
-    
+
     func authenticatePlayer(){
         let localPlayer = GKLocalPlayer.localPlayer()
         localPlayer.authenticateHandler = {
             (view, error) in
             if view != nil {
                 self.present(view!, animated: true, completion: nil)
-                
+
             }
             else {
                 print(GKLocalPlayer.localPlayer().isAuthenticated)

@@ -12,7 +12,7 @@ import GameplayKit
 /* bit masks used for detecting collisions */
 struct BitMask {
     static let player: UInt32 = 0x1 << 0
-    static let seat: UInt32 = 0x1 << 1
+    static let gameStopper: UInt32 = 0x1 << 1
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -26,13 +26,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var seats = [SKSpriteNode]()
     private var seatIndexToCheck:Int!
     private var playerOffset:CGFloat!
+    private var cart: Cart!
+    
+    var topScreen: CGFloat{
+        get{
+            return cam.position.y + (self.size.height/2)
+        }
+    }
     
     override func didMove(to view: SKView) {
         //set up the player
         player = Player(node: self.childNode(withName: "player") as! SKSpriteNode)
         player.getNode().physicsBody?.categoryBitMask = BitMask.player
         player.getNode().physicsBody?.collisionBitMask = 0
-        player.getNode().physicsBody?.contactTestBitMask = BitMask.seat
+        player.getNode().physicsBody?.contactTestBitMask = BitMask.gameStopper
         player.getNode().physicsBody?.usesPreciseCollisionDetection = true
         
         //set up the camera
@@ -62,6 +69,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //initialize all of the seats
         setUpSeats()
         seatIndexToCheck = seats.count - 1 //keeps index of the bottom most seat on the screen
+        
+        //init cart
+        cart = Cart()
+        self.addChild(cart)
+        cart.position = CGPoint(x: leftAisle.position.x, y: self.topScreen + cart.size.height)
     }
     
     //run after each frame
@@ -82,6 +94,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             seatIndexToCheck? -= 1
         }
+        if(cart.position.y < cam.position.y - distanceToOffscreen){
+            let ranNum = arc4random_uniform(2)
+            if(ranNum == 1){
+                cart.position.x = self.rightAisle.position.x
+            }else{
+                cart.position.x = self.leftAisle.position.x
+            }
+            cart.position.y = cam.position.y + self.topScreen+cart.size.height //TODO fix this (farther intervals between)
+        }
     }
     
     //set up the seats according to the screen size
@@ -97,7 +118,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             seat.position = curSeatPos
             seat.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "seat"), alphaThreshold: 0, size: seat.size)
             seat.physicsBody?.affectedByGravity = false
-            seat.physicsBody?.categoryBitMask = BitMask.seat
+            seat.physicsBody?.categoryBitMask = BitMask.gameStopper
             seat.physicsBody?.collisionBitMask = 0
             seat.physicsBody?.contactTestBitMask = BitMask.player
             seat.physicsBody?.usesPreciseCollisionDetection = true
@@ -125,7 +146,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             otherBody = contact.bodyA
         }
         switch (otherBody.categoryBitMask){
-        case BitMask.seat:
+        case BitMask.gameStopper:
             //ran into seat game should be over
             gameOver()
         default:
