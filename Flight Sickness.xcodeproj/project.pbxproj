@@ -28,6 +28,7 @@
 		3A179FDE1FA8FF19001A9143 /* SignupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A179FDD1FA8FF19001A9143 /* SignupScreen.swift */; };
 		3A80460F1FA90A9A0013B8AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A80460E1FA90A9A0013B8AE /* GoogleService-Info.plist */; };
 		3A8046111FA910490013B8AE /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8046101FA910490013B8AE /* DataStore.swift */; };
+		3A97A6221FBD48E8007C9B4C /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A97A6211FBD48E8007C9B4C /* background.mp3 */; };
 		96408F553CC46695592E54B8 /* Pods_Flight_Sickness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0484F3BCB46C511686653BAF /* Pods_Flight_Sickness.framework */; };
 		CCDCE3011FA18CF900BC6486 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDCE2FF1FA18CF800BC6486 /* Settings.swift */; };
 		CCDCE3021FA18CF900BC6486 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */; };
@@ -59,6 +60,7 @@
 		3A179FDD1FA8FF19001A9143 /* SignupScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupScreen.swift; sourceTree = "<group>"; };
 		3A80460E1FA90A9A0013B8AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3A8046101FA910490013B8AE /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		3A97A6211FBD48E8007C9B4C /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
 		CCDCE2FF1FA18CF800BC6486 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D50407CABA4F7D3C99696B17 /* Pods-Flight Sickness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flight Sickness.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flight Sickness/Pods-Flight Sickness.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		1B93E1F01F979FBC0078B4EF /* Flight Sickness */ = {
 			isa = PBXGroup;
 			children = (
+				3A97A6201FBD48C5007C9B4C /* Music */,
 				1B93E1F11F979FBC0078B4EF /* AppDelegate.swift */,
 				CC3658741FBCD31A00E0342F /* View Controllers */,
 				CC3658751FBCD37A00E0342F /* Sprites */,
@@ -143,6 +146,14 @@
 				1B93E20B1F97A4CC0078B4EF /* DDCHardware-Regular.otf */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		3A97A6201FBD48C5007C9B4C /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				3A97A6211FBD48E8007C9B4C /* background.mp3 */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 		CC3658741FBCD31A00E0342F /* View Controllers */ = {
@@ -240,6 +251,7 @@
 				1B6787CA1FA4076800CCA154 /* DDCHardware-Regular.otf in Resources */,
 				1B93E1FD1F979FBC0078B4EF /* Main.storyboard in Resources */,
 				1B93E1F41F979FBC0078B4EF /* GameScene.sks in Resources */,
+				3A97A6221FBD48E8007C9B4C /* background.mp3 in Resources */,
 				1B93E1FF1F979FBC0078B4EF /* Assets.xcassets in Resources */,
 				1B93E2021F979FBC0078B4EF /* LaunchScreen.storyboard in Resources */,
 				1B93E1F61F979FBC0078B4EF /* Actions.sks in Resources */,
@@ -462,10 +474,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R35MH2L54T;
+				DEVELOPMENT_TEAM = PWND86458W;
 				INFOPLIST_FILE = "Flight Sickness/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Coleman.FS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Roshan.FS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -478,10 +490,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R35MH2L54T;
+				DEVELOPMENT_TEAM = PWND86458W;
 				INFOPLIST_FILE = "Flight Sickness/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Coleman.FS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Roshan.FS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

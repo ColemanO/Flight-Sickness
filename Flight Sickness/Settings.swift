@@ -19,10 +19,12 @@ class Settings: NSObject {
         UserDefaults.standard.set(username, forKey: usernameKey)
         UserDefaults.standard.synchronize()
     }
+    
     class func setSoundtrack(_ isOn: Bool) {
         UserDefaults.standard.set(isOn, forKey: soundtrackKey)
         UserDefaults.standard.synchronize()
     }
+    
     class func setSoundEffects(_ isOn: Bool) {
         UserDefaults.standard.set(isOn, forKey: soundEffectsKey)
         UserDefaults.standard.synchronize()

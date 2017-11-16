@@ -27,6 +27,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var seatIndexToCheck:Int!
     private var playerOffset:CGFloat!
     private var cart: Cart!
+    private var scoreLabel = SKLabelNode()
+    private var score:Int = 0
     
     var topScreen: CGFloat{
         get{
@@ -74,6 +76,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         cart = Cart()
         self.addChild(cart)
         cart.position = CGPoint(x: leftAisle.position.x, y: self.topScreen + cart.size.height)
+        
+        scoreLabel.position = CGPoint(x: self.frame.width / 2, y: self.frame.height - 100)
+        scoreLabel.fontName = "AmericanTypewriter-Bold"
+        scoreLabel.fontSize = 36
+        scoreLabel.fontColor = UIColor.white
+        self.addChild(scoreLabel)
     }
     
     //run after each frame
@@ -103,10 +111,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             cart.position.y = cam.position.y + self.topScreen+cart.size.height //TODO fix this (farther intervals between)
         }
+        let delay = SKAction.wait(forDuration: 0.25)
+        let incrementScore = SKAction.run ({
+            self.score = self.score + 1
+            self.scoreLabel.text = "\(self.score)"
+        })
+        self.run(SKAction.repeatForever(SKAction.sequence([delay,incrementScore])))
     }
     
     //set up the seats according to the screen size
     func setUpSeats(){
+        
         let spaceBetweenSeats = player.getNode().frame.height * 3
         var seat = SKSpriteNode(imageNamed: "seat")
         seat.setScale(2.5)
