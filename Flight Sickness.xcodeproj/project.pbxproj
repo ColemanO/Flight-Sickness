@@ -26,6 +26,7 @@
 		1BE7B5441FBC65840017D99B /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7B5431FBC65840017D99B /* Cart.swift */; };
 		3A179FDC1FA8F9A3001A9143 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A179FDB1FA8F9A3001A9143 /* LoginScreen.swift */; };
 		3A179FDE1FA8FF19001A9143 /* SignupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A179FDD1FA8FF19001A9143 /* SignupScreen.swift */; };
+		3A53A8131FC24B0700A460ED /* BackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A53A8121FC24B0700A460ED /* BackgroundViewController.swift */; };
 		3A80460F1FA90A9A0013B8AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A80460E1FA90A9A0013B8AE /* GoogleService-Info.plist */; };
 		3A8046111FA910490013B8AE /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8046101FA910490013B8AE /* DataStore.swift */; };
 		3A97A6221FBD48E8007C9B4C /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A97A6211FBD48E8007C9B4C /* background.mp3 */; };
@@ -59,6 +60,7 @@
 		1BE7B5431FBC65840017D99B /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		3A179FDB1FA8F9A3001A9143 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		3A179FDD1FA8FF19001A9143 /* SignupScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupScreen.swift; sourceTree = "<group>"; };
+		3A53A8121FC24B0700A460ED /* BackgroundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundViewController.swift; sourceTree = "<group>"; };
 		3A80460E1FA90A9A0013B8AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3A8046101FA910490013B8AE /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		3A97A6211FBD48E8007C9B4C /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				1B93E1F71F979FBC0078B4EF /* GameScene.swift */,
 				1B6787C61FA3F85D00CCA154 /* GameCenter.swift */,
 				1B93E1FB1F979FBC0078B4EF /* Main.storyboard */,
+				3A53A8121FC24B0700A460ED /* BackgroundViewController.swift */,
 				CCDCE2FF1FA18CF800BC6486 /* Settings.swift */,
 				3A8046101FA910490013B8AE /* DataStore.swift */,
 				1B93E1F31F979FBC0078B4EF /* GameScene.sks */,
@@ -338,6 +341,7 @@
 				1B6787C31FA3F05500CCA154 /* HomeViewController.swift in Sources */,
 				CC45535A1FC21A0000BD3573 /* Bag.swift in Sources */,
 				1B93E1FA1F979FBC0078B4EF /* GameViewController.swift in Sources */,
+				3A53A8131FC24B0700A460ED /* BackgroundViewController.swift in Sources */,
 				1B93E1F21F979FBC0078B4EF /* AppDelegate.swift in Sources */,
 				3A179FDC1FA8F9A3001A9143 /* LoginScreen.swift in Sources */,
 			);

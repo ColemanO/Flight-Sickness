@@ -94,17 +94,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.fontColor = UIColor.white
         self.addChild(scoreLabel)
         
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "background", ofType: "mp3")!))
+            audioPlayer.prepareToPlay()
+            audioPlayer.numberOfLoops = -1
+            audioPlayer.currentTime = 2
+        }
+        catch {
+            print(error)
+        }
+        
         if (Settings.soundtrack()) {
-            do {
-                audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "background", ofType: "mp3")!))
-                audioPlayer.prepareToPlay()
-                audioPlayer.numberOfLoops = -1
-                audioPlayer.currentTime = 2
-                audioPlayer.play()
-            }
-            catch {
-                print(error)
-            }
+            audioPlayer.play()
         }
     }
     
