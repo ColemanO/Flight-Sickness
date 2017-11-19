@@ -8,6 +8,7 @@
 
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 /* bit masks used for detecting collisions */
 struct BitMask {
@@ -29,6 +30,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var cart: Cart!
     private var scoreLabel = SKLabelNode()
     private var score:Int = 0
+    
+    var audioPlayer = AVAudioPlayer()
     
     var topScreen: CGFloat{
         get{
@@ -82,6 +85,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.fontSize = 36
         scoreLabel.fontColor = UIColor.white
         self.addChild(scoreLabel)
+        
+        if (Settings.soundtrack()) {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "background", ofType: "mp3")!))
+                audioPlayer.prepareToPlay()
+                audioPlayer.numberOfLoops = -1
+                audioPlayer.currentTime = 2
+                audioPlayer.play()
+            }
+            catch {
+                print(error)
+            }
+        }
     }
     
     //run after each frame
@@ -141,10 +157,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             seats.append(seat)
             curSeatPos.y += -((seat.frame.height) + spaceBetweenSeats)
         }
+        
     }
     //called when the user loses
     func gameOver(){
         //TODO: present game over screen
+        if (audioPlayer.isPlaying) {
+            audioPlayer.pause()
+        }
         player.getNode().physicsBody?.pinned = true
     }
     
