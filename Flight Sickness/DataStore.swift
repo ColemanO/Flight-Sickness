@@ -69,8 +69,15 @@ class DataStore {
         // Save to Firebase.
         self.ref.child("users").child(user.username).setValue(user.password)
         // Also save to our internal array, to stay in sync with what's in Firebase.
-        users.append(user)
+        self.users.append(user)
     }
+    
+    func printAllUsers() {
+        for user in users {
+            print(user.username)
+        }
+    }
+    
 }
 
 //User class

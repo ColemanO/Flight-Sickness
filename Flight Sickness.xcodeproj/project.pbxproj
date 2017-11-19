@@ -29,6 +29,7 @@
 		3A80460F1FA90A9A0013B8AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A80460E1FA90A9A0013B8AE /* GoogleService-Info.plist */; };
 		3A8046111FA910490013B8AE /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8046101FA910490013B8AE /* DataStore.swift */; };
 		3A97A6221FBD48E8007C9B4C /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A97A6211FBD48E8007C9B4C /* background.mp3 */; };
+		3A97A6261FC12E6F007C9B4C /* BackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97A6251FC12E6F007C9B4C /* BackgroundViewController.swift */; };
 		96408F553CC46695592E54B8 /* Pods_Flight_Sickness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0484F3BCB46C511686653BAF /* Pods_Flight_Sickness.framework */; };
 		CCDCE3011FA18CF900BC6486 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDCE2FF1FA18CF800BC6486 /* Settings.swift */; };
 		CCDCE3021FA18CF900BC6486 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */; };
@@ -61,6 +62,7 @@
 		3A80460E1FA90A9A0013B8AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3A8046101FA910490013B8AE /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		3A97A6211FBD48E8007C9B4C /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
+		3A97A6251FC12E6F007C9B4C /* BackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BackgroundViewController.swift; path = "/Users/roshandongre/Desktop/Flight-Sickness/Flight Sickness/BackgroundViewController.swift"; sourceTree = "<absolute>"; };
 		CCDCE2FF1FA18CF800BC6486 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D50407CABA4F7D3C99696B17 /* Pods-Flight Sickness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flight Sickness.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flight Sickness/Pods-Flight Sickness.release.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				CC3658741FBCD31A00E0342F /* View Controllers */,
 				CC3658751FBCD37A00E0342F /* Sprites */,
 				1B93E1F71F979FBC0078B4EF /* GameScene.swift */,
+				3A97A6251FC12E6F007C9B4C /* BackgroundViewController.swift */,
 				1B6787C61FA3F85D00CCA154 /* GameCenter.swift */,
 				1B93E1FB1F979FBC0078B4EF /* Main.storyboard */,
 				CCDCE2FF1FA18CF800BC6486 /* Settings.swift */,
@@ -335,6 +338,7 @@
 				1B6787C31FA3F05500CCA154 /* HomeViewController.swift in Sources */,
 				1B93E1FA1F979FBC0078B4EF /* GameViewController.swift in Sources */,
 				1B93E1F21F979FBC0078B4EF /* AppDelegate.swift in Sources */,
+				3A97A6261FC12E6F007C9B4C /* BackgroundViewController.swift in Sources */,
 				3A179FDC1FA8F9A3001A9143 /* LoginScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
