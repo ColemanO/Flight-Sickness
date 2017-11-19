@@ -28,6 +28,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var seatIndexToCheck:Int!
     private var playerOffset:CGFloat!
     private var cart: Cart!
+    private var bag: Bag!
     private var scoreLabel = SKLabelNode()
     private var score:Int = 0
     
@@ -79,6 +80,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         cart = Cart()
         self.addChild(cart)
         cart.position = CGPoint(x: leftAisle.position.x, y: self.topScreen + cart.size.height)
+       
+        // init bag
+        bag = Bag()
+        self.addChild(bag)
+        //FIXME
+        bag.position = CGPoint(x: rightAisle.position.x, y: self.topScreen + bag.size.height)
+        Bag.animateBags([bag])
         
         scoreLabel.position = CGPoint(x: self.frame.width / 2, y: self.frame.height - 100)
         scoreLabel.fontName = "AmericanTypewriter-Bold"
