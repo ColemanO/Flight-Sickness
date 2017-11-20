@@ -85,12 +85,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         bag = Bag()
         self.addChild(bag)
         //FIXME
-        bag.position = CGPoint(x: rightAisle.position.x, y: self.topScreen + bag.size.height)
+        bag.position = CGPoint(x: rightAisle.position.x, y: self.topScreen + 10000)
         Bag.animateBags([bag])
         
-        scoreLabel.position = CGPoint(x: self.frame.width / 2, y: self.frame.height - 100)
-        scoreLabel.fontName = "AmericanTypewriter-Bold"
-        scoreLabel.fontSize = 36
+        scoreLabel.position = CGPoint(x: 0, y: self.topScreen - 100)
+        scoreLabel.fontName = "DDCHardware-Condensed"
+        scoreLabel.fontSize = 50
         scoreLabel.fontColor = UIColor.white
         self.addChild(scoreLabel)
         
@@ -116,6 +116,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         camera?.position.y = newCenter
         rightAisle.position.y = newCenter
         leftAisle.position.y = newCenter
+        scoreLabel.position = CGPoint(x: 0, y: self.topScreen - 100)
         
         //check if the bottom seat is still on the screen
         let seatToCheck = seats[seatIndexToCheck]

@@ -14,8 +14,9 @@ class Cart: SKSpriteNode {
     var animation: [SKTexture] = [SKTexture]()
     
     required init() {
-        super.init(texture: SKTexture(imageNamed: "Settings"), color: UIColor.blue, size: CGSize(width: 200, height: 200))
-        self.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "Settings"), alphaThreshold: 0, size: self.size)
+        let cartTexture = SKTexture(imageNamed: "Cart")
+        super.init(texture: cartTexture, color: UIColor.clear, size: cartTexture.size())
+        self.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "Cart"), alphaThreshold: 0, size: self.size)
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.categoryBitMask = BitMask.gameStopper
         self.physicsBody?.collisionBitMask = 0
@@ -24,6 +25,8 @@ class Cart: SKSpriteNode {
         self.physicsBody?.friction = 0
         self.physicsBody?.linearDamping = 0
         self.physicsBody?.velocity = CGVector(dx: 0, dy: -200)
+        self.xScale = 2
+        self.yScale = 2
     }
     
     required init?(coder aDecoder: NSCoder) {

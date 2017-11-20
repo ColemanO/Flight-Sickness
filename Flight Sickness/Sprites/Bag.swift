@@ -14,8 +14,9 @@ class Bag: SKSpriteNode {
     var animation: [SKTexture] = [SKTexture]()
     
     required init() {
-        super.init(texture: SKTexture(imageNamed: "Settings"), color: UIColor.blue, size: CGSize(width: 200, height: 200))
-        self.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "Settings"), alphaThreshold: 0, size: self.size)
+        let bagTexture = SKTexture(imageNamed: "Bag")
+        super.init(texture: bagTexture, color: UIColor.clear, size: bagTexture.size())
+        self.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "Bag"), alphaThreshold: 0, size: self.size)
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.categoryBitMask = BitMask.gameStopper
         self.physicsBody?.collisionBitMask = 0
@@ -24,7 +25,8 @@ class Bag: SKSpriteNode {
         self.physicsBody?.usesPreciseCollisionDetection = true
         self.physicsBody?.friction = 0
         self.physicsBody?.linearDamping = 0
-        self.physicsBody?.velocity = CGVector(dx: 0, dy: -200)
+        self.xScale = 2
+        self.yScale = 2
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -39,9 +41,9 @@ class Bag: SKSpriteNode {
     
     func animate() {
         // this should be able to be done better
-        let scaleUp = SKAction.scale(to: 2, duration: 0.0)
+        let scaleUp = SKAction.scale(to: 4, duration: 0.0)
         let fade = SKAction.fadeIn(withDuration: 1.0)
-        let scaleDown = SKAction.scale(to: 1, duration: 1.0)
+        let scaleDown = SKAction.scale(to: 2, duration: 1.0)
         let group = SKAction.group([scaleDown, fade])
         self.run(.sequence([
             .fadeOut(withDuration: 0),
