@@ -84,12 +84,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         cart.position = CGPoint(x: leftAisle.position.x, y: self.topScreen + cart.size.height)
        
         // init bag
-        //setUpBags()
-//        bag = Bag()
-//        self.addChild(bag)
-//        //FIXME
-//        bag.position = CGPoint(x: rightAisle.position.x, y: self.topScreen)
-//        Bag.animateBags([bag])
+        for _ in 1...5 {
+            let bag = Bag()
+            bag.position = CGPoint(x: randAisle(), y: Bag.getRandBagPos(lowerLim: player.spriteNode.position.y + 50))
+            bags.append(bag)
+            self.addChild(bag)
+            bag.animate()
+        }
         
         scoreLabel.position = CGPoint(x: 0, y: self.topScreen - 100)
         scoreLabel.fontName = "DDCHardware-Condensed"
@@ -124,34 +125,52 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //check if the bottom seat is still on the screen
         let seatToCheck = seats[seatIndexToCheck]
         let distanceToOffscreen = (self.frame.height/2) + seatToCheck.frame.height/2
-        if(seatToCheck.position.y < cam.position.y - distanceToOffscreen){
+        if (isOffscreen(sprite: seatToCheck)){
             seatToCheck.position.y = cam.position.y + distanceToOffscreen
             if(seatIndexToCheck == 0){
                 seatIndexToCheck = seats.count - 1
             }
             seatIndexToCheck? -= 1
         }
-        if(cart.position.y < cam.position.y - distanceToOffscreen){
-            let ranNum = arc4random_uniform(2)
-            if(ranNum == 1){
-                cart.position.x = self.rightAisle.position.x
-            }else{
-                cart.position.x = self.leftAisle.position.x
-            }
+        if(allBagsAreOff()){
+            dropBags()
+        }
+        if(isOffscreen(sprite: cart)){
+            cart.position.x = randAisle()
             cart.position.y = self.topScreen + cart.size.height + CGFloat(arc4random_uniform(1000))
         }
         self.scoreLabel.text = "\(Int(self.cam.position.y) )"
-//        let delay = SKAction.wait(forDuration: 0.25)
-//        let incrementScore = SKAction.run ({
-//            self.score = self.score + 1
-//            self.scoreLabel.text = "\(self.score)"
-//        })
-//        self.run(SKAction.repeatForever(SKAction.sequence([delay,incrementScore])))
+    }
+    
+    func allBagsAreOff()->Bool{
+        for bag in bags {
+            if(!isOffscreen(sprite: bag)){
+                return false
+            }
+        }
+        return true
+    }
+    
+    func isOffscreen(sprite: SKSpriteNode)->Bool{
+        let distanceToOffscreen = (self.frame.height/2) + sprite.frame.height/2
+        return sprite.position.y < (cam.position.y - distanceToOffscreen)
     }
     
     //TODO write func to place bags
     func dropBags(){
-        
+        for bag in bags{
+            bag.position = CGPoint(x: randAisle(), y: Bag.getRandBagPos(lowerLim: player.spriteNode.position.y + 50))
+            bag.animate()
+        }
+    }
+    
+    func randAisle()->CGFloat{
+        let ranNum = arc4random_uniform(2)
+        if(ranNum == 1){
+            return self.rightAisle.position.x
+        }else{
+            return self.leftAisle.position.x
+        }
     }
     
     //set up the seats according to the screen size

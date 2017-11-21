@@ -12,8 +12,10 @@ import GameplayKit
 class Bag: SKSpriteNode {
     
     var animation: [SKTexture] = [SKTexture]()
+    var onScreen: Bool!
     
     required init() {
+        onScreen = false
         let bagTexture = SKTexture(imageNamed: "Bag")
         super.init(texture: bagTexture, color: UIColor.clear, size: bagTexture.size())
         self.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "Bag"), alphaThreshold: 0, size: self.size)
@@ -37,6 +39,11 @@ class Bag: SKSpriteNode {
         for bag in bags {
             bag.animate()
         }
+    }
+    
+    class func getRandBagPos(lowerLim: CGFloat)->CGFloat{
+        return lowerLim + CGFloat(arc4random_uniform(UInt32(lowerLim + 50000)))
+    
     }
     
     func animate() {
