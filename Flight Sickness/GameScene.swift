@@ -25,12 +25,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var rightAisle:SKSpriteNode!
     private var cam = SKCameraNode()
     private var seats = [SKSpriteNode]()
+    private var bags = [Bag]()
     private var seatIndexToCheck:Int!
     private var playerOffset:CGFloat!
     private var cart: Cart!
-    private var bag: Bag!
     private var scoreLabel = SKLabelNode()
     private var score:Int = 0
+    var viewController: GameViewController!
     
     var audioPlayer = AVAudioPlayer()
     
@@ -41,6 +42,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
+        
         //set up the player
         player = Player(node: self.childNode(withName: "player") as! SKSpriteNode)
         player.getNode().physicsBody?.categoryBitMask = BitMask.player
@@ -82,11 +84,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         cart.position = CGPoint(x: leftAisle.position.x, y: self.topScreen + cart.size.height)
        
         // init bag
-        bag = Bag()
-        self.addChild(bag)
-        //FIXME
-        bag.position = CGPoint(x: rightAisle.position.x, y: self.topScreen + 10000)
-        Bag.animateBags([bag])
+        //setUpBags()
+//        bag = Bag()
+//        self.addChild(bag)
+//        //FIXME
+//        bag.position = CGPoint(x: rightAisle.position.x, y: self.topScreen)
+//        Bag.animateBags([bag])
         
         scoreLabel.position = CGPoint(x: 0, y: self.topScreen - 100)
         scoreLabel.fontName = "DDCHardware-Condensed"
@@ -135,14 +138,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }else{
                 cart.position.x = self.leftAisle.position.x
             }
-            cart.position.y = cam.position.y + self.topScreen+cart.size.height //TODO fix this (farther intervals between)
+            cart.position.y = self.topScreen + cart.size.height + CGFloat(arc4random_uniform(1000))
         }
-        let delay = SKAction.wait(forDuration: 0.25)
-        let incrementScore = SKAction.run ({
-            self.score = self.score + 1
-            self.scoreLabel.text = "\(self.score)"
-        })
-        self.run(SKAction.repeatForever(SKAction.sequence([delay,incrementScore])))
+        self.scoreLabel.text = "\(Int(self.cam.position.y) )"
+//        let delay = SKAction.wait(forDuration: 0.25)
+//        let incrementScore = SKAction.run ({
+//            self.score = self.score + 1
+//            self.scoreLabel.text = "\(self.score)"
+//        })
+//        self.run(SKAction.repeatForever(SKAction.sequence([delay,incrementScore])))
+    }
+    
+    //TODO write func to place bags
+    func dropBags(){
+        
     }
     
     //set up the seats according to the screen size
@@ -171,11 +180,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     //called when the user loses
     func gameOver(){
-        //TODO: present game over screen
+        viewController.gameOver() //TODO is there a less jank way of doing this?
         if (audioPlayer.isPlaying) {
             audioPlayer.pause()
         }
-        player.getNode().physicsBody?.pinned = true
     }
     
     // a collision happend
