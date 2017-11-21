@@ -180,7 +180,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     //called when the user loses
     func gameOver(){
-        viewController.gameOver() //TODO is there a less jank way of doing this?
+        viewController.gameOver(score: self.scoreLabel.text!) //TODO is there a less jank way of doing this?
         if (audioPlayer.isPlaying) {
             audioPlayer.pause()
         }

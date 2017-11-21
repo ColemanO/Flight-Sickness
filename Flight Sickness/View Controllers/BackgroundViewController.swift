@@ -19,10 +19,9 @@ class BackgroundViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "backgroundcell", for: indexPath) as UITableViewCell
-        //cell.textLabel?.font = UIFont.init(name: "Avenir-Heavy", size: 20)
-        //cell.detailTextLabel?.font = UIFont.init(name: "Avenir-Heavy", size: 20)
+        //cell.textLabel?.font = UIFont.init(name: "DCCHardware-Condensed", size: 20)
+        //cell.detailTextLabel?.font = UIFont.init(name: "DCCHardware-Condensed", size: 20)
         if (indexPath.row < DataStore.shared.count()) {
-            cell.textLabel?.font = UIFont(name:"DCCHardware-Condensed", size:22)
             cell.textLabel?.text = DataStore.shared.getUser(index: indexPath.row).username
             cell.detailTextLabel?.text = DataStore.shared.getUser(index: indexPath.row).password //Need to change this to score
         }

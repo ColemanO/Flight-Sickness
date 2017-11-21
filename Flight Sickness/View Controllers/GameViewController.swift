@@ -12,6 +12,8 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    @IBOutlet weak var pauseOutlet: UIButton!
+    @IBOutlet weak var blurBG: UIVisualEffectView!
     @IBOutlet weak var restartOutlet: UIButton!
     @IBOutlet weak var stateLabel: UILabel!
     @IBOutlet weak var HomeOutlet: UIButton!
@@ -25,6 +27,9 @@ class GameViewController: UIViewController {
         HomeOutlet.isHidden = true
         ResumeOutlet.isHidden = true
         restartOutlet.isHidden = true
+        stateLabel.isHidden = true
+        blurBG.isHidden = true
+        pauseOutlet.isHidden = false
         gameScene.view?.isPaused = false
     }
     @IBAction func Home(_ sender: Any) {
@@ -34,6 +39,8 @@ class GameViewController: UIViewController {
         HomeOutlet.isHidden = false
         ResumeOutlet.isHidden = false
         restartOutlet.isHidden = false
+        blurBG.isHidden = false
+        pauseOutlet.isHidden = true
         stateLabel.isHidden = false
         stateLabel.text = "Pause"
         gameScene.view?.isPaused = true
@@ -71,12 +78,13 @@ class GameViewController: UIViewController {
         }
     }
 
-    func gameOver(){
+    func gameOver(score: String){
         HomeOutlet.isHidden = false
-        ResumeOutlet.isHidden = false
         restartOutlet.isHidden = false
+        blurBG.isHidden = false
+        pauseOutlet.isHidden = true
         stateLabel.isHidden = false
-        stateLabel.text = "Game Over"
+        stateLabel.text = "Score: \(score)"
         gameScene.view?.isPaused = true
     }
     
