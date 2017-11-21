@@ -23,11 +23,11 @@ class BackgroundViewController: UIViewController, UITableViewDelegate, UITableVi
         //cell.detailTextLabel?.font = UIFont.init(name: "DCCHardware-Condensed", size: 20)
         if (indexPath.row < DataStore.shared.count()) {
             cell.textLabel?.text = DataStore.shared.getUser(index: indexPath.row).username
-            cell.detailTextLabel?.text = DataStore.shared.getUser(index: indexPath.row).password //Need to change this to score
+            cell.detailTextLabel?.text = String(DataStore.shared.getUser(index: indexPath.row).score)
         }
         else {
-            cell.textLabel?.text = "Loading"
-            cell.detailTextLabel?.text = "Loading"
+            cell.textLabel?.text = "Empty"
+            cell.detailTextLabel?.text = "Empty"
         }
         return cell
     }
@@ -38,6 +38,7 @@ class BackgroundViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DataStore.shared.loadUsers()
         // Do any additional setup after loading the view.
         let backButton = UIBarButtonItem(image: #imageLiteral(resourceName: "back").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(popCurrentViewController))
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -58,7 +59,6 @@ class BackgroundViewController: UIViewController, UITableViewDelegate, UITableVi
         
         bckTableView.delegate = self
         bckTableView.dataSource = self
-        DataStore.shared.loadUsers()
     }
 
     override func didReceiveMemoryWarning() {

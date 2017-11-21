@@ -39,4 +39,5 @@ class Settings: NSObject {
     class func soundEffects() -> Bool {
         return UserDefaults.standard.bool(forKey: soundEffectsKey)
     }
+    
 }

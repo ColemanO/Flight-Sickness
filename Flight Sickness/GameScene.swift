@@ -35,6 +35,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private let scoreLabelBuffer:CGFloat = 150
     
     var audioPlayer = AVAudioPlayer()
+    var person:Person!
     
     var topScreen: CGFloat{
         get{
@@ -43,6 +44,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
+        
+        person = DataStore.shared.findUserBasedOnUsername(username: Settings.username())
         
         //set up the player
         player = Player(node: self.childNode(withName: "player") as! SKSpriteNode)
@@ -208,13 +211,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     //called when the user loses
     func gameOver(){
-        viewController.gameOver(score: self.scoreLabel.text!) //TODO is there a less jank way of doing this?
         if (audioPlayer.isPlaying) {
             audioPlayer.pause()
         }
+        if (person.score < Int(self.scoreLabel.text!)!) {
+            DataStore.shared.updateScore(person: person, score: Int(self.scoreLabel.text!)!)
+        }
+        viewController.gameOver(score: self.scoreLabel.text!) //TODO is there a less jank way of doing this?
     }
     
-    // a collision happend
+    // a collision happened
     func didBegin(_ contact: SKPhysicsContact) {
         var playerBody: SKPhysicsBody
         var otherBody: SKPhysicsBody

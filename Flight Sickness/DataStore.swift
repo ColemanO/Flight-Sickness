@@ -14,7 +14,7 @@ class DataStore {
     
     static let shared = DataStore()
     private var ref: DatabaseReference!
-    private var users: [User]!
+    private var people: [Person]!
     
     private init() {
         // Get a database reference.
@@ -23,16 +23,35 @@ class DataStore {
     }
     
     func count()->Int {
-        return users.count
+        return self.people.count
     }
     
-    func getUser(index: Int) -> User {
-        return users[index]
+    func getUser(index: Int) -> Person {
+        self.people.sort(by: {$0.score > $1.score})
+        return self.people[index]
+    }
+    
+    //Go back and figure out why this is not working
+    /*func sortUsers(){
+        var count:Int = 0
+        for i in self.people {
+            print(i.score)
+            count = count + 1
+        }
+        self.people.sort(by: {$0.score > $1.score})
+        print(count)
+    }*/
+    
+    func findUserBasedOnUsername(username: String) -> Person? {
+        if let i = self.people.index(where: { $0.username == username }) {
+            return self.people[i]
+        }
+        return nil
     }
     
     func matchingPassword(username: String, password:String) -> Bool {
-        for u in users {
-            if (u.username == username && u.password == password) {
+        for p in people {
+            if (p.username == username && p.password == password) {
                 return true
             }
         }
@@ -41,22 +60,23 @@ class DataStore {
     
     func loadUsers() {
         // Start with an empty array.
-        users = [User]()
+        people = [Person]()
         
         // Fetch the data from Firebase and store it in our internal people array.
         // This is a one-time listener.
-        ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("people").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get the top-level dictionary.
             let value = snapshot.value as? NSDictionary
             
-            if let userTemp = value {
+            if let persons = value {
                 // Iterate over the person objects and store in our internal people array.
-                for u in userTemp {
-                    //let user = u.value as! [String:String]
-                    let username = u.key as! String
-                    let password = u.value as! String
-                    let newUser = User(username: username, password: password)
-                    self.users.append(newUser)
+                for p in persons {
+                    let username = p.key as! String
+                    let info = p.value as! [String:Any]
+                    let password = info["password"]
+                    let score = info["score"]
+                    let newPerson = Person(username: username, password: password! as! String, score: score as! Int)
+                    self.people.append(newPerson)
                 }
             }
         }) { (error) in
@@ -64,30 +84,43 @@ class DataStore {
         }
     }
     
-    func addUser(user: User) {
+    func addUser(person: Person) {
         // define array of key/value pairs to store for this person.
-        // Save to Firebase.
-        self.ref.child("users").child(user.username).setValue(user.password)
-        // Also save to our internal array, to stay in sync with what's in Firebase.
-        self.users.append(user)
+        let personRecord = [
+            "password": person.password,
+            "score":person.score
+            ] as [String : Any]
+        self.ref.child("people").child(person.username).setValue(personRecord)
+        people.append(person)
+    }
+    
+    func updateScore(person:Person, score:Int) {
+         let personRecord = [
+         "password": person.password,
+         "score":score
+         ] as [String : Any]
+         self.ref.child("people").child(person.username).setValue(personRecord)
+         person.score = score
     }
     
     func printAllUsers() {
-        for user in users {
-            print(user.username)
+        for person in people {
+            print(person.username)
         }
     }
-    
 }
 
 //User class
-class User {
+class Person {
+    
     var username: String
     var password: String
+    var score:Int
     
-    init(username: String, password: String) {
+    init(username: String, password: String, score:Int) {
         self.username = username
         self.password = password
+        self.score = score
     }
 }
 

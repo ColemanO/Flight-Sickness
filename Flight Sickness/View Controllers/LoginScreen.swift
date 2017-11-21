@@ -35,7 +35,7 @@ class LoginScreen: UIViewController, UITextFieldDelegate {
         
         if (usernameLabel.text?.isEmpty == false && passwordLabel.text?.isEmpty == false) {
             let ref = Database.database().reference()
-            ref.child("users").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            ref.child("people").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
                 if snapshot.hasChild(self.usernameLabel.text!){
                     
                     //TODO: Add Firebase Authentication for a scalable application
