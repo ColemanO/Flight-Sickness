@@ -32,6 +32,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var scoreLabel = SKLabelNode()
     private var score:Int = 0
     var viewController: GameViewController!
+    private let scoreLabelBuffer:CGFloat = 150
     
     var audioPlayer = AVAudioPlayer()
     
@@ -92,7 +93,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             bag.animate()
         }
         
-        scoreLabel.position = CGPoint(x: 0, y: self.topScreen - 100)
+        scoreLabel.position = CGPoint(x: 0, y: self.topScreen - scoreLabelBuffer)
         scoreLabel.fontName = "DDCHardware-Condensed"
         scoreLabel.fontSize = 50
         scoreLabel.fontColor = UIColor.white
@@ -120,7 +121,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         camera?.position.y = newCenter
         rightAisle.position.y = newCenter
         leftAisle.position.y = newCenter
-        scoreLabel.position = CGPoint(x: 0, y: self.topScreen - 100)
+        scoreLabel.position = CGPoint(x: 0, y: self.topScreen - scoreLabelBuffer)
         
         //check if the bottom seat is still on the screen
         let seatToCheck = seats[seatIndexToCheck]
@@ -171,6 +172,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }else{
             return self.leftAisle.position.x
         }
+    }
+    
+    func resetScene(){
+        let myScene = GameScene(size: self.size)
+        myScene.scaleMode = self.scaleMode
+        self.view?.presentScene(myScene)
+        //let scene = GameScene(size: self.size)
+        //self.view?.presentScene(scene)
     }
     
     //set up the seats according to the screen size

@@ -21,7 +21,14 @@ class GameViewController: UIViewController {
     var gameScene:GameScene!
     
     @IBAction func restartButton(_ sender: Any) {
-        
+        //gameScene.resetScene()
+        resetScene()
+        HomeOutlet.isHidden = true
+        ResumeOutlet.isHidden = true
+        restartOutlet.isHidden = true
+        stateLabel.isHidden = true
+        blurBG.isHidden = true
+        pauseOutlet.isHidden = false
     }
     @IBAction func Resume(_ sender: Any) {
         HomeOutlet.isHidden = true
@@ -78,6 +85,36 @@ class GameViewController: UIViewController {
         }
     }
 
+    func resetScene(){
+        // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
+        // including entities and graphs.
+        if let scene = GKScene(fileNamed: "GameScene") {
+            
+            // Get the SKScene from the loaded GKScene
+            if let sceneNode = scene.rootNode as! GameScene? {
+                gameScene = sceneNode
+                sceneNode.viewController = self
+                
+                // Copy gameplay related content over to the scene
+                //sceneNode.entities = scene.entities
+                //sceneNode.graphs = scene.graphs
+                
+                // Set the scale mode to scale to fit the window
+                sceneNode.scaleMode = .aspectFill
+                
+                // Present the scene
+                if let view = self.view as! SKView? {
+                    view.presentScene(sceneNode)
+                    
+                    view.ignoresSiblingOrder = true
+                    
+                    view.showsFPS = true
+                    view.showsNodeCount = true
+                }
+            }
+        }
+    }
+    
     func gameOver(score: String){
         HomeOutlet.isHidden = false
         restartOutlet.isHidden = false
