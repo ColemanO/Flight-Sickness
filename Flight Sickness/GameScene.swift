@@ -35,6 +35,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private let scoreLabelBuffer:CGFloat = 150
     
     var person:Person!
+    var crashPlayer = AVAudioPlayer()
     
     var topScreen: CGFloat{
         get{
@@ -100,6 +101,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.fontSize = 50
         scoreLabel.fontColor = UIColor.white
         self.addChild(scoreLabel)
+        
+        do {
+            crashPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "crash", ofType: "mp3")!))
+            crashPlayer.prepareToPlay()
+            crashPlayer.numberOfLoops = 0
+            crashPlayer.currentTime = 2.3
+            crashPlayer.rate = 1.5
+        }
+        catch {
+            print(error)
+        }
         
     }
     
@@ -205,6 +217,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // a collision happened
     func didBegin(_ contact: SKPhysicsContact) {
+        
+        //Play crash noise
+        if (Settings.soundEffects() && !crashPlayer.isPlaying) {
+            crashPlayer.play()
+        }
+        crashPlayer.currentTime = 2.3
+        
         var playerBody: SKPhysicsBody
         var otherBody: SKPhysicsBody
         if (contact.bodyA.categoryBitMask == BitMask.player) {
