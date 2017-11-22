@@ -24,8 +24,10 @@ class GameViewController: UIViewController {
     
     @IBAction func restartButton(_ sender: Any) {
         //gameScene.resetScene()
-        audioPlayer.numberOfLoops = -1
-        audioPlayer.play()
+        if (Settings.soundtrack()) {
+            audioPlayer.numberOfLoops = -1
+            audioPlayer.play()
+        }
         resetScene()
         HomeOutlet.isHidden = true
         ResumeOutlet.isHidden = true
@@ -35,8 +37,10 @@ class GameViewController: UIViewController {
         pauseOutlet.isHidden = false
     }
     @IBAction func Resume(_ sender: Any) {
-        audioPlayer.numberOfLoops = -1
-        audioPlayer.play()
+        if (Settings.soundtrack()) {
+            audioPlayer.numberOfLoops = -1
+            audioPlayer.play()
+        }
         HomeOutlet.isHidden = true
         ResumeOutlet.isHidden = true
         restartOutlet.isHidden = true
