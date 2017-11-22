@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 class GameViewController: UIViewController {
 
@@ -19,9 +20,12 @@ class GameViewController: UIViewController {
     @IBOutlet weak var HomeOutlet: UIButton!
     @IBOutlet weak var ResumeOutlet: UIButton!
     var gameScene:GameScene!
+    var audioPlayer = AVAudioPlayer()
     
     @IBAction func restartButton(_ sender: Any) {
         //gameScene.resetScene()
+        audioPlayer.numberOfLoops = -1
+        audioPlayer.play()
         resetScene()
         HomeOutlet.isHidden = true
         ResumeOutlet.isHidden = true
@@ -31,6 +35,8 @@ class GameViewController: UIViewController {
         pauseOutlet.isHidden = false
     }
     @IBAction func Resume(_ sender: Any) {
+        audioPlayer.numberOfLoops = -1
+        audioPlayer.play()
         HomeOutlet.isHidden = true
         ResumeOutlet.isHidden = true
         restartOutlet.isHidden = true
@@ -40,9 +46,17 @@ class GameViewController: UIViewController {
         gameScene.view?.isPaused = false
     }
     @IBAction func Home(_ sender: Any) {
+        if (audioPlayer.isPlaying) {
+            audioPlayer.numberOfLoops = 0
+            audioPlayer.pause()
+        }
         dismiss(animated: true, completion: nil)
     }
     @IBAction func Pause(_ sender: Any) {
+        if (audioPlayer.isPlaying) {
+            audioPlayer.numberOfLoops = 0
+            audioPlayer.pause()
+        }
         HomeOutlet.isHidden = false
         ResumeOutlet.isHidden = false
         restartOutlet.isHidden = false
@@ -80,6 +94,21 @@ class GameViewController: UIViewController {
                     
                     view.showsFPS = true
                     view.showsNodeCount = true
+                    
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "background", ofType: "mp3")!))
+                        audioPlayer.prepareToPlay()
+                        audioPlayer.numberOfLoops = -1
+                        audioPlayer.currentTime = 2
+                    }
+                    catch {
+                        print(error)
+                    }
+                    
+                    if (Settings.soundtrack()) {
+                        audioPlayer.play()
+                    }
+                    
                 }
             }
         }
@@ -116,6 +145,10 @@ class GameViewController: UIViewController {
     }
     
     func gameOver(score: String){
+        if (audioPlayer.isPlaying) {
+            audioPlayer.numberOfLoops = 0
+            audioPlayer.pause()
+        }
         HomeOutlet.isHidden = false
         restartOutlet.isHidden = false
         blurBG.isHidden = false

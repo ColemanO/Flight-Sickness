@@ -34,7 +34,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var viewController: GameViewController!
     private let scoreLabelBuffer:CGFloat = 150
     
-    var audioPlayer = AVAudioPlayer()
     var person:Person!
     
     var topScreen: CGFloat{
@@ -102,19 +101,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.fontColor = UIColor.white
         self.addChild(scoreLabel)
         
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "background", ofType: "mp3")!))
-            audioPlayer.prepareToPlay()
-            audioPlayer.numberOfLoops = -1
-            audioPlayer.currentTime = 2
-        }
-        catch {
-            print(error)
-        }
-        
-        if (Settings.soundtrack()) {
-            audioPlayer.play()
-        }
     }
     
     //run after each frame
@@ -211,9 +197,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     //called when the user loses
     func gameOver(){
-        if (audioPlayer.isPlaying) {
-            audioPlayer.pause()
-        }
         if (person.score < Int(self.scoreLabel.text!)!) {
             DataStore.shared.updateScore(person: person, score: Int(self.scoreLabel.text!)!)
         }
