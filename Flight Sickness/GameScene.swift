@@ -25,12 +25,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var rightAisle:SKSpriteNode!
     private var cam = SKCameraNode()
     private var seats = [SKSpriteNode]()
-    private var bags = [Bag]()
+    private var obstacles = [Obstacle]()
+    //private var bags = [Bag]()
     private var seatIndexToCheck:Int!
     private var playerOffset:CGFloat!
-    private var cart: Cart!
+    //private var cart: Cart!
     private var scoreLabel = SKLabelNode()
-    private var score:Int = 0
+    private var ticks:Int64 = 0
+    private var gen:ObstacleGenerator!
     var viewController: GameViewController!
     private let scoreLabelBuffer:CGFloat = 150
     
@@ -43,6 +45,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    var bottomScreen: CGFloat{
+        get{
+            return cam.position.y - (self.size.height/2)
+        }
+    }
+    
     override func didMove(to view: SKView) {
         
         person = DataStore.shared.findUserBasedOnUsername(username: Settings.username())
@@ -51,7 +59,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player = Player(node: self.childNode(withName: "player") as! SKSpriteNode)
         player.getNode().physicsBody?.categoryBitMask = BitMask.player
         player.getNode().physicsBody?.collisionBitMask = 0
-        player.getNode().physicsBody?.contactTestBitMask = BitMask.gameStopper
+        player.getNode().physicsBody?.contactTestBitMask = 0//BitMask.gameStopper
         player.getNode().physicsBody?.usesPreciseCollisionDetection = true
         
         //set up the camera
@@ -65,6 +73,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //set aisles up
         rightAisle = self.childNode(withName: "rightAisle") as! SKSpriteNode
         leftAisle = self.childNode(withName: "leftAisle") as! SKSpriteNode
+        
+        // set up ObstacleGenerator
+        gen = ObstacleGenerator([Bag.self, Cart.self], [rightAisle.position.x, leftAisle.position.x])
         
         //set up swipe recognizers
         swipeRightRec.addTarget(self, action: #selector(GameScene.swipedRight) )
@@ -81,7 +92,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //initialize all of the seats
         setUpSeats()
         seatIndexToCheck = seats.count - 1 //keeps index of the bottom most seat on the screen
-        
+       /*
         //init cart
         cart = Cart()
         self.addChild(cart)
@@ -95,7 +106,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(bag)
             bag.animate()
         }
-        
+        */
         scoreLabel.position = CGPoint(x: 0, y: self.topScreen - scoreLabelBuffer)
         scoreLabel.fontName = "DDCHardware-Condensed"
         scoreLabel.fontSize = 50
@@ -134,6 +145,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             seatIndexToCheck? -= 1
         }
+        self.ticks += 1
+        // TODO: add randomness to interval
+        // change interval depending on screen size
+        if (self.ticks % 100 == 0) {
+            let obs = gen.next(topScreen: self.topScreen, bottomScreen: self.bottomScreen)
+            obstacles.append(obs)
+            self.addChild(obs)
+            obs.animate()
+        }
+        /*
         if(allBagsAreOff()){
             dropBags()
         }
@@ -141,9 +162,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             cart.position.x = randAisle()
             cart.position.y = self.topScreen + cart.size.height + CGFloat(arc4random_uniform(1000))
         }
+ */
         self.scoreLabel.text = "\(Int(self.cam.position.y) )"
     }
-    
+    /*
     func allBagsAreOff()->Bool{
         for bag in bags {
             if(!isOffscreen(sprite: bag)){
@@ -152,12 +174,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         return true
     }
+ */
+    // TODO
+    func cleanUp() {
+    }
     
     func isOffscreen(sprite: SKSpriteNode)->Bool{
         let distanceToOffscreen = (self.frame.height/2) + sprite.frame.height/2
         return sprite.position.y < (cam.position.y - distanceToOffscreen)
     }
     
+    /*
     //TODO write func to place bags
     func dropBags(){
         for bag in bags{
@@ -174,6 +201,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return self.leftAisle.position.x
         }
     }
+ */
     
     func resetScene(){
         let myScene = GameScene(size: self.size)
@@ -217,13 +245,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // a collision happened
     func didBegin(_ contact: SKPhysicsContact) {
-        
-        //Play crash noise
-        if (Settings.soundEffects() && !crashPlayer.isPlaying) {
-            crashPlayer.play()
-        }
         crashPlayer.currentTime = 2.3
-        
         var playerBody: SKPhysicsBody
         var otherBody: SKPhysicsBody
         if (contact.bodyA.categoryBitMask == BitMask.player) {
@@ -236,6 +258,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         switch (otherBody.categoryBitMask){
         case BitMask.gameStopper:
+            //Play crash noise
+            if (Settings.soundEffects() && !crashPlayer.isPlaying) {
+                crashPlayer.play()
+            }
             //ran into seat game should be over
             gameOver()
         default:

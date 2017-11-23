@@ -9,56 +9,35 @@
 import SpriteKit
 import GameplayKit
 
-class Bag: SKSpriteNode {
-    
-    var animation: [SKTexture] = [SKTexture]()
-    var onScreen: Bool!
-    
+class Bag: Obstacle {
     required init() {
-        onScreen = false
         let bagTexture = SKTexture(imageNamed: "Bag")
         super.init(texture: bagTexture, color: UIColor.clear, size: bagTexture.size())
-        self.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "Bag"), alphaThreshold: 0, size: self.size)
-        self.physicsBody?.affectedByGravity = false
-        self.physicsBody?.categoryBitMask = BitMask.gameStopper
-        self.physicsBody?.collisionBitMask = 0
-        //self.physicsBody?.contactTestBitMask = BitMask.player
+        // disable bag's collision before it lands
         self.physicsBody?.contactTestBitMask = 0
-        self.physicsBody?.usesPreciseCollisionDetection = true
-        self.physicsBody?.friction = 0
-        self.physicsBody?.linearDamping = 0
-        self.xScale = 2
-        self.yScale = 2
+        self.startFromTop = false
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    class func animateBags(_ bags: [Bag]) {
-        for bag in bags {
-            bag.animate()
-        }
-    }
-    
-    class func getRandBagPos(lowerLim: CGFloat)->CGFloat{
-        return lowerLim + CGFloat(arc4random_uniform(UInt32(lowerLim + 50000)))
-    
-    }
-    
-    func animate() {
-        // this should be able to be done better
-        let scaleUp = SKAction.scale(to: 4, duration: 0.0)
+
+    override func animate() {
+        // TODO clean this up
+        let scaleUp = SKAction.scale(to: 6, duration: 0.0)
         let fade = SKAction.fadeIn(withDuration: 1.0)
         let scaleDown = SKAction.scale(to: 2, duration: 1.0)
         let group = SKAction.group([scaleDown, fade])
+        let enableContact = SKAction.run {
+            // enable collision after it lands
+            self.physicsBody?.contactTestBitMask = BitMask.player
+        }
         self.run(.sequence([
             .fadeOut(withDuration: 0),
             scaleUp,
-            group
+            group,
+            enableContact
             ]))
-        
-        // enable collision after it lands
-        self.physicsBody?.contactTestBitMask = BitMask.player
     }
 }

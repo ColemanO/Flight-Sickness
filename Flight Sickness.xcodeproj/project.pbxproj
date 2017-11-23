@@ -32,9 +32,12 @@
 		3A8046111FA910490013B8AE /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8046101FA910490013B8AE /* DataStore.swift */; };
 		3A97A6221FBD48E8007C9B4C /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A97A6211FBD48E8007C9B4C /* background.mp3 */; };
 		96408F553CC46695592E54B8 /* Pods_Flight_Sickness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0484F3BCB46C511686653BAF /* Pods_Flight_Sickness.framework */; };
+		CC20EEEE1FC4140A00E481F0 /* ObstacleGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC20EEED1FC4140A00E481F0 /* ObstacleGenerator.swift */; };
 		CC45535A1FC21A0000BD3573 /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4553591FC21A0000BD3573 /* Bag.swift */; };
+		CC92E2DB1FC5FF7E0057F766 /* SKSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC92E2DA1FC5FF7E0057F766 /* SKSpriteNode.swift */; };
 		CCDCE3011FA18CF900BC6486 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDCE2FF1FA18CF800BC6486 /* Settings.swift */; };
 		CCDCE3021FA18CF900BC6486 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */; };
+		CCF5CBAA1FC64B1F00EA19DF /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5CBA91FC64B1F00EA19DF /* Obstacle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +52,7 @@
 		1B93E1F11F979FBC0078B4EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B93E1F31F979FBC0078B4EF /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		1B93E1F51F979FBC0078B4EF /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		1B93E1F71F979FBC0078B4EF /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		1B93E1F71F979FBC0078B4EF /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; usesTabs = 0; };
 		1B93E1F91F979FBC0078B4EF /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		1B93E1FC1F979FBC0078B4EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1B93E1FE1F979FBC0078B4EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,9 +69,12 @@
 		3A80460E1FA90A9A0013B8AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3A8046101FA910490013B8AE /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		3A97A6211FBD48E8007C9B4C /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
+		CC20EEED1FC4140A00E481F0 /* ObstacleGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleGenerator.swift; sourceTree = "<group>"; };
 		CC4553591FC21A0000BD3573 /* Bag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bag.swift; sourceTree = "<group>"; };
+		CC92E2DA1FC5FF7E0057F766 /* SKSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKSpriteNode.swift; sourceTree = "<group>"; };
 		CCDCE2FF1FA18CF800BC6486 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		CCF5CBA91FC64B1F00EA19DF /* Obstacle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
 		D50407CABA4F7D3C99696B17 /* Pods-Flight Sickness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flight Sickness.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flight Sickness/Pods-Flight Sickness.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +136,7 @@
 				CC3658751FBCD37A00E0342F /* Sprites */,
 				1B93E1F71F979FBC0078B4EF /* GameScene.swift */,
 				1B6787C61FA3F85D00CCA154 /* GameCenter.swift */,
+				CC20EEED1FC4140A00E481F0 /* ObstacleGenerator.swift */,
 				1B93E1FB1F979FBC0078B4EF /* Main.storyboard */,
 				CCDCE2FF1FA18CF800BC6486 /* Settings.swift */,
 				3A8046101FA910490013B8AE /* DataStore.swift */,
@@ -179,10 +186,12 @@
 		CC3658751FBCD37A00E0342F /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				CC92E2DA1FC5FF7E0057F766 /* SKSpriteNode.swift */,
+				CCF5CBA91FC64B1F00EA19DF /* Obstacle.swift */,
 				CC4553591FC21A0000BD3573 /* Bag.swift */,
+				1BE7B5431FBC65840017D99B /* Cart.swift */,
 				1B7D10051FA15EE8009110B4 /* Sprite.swift */,
 				1B7D10031FA15E8F009110B4 /* Player.swift */,
-				1BE7B5431FBC65840017D99B /* Cart.swift */,
 			);
 			path = Sprites;
 			sourceTree = "<group>";
@@ -335,10 +344,13 @@
 			files = (
 				CCDCE3011FA18CF900BC6486 /* Settings.swift in Sources */,
 				3A8046111FA910490013B8AE /* DataStore.swift in Sources */,
+				CC92E2DB1FC5FF7E0057F766 /* SKSpriteNode.swift in Sources */,
 				1B7D10061FA15EE8009110B4 /* Sprite.swift in Sources */,
 				1BE7B5441FBC65840017D99B /* Cart.swift in Sources */,
 				3A179FDE1FA8FF19001A9143 /* SignupScreen.swift in Sources */,
 				CCDCE3021FA18CF900BC6486 /* SettingsViewController.swift in Sources */,
+				CC20EEEE1FC4140A00E481F0 /* ObstacleGenerator.swift in Sources */,
+				CCF5CBAA1FC64B1F00EA19DF /* Obstacle.swift in Sources */,
 				1B7D10041FA15E8F009110B4 /* Player.swift in Sources */,
 				1B93E1F81F979FBC0078B4EF /* GameScene.swift in Sources */,
 				1B6787C71FA3F85D00CCA154 /* GameCenter.swift in Sources */,
