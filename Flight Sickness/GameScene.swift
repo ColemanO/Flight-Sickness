@@ -85,7 +85,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         swipeLeftRec.addTarget(self, action: #selector(GameScene.swipedLeft) )
         swipeLeftRec.direction = .left
         self.view!.addGestureRecognizer(swipeLeftRec)
-        
+
         //assign contact delegate for collisions
         self.physicsWorld.contactDelegate = self
         
@@ -215,22 +215,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func setUpSeats(){
         
         let spaceBetweenSeats = player.getNode().frame.height * 3
-        var seat = SKSpriteNode(imageNamed: "seat")
+        let seat = SKSpriteNode(imageNamed: "seat")
+        var s = Seat()
         seat.setScale(2.5)
         let distanceToOffscreen = (self.frame.height/2) + seat.frame.height/2
         var curSeatPos = CGPoint(x: 0, y: distanceToOffscreen)
         while ((curSeatPos.y) > cam.position.y - distanceToOffscreen){
-            seat = SKSpriteNode(imageNamed: "seat")
-            seat.setScale(2.5)
-            seat.position = curSeatPos
-            seat.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "seat"), alphaThreshold: 0, size: seat.size)
-            seat.physicsBody?.affectedByGravity = false
-            seat.physicsBody?.categoryBitMask = BitMask.gameStopper
-            seat.physicsBody?.collisionBitMask = 0
-            seat.physicsBody?.contactTestBitMask = BitMask.player
-            seat.physicsBody?.usesPreciseCollisionDetection = true
-            self.addChild(seat)
-            seats.append(seat)
+            s = Seat()
+            s.position = curSeatPos
+            self.addChild(s)
+            seats.append(s)
             curSeatPos.y += -((seat.frame.height) + spaceBetweenSeats)
         }
         
@@ -279,6 +273,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let moveLeft = SKAction.moveTo(x: leftAisle.position.x, duration: 0.1)
         player.getNode().run(moveLeft)
     }
-    
 }
 

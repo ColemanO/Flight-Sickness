@@ -34,6 +34,7 @@
 		96408F553CC46695592E54B8 /* Pods_Flight_Sickness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0484F3BCB46C511686653BAF /* Pods_Flight_Sickness.framework */; };
 		CC20EEEE1FC4140A00E481F0 /* ObstacleGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC20EEED1FC4140A00E481F0 /* ObstacleGenerator.swift */; };
 		CC45535A1FC21A0000BD3573 /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4553591FC21A0000BD3573 /* Bag.swift */; };
+		CC7C64601FC7465900429EF5 /* Seat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7C645F1FC7465900429EF5 /* Seat.swift */; };
 		CC92E2DB1FC5FF7E0057F766 /* SKSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC92E2DA1FC5FF7E0057F766 /* SKSpriteNode.swift */; };
 		CCDCE3011FA18CF900BC6486 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDCE2FF1FA18CF800BC6486 /* Settings.swift */; };
 		CCDCE3021FA18CF900BC6486 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */; };
@@ -71,6 +72,7 @@
 		3A97A6211FBD48E8007C9B4C /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
 		CC20EEED1FC4140A00E481F0 /* ObstacleGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleGenerator.swift; sourceTree = "<group>"; };
 		CC4553591FC21A0000BD3573 /* Bag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bag.swift; sourceTree = "<group>"; };
+		CC7C645F1FC7465900429EF5 /* Seat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seat.swift; sourceTree = "<group>"; };
 		CC92E2DA1FC5FF7E0057F766 /* SKSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKSpriteNode.swift; sourceTree = "<group>"; };
 		CCDCE2FF1FA18CF800BC6486 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			children = (
 				CC92E2DA1FC5FF7E0057F766 /* SKSpriteNode.swift */,
 				CCF5CBA91FC64B1F00EA19DF /* Obstacle.swift */,
+				CC7C645F1FC7465900429EF5 /* Seat.swift */,
 				CC4553591FC21A0000BD3573 /* Bag.swift */,
 				1BE7B5431FBC65840017D99B /* Cart.swift */,
 				1B7D10051FA15EE8009110B4 /* Sprite.swift */,
@@ -351,6 +354,7 @@
 				CCDCE3021FA18CF900BC6486 /* SettingsViewController.swift in Sources */,
 				CC20EEEE1FC4140A00E481F0 /* ObstacleGenerator.swift in Sources */,
 				CCF5CBAA1FC64B1F00EA19DF /* Obstacle.swift in Sources */,
+				CC7C64601FC7465900429EF5 /* Seat.swift in Sources */,
 				1B7D10041FA15E8F009110B4 /* Player.swift in Sources */,
 				1B93E1F81F979FBC0078B4EF /* GameScene.swift in Sources */,
 				1B6787C71FA3F85D00CCA154 /* GameCenter.swift in Sources */,
