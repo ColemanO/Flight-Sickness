@@ -23,7 +23,7 @@ import SpriteKit
  */
 class ObstacleGenerator {
     // list of possible obstacles types to generate
-    let obstaclesTypes: [Obstacle.Type]
+    let obstacleTypes: [Obstacle.Type]
     
     // list of lanes that obstacles can spawn in
     let lanes: [CGFloat]
@@ -37,22 +37,37 @@ class ObstacleGenerator {
     // list of obstacles that are visible (not in a free list)
     var activeObstacles = LinkedList<Obstacle>()
     
-    init(_ obstaclesTypes: [Obstacle.Type], _ lanes: [CGFloat]) {
-        self.obstaclesTypes = obstaclesTypes
+    init(_ obstacleTypes: [Obstacle.Type], _ lanes: [CGFloat]) {
+        self.obstacleTypes = obstacleTypes
         self.lanes = lanes
         
         // initialize the dictionaries
-        for type in obstaclesTypes {
+        for type in obstacleTypes {
             freeCounts[type.metatype] = 0
             freeLists[type.metatype] = LinkedList<Obstacle>()
         }
     }
     
+    // returns a Obstacle with the matching type from freeList, or
+    // create a new instance if none is free
+    private func getObstacle(type: Obstacle.Type) -> Obstacle {
+        var obstacle: Obstacle
+        if (self.freeCounts[type.metatype]! > 0) {
+            obstacle = self.freeLists[type.metatype]!.removeLast()
+            self.freeCounts[type.metatype]! -= 1
+        } else {
+            // if there are no free obstacles of this type then we create
+            // a new instance
+            obstacle = type.init()
+        }
+        return obstacle
+    }
+    
     // determines which obstacle should be returned. Does not initialize them.
     func next(topScreen: CGFloat, bottomScreen: CGFloat) -> Obstacle {
         let lane: Int = Int(arc4random_uniform(UInt32(lanes.count)))
-        let obstacleType: Int = Int(arc4random_uniform(UInt32(obstaclesTypes.count)))
-        let newObstacle: Obstacle = obstaclesTypes[obstacleType].init()
+        let obstacleType: Int = Int(arc4random_uniform(UInt32(obstacleTypes.count)))
+        let newObstacle: Obstacle = getObstacle(type: obstacleTypes[obstacleType])
         
         if (newObstacle.startFromTop) {
             newObstacle.setPosition(x: lanes[lane], y: topScreen + newObstacle.size.height)
