@@ -28,6 +28,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var obstacles = [Obstacle]()
     //private var bags = [Bag]()
     private var seatIndexToCheck:Int!
+    private var topSeatIndexToCheck:Int!
     private var playerOffset:CGFloat!
     //private var cart: Cart!
     private var scoreLabel = SKLabelNode()
@@ -35,6 +36,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var gen:ObstacleGenerator!
     var viewController: GameViewController!
     private let scoreLabelBuffer:CGFloat = 150
+    private var spaceBetweenSeats:CGFloat!
     
     var person:Person!
     var crashPlayer = AVAudioPlayer()
@@ -61,6 +63,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.getNode().physicsBody?.collisionBitMask = 0
         player.getNode().physicsBody?.contactTestBitMask = 0//BitMask.gameStopper
         player.getNode().physicsBody?.usesPreciseCollisionDetection = true
+        
+        spaceBetweenSeats = player.getNode().frame.height * 2
         
         //set up the camera
         addChild(cam)
@@ -92,6 +96,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //initialize all of the seats
         setUpSeats()
         seatIndexToCheck = seats.count - 1 //keeps index of the bottom most seat on the screen
+        topSeatIndexToCheck = 0;
        /*
         //init cart
         cart = Cart()
@@ -139,11 +144,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let seatToCheck = seats[seatIndexToCheck]
         let distanceToOffscreen = (self.frame.height/2) + seatToCheck.frame.height/2
         if (isOffscreen(sprite: seatToCheck)){
-            seatToCheck.position.y = cam.position.y + distanceToOffscreen
+            let topSeat = seats[topSeatIndexToCheck]
+            seatToCheck.position.y = topSeat.position.y + spaceBetweenSeats + topSeat.frame.height
+            //seatToCheck.position.y = seatToCheck.position.y + 2 * distanceToOffscreen
+            topSeatIndexToCheck = seatIndexToCheck
             if(seatIndexToCheck == 0){
-                seatIndexToCheck = seats.count - 1
+                seatIndexToCheck = seats.count
             }
             seatIndexToCheck? -= 1
+            //topSeatIndexToCheck = (topSeatIndexToCheck + 1) % seats.count
         }
         self.ticks += 1
         // TODO: add randomness to interval
@@ -214,8 +223,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //set up the seats according to the screen size
     func setUpSeats(){
-        
-        let spaceBetweenSeats = player.getNode().frame.height * 3
         let seat = SKSpriteNode(imageNamed: "seat")
         var s = Seat()
         seat.setScale(2.5)
