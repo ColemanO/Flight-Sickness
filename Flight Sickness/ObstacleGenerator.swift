@@ -11,11 +11,6 @@ import SpriteKit
 
 /*
  TODO:
- clean up:
- use array(bad)
- queue (better)
- reuse obstacles(best)
- 
  mulitple spawns
  faster spawns?
  

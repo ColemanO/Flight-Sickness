@@ -26,11 +26,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var cam = SKCameraNode()
     private var seats = [SKSpriteNode]()
     private var obstacles = [Obstacle]()
-    //private var bags = [Bag]()
     private var seatIndexToCheck:Int!
     private var topSeatIndexToCheck:Int!
     private var playerOffset:CGFloat!
-    //private var cart: Cart!
     private var scoreLabel = SKLabelNode()
     private var ticks:Int64 = 0
     private var gen:ObstacleGenerator!
@@ -97,21 +95,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         setUpSeats()
         seatIndexToCheck = seats.count - 1 //keeps index of the bottom most seat on the screen
         topSeatIndexToCheck = 0;
-       /*
-        //init cart
-        cart = Cart()
-        self.addChild(cart)
-        cart.position = CGPoint(x: leftAisle.position.x, y: self.topScreen + cart.size.height)
-       
-        // init bag
-        for _ in 1...5 {
-            let bag = Bag()
-            bag.position = CGPoint(x: randAisle(), y: Bag.getRandBagPos(lowerLim: player.spriteNode.position.y + 50))
-            bags.append(bag)
-            self.addChild(bag)
-            bag.animate()
-        }
-        */
         scoreLabel.position = CGPoint(x: 0, y: self.topScreen - scoreLabelBuffer)
         scoreLabel.fontName = "DDCHardware-Condensed"
         scoreLabel.fontSize = 50
@@ -164,55 +147,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(obs)
             obs.animate()
         }
-        /*
-        if(allBagsAreOff()){
-            dropBags()
-        }
-        if(isOffscreen(sprite: cart)){
-            cart.position.x = randAisle()
-            cart.position.y = self.topScreen + cart.size.height + CGFloat(arc4random_uniform(1000))
-        }
- */
         self.scoreLabel.text = "\(Int(self.cam.position.y) )"
     }
-    /*
-    func allBagsAreOff()->Bool{
-        for bag in bags {
-            if(!isOffscreen(sprite: bag)){
-                return false
-            }
-        }
-        return true
-    }
- */
-    // TODO
-    func cleanUp() {
-    }
-    
+
     func isOffscreen(sprite: SKSpriteNode)->Bool{
         let distanceToOffscreen = (self.frame.height/2) + sprite.frame.height/2
         return sprite.position.y < (cam.position.y - distanceToOffscreen)
     }
-    
-    /*
-    //TODO write func to place bags
-    func dropBags(){
-        for bag in bags{
-            bag.position = CGPoint(x: randAisle(), y: Bag.getRandBagPos(lowerLim: player.spriteNode.position.y + 50))
-            bag.animate()
-        }
-    }
-    
-    func randAisle()->CGFloat{
-        let ranNum = arc4random_uniform(2)
-        if(ranNum == 1){
-            return self.rightAisle.position.x
-        }else{
-            return self.leftAisle.position.x
-        }
-    }
- */
-    
+
     func resetScene(){
         let myScene = GameScene(size: self.size)
         myScene.scaleMode = self.scaleMode

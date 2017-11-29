@@ -44,16 +44,4 @@ class Obstacle: SKSpriteNode {
     // perform any animations after being generated
     func animate() {
     }
-    
-    // remove self from parent and returns true if we can't be seen anymore
-    //FIXME
-    /*
-    @discardableResult func cleanUp(bottomScreen: CGFloat) -> Bool {
-        if (self.position.y < bottomScreen) {
-            self.removeFromParent()
-            return true
-        }
-        return false
-    }
- */
 }
