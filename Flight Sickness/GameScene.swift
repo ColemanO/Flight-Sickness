@@ -149,6 +149,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // TODO: add randomness to interval
         // change interval depending on screen size
         if (self.ticks % 100 == 0) {
+            gen.collectObstacles(bottomScreen: bottomScreen)
             let obs = gen.next(topScreen: self.topScreen, bottomScreen: self.bottomScreen)
             obstacles.append(obs)
             self.addChild(obs)
