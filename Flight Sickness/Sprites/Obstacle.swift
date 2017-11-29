@@ -11,6 +11,10 @@ import SpriteKit
 
 // TODO: clean up animation handling
 class Obstacle: SKSpriteNode {
+    // a way to use classes as dictionary keys
+    static var metatype: Metatype<Obstacle> {
+        return Metatype(self)
+    }
     // whether this obstacle should always start from top of screen
     var startFromTop: Bool = true
     
