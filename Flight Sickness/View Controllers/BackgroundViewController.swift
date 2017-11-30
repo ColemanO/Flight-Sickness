@@ -48,8 +48,8 @@ class BackgroundViewController: UIViewController, UITableViewDelegate, UITableVi
         //self.bckTableView = UITableView(frame: containerView.bounds, style: .plain)
         containerView.backgroundColor = UIColor.clear
         containerView.layer.shadowColor = UIColor.darkGray.cgColor
-        containerView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-        containerView.layer.shadowOpacity = 1.0
+        containerView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        containerView.layer.shadowOpacity = 0.5
         containerView.layer.shadowRadius = 2
         
         self.bckTableView.layer.cornerRadius = 10

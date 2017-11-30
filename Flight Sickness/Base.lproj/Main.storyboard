@@ -118,7 +118,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Sickness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nc-aU-pae">
-                                <rect key="frame" x="25.5" y="190.5" width="324.5" height="56"/>
+                                <rect key="frame" x="26" y="190" width="324.5" height="56"/>
                                 <fontDescription key="fontDescription" name="DDCHardware-Condensed" family="DDC Hardware" pointSize="48"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -127,21 +127,21 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdC-hA-npQ">
-                                <rect key="frame" x="98" y="314.5" width="179" height="53"/>
+                                <rect key="frame" x="98" y="314" width="179" height="53"/>
                                 <state key="normal" image="StartButton"/>
                                 <connections>
                                     <segue destination="BV1-FR-VrT" kind="presentation" id="FLn-vK-TxL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="621-l5-FIV">
-                                <rect key="frame" x="121" y="418.5" width="59" height="59"/>
+                                <rect key="frame" x="121" y="418" width="59" height="59"/>
                                 <state key="normal" image="Settings"/>
                                 <connections>
                                     <segue destination="dVr-Hf-TfW" kind="show" id="ScB-Ut-OTI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93Q-Ly-207">
-                                <rect key="frame" x="197" y="420.5" width="55" height="55"/>
+                                <rect key="frame" x="197" y="420" width="55" height="55"/>
                                 <state key="normal" image="Leaderboard"/>
                                 <connections>
                                     <action selector="leaderBoardPressed:" destination="a4X-Pd-3iy" eventType="touchUpInside" id="80h-bM-ch7"/>
@@ -183,46 +183,65 @@
                                 <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LwF-e5-eul">
-                                <rect key="frame" x="241" y="255" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="soundtrackToggle:" destination="dVr-Hf-TfW" eventType="valueChanged" id="phY-y7-tQx"/>
-                                </connections>
-                            </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OnR-yj-cMb">
-                                <rect key="frame" x="241" y="318" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="soundEffectToggle:" destination="dVr-Hf-TfW" eventType="valueChanged" id="jt3-bo-KeK"/>
-                                </connections>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sound Effects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feI-Ta-yAb">
-                                <rect key="frame" x="97" y="322" width="100" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="DDCHardware-Condensed" family="DDC Hardware" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Soundtrack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IfU-8I-SRb">
-                                <rect key="frame" x="104" y="259" width="86" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="DDCHardware-Condensed" family="DDC Hardware" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vaj-55-I9h">
+                                <rect key="frame" x="16" y="265" width="343" height="137"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OnR-yj-cMb">
+                                        <rect key="frame" x="270" y="75" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="soundEffectToggle:" destination="dVr-Hf-TfW" eventType="valueChanged" id="jt3-bo-KeK"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soundtrack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IfU-8I-SRb">
+                                        <rect key="frame" x="23" y="35" width="86" height="22"/>
+                                        <fontDescription key="fontDescription" name="DDCHardware-Condensed" family="DDC Hardware" pointSize="17"/>
+                                        <color key="textColor" red="0.5842481255531311" green="0.58435159921646118" blue="0.58424162864685059" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LwF-e5-eul">
+                                        <rect key="frame" x="270" y="31" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="soundtrackToggle:" destination="dVr-Hf-TfW" eventType="valueChanged" id="phY-y7-tQx"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sound Effects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feI-Ta-yAb">
+                                        <rect key="frame" x="23" y="79" width="100" height="22"/>
+                                        <fontDescription key="fontDescription" name="DDCHardware-Condensed" family="DDC Hardware" pointSize="17"/>
+                                        <color key="textColor" red="0.5842481255531311" green="0.58435159921646118" blue="0.58424162864685059" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="OnR-yj-cMb" firstAttribute="top" secondItem="LwF-e5-eul" secondAttribute="bottom" constant="13" id="8mA-Ym-gRh"/>
+                                    <constraint firstItem="IfU-8I-SRb" firstAttribute="leading" secondItem="Vaj-55-I9h" secondAttribute="leading" constant="23" id="HfZ-ci-4tN"/>
+                                    <constraint firstItem="feI-Ta-yAb" firstAttribute="leading" secondItem="Vaj-55-I9h" secondAttribute="leading" constant="23" id="Jo8-3s-ktO"/>
+                                    <constraint firstItem="LwF-e5-eul" firstAttribute="top" secondItem="Vaj-55-I9h" secondAttribute="top" constant="31" id="PSW-Cq-nIN"/>
+                                    <constraint firstAttribute="height" constant="137" id="Ytf-03-H3e"/>
+                                    <constraint firstItem="feI-Ta-yAb" firstAttribute="top" secondItem="IfU-8I-SRb" secondAttribute="bottom" constant="22" id="Yux-0F-Ogg"/>
+                                    <constraint firstAttribute="trailing" secondItem="LwF-e5-eul" secondAttribute="trailing" constant="24" id="gCU-Du-TC4"/>
+                                    <constraint firstAttribute="trailing" secondItem="OnR-yj-cMb" secondAttribute="trailing" constant="24" id="pkS-4N-ogn"/>
+                                    <constraint firstAttribute="width" constant="343" id="uGC-hN-PmX"/>
+                                    <constraint firstItem="IfU-8I-SRb" firstAttribute="top" secondItem="Vaj-55-I9h" secondAttribute="top" constant="35" id="wsG-hB-ayn"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.41489166021347046" green="0.78131741285324097" blue="0.98142677545547485" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Vaj-55-I9h" firstAttribute="centerY" secondItem="yem-EC-P7q" secondAttribute="centerY" id="Bw1-jY-eIx"/>
+                            <constraint firstItem="Vaj-55-I9h" firstAttribute="centerX" secondItem="yem-EC-P7q" secondAttribute="centerX" id="ZGT-VZ-nUF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PZZ-IX-Zw7"/>
                     </view>
                     <connections>
+                        <outlet property="settingsView" destination="Vaj-55-I9h" id="kos-hA-lZg"/>
                         <outlet property="soundEffectsSwitch" destination="OnR-yj-cMb" id="UXH-04-O2f"/>
                         <outlet property="soundtrackSwitch" destination="LwF-e5-eul" id="buc-L4-sIP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZw-BI-cRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="68" y="824"/>
+            <point key="canvasLocation" x="68" y="823.53823088455783"/>
         </scene>
         <!--Login Screen-->
         <scene sceneID="aad-Tg-Su1">
@@ -265,7 +284,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHn-pe-I6g">
-                                <rect key="frame" x="128" y="159" width="119.5" height="56"/>
+                                <rect key="frame" x="128.5" y="159" width="119.5" height="56"/>
                                 <fontDescription key="fontDescription" name="DDCHardware-Condensed" family="DDC Hardware" pointSize="48"/>
                                 <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -400,7 +419,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnn-Hq-r9R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1458.4000000000001" y="841.52923538230891"/>
+            <point key="canvasLocation" x="-1868" y="824"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -426,7 +445,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLZ-G1-Kup">
-                                <rect key="frame" x="88.5" y="252" width="198" height="67"/>
+                                <rect key="frame" x="88.5" y="251.5" width="198" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="67" id="Gmw-aH-fWb"/>
                                     <constraint firstAttribute="width" constant="198" id="eEd-XY-4i5"/>
@@ -437,7 +456,7 @@
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pause" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lxo-yG-rFZ">
-                                <rect key="frame" x="121" y="154" width="133.5" height="56"/>
+                                <rect key="frame" x="121" y="153.5" width="133.5" height="56"/>
                                 <fontDescription key="fontDescription" name="DDCHardware-Condensed" family="DDC Hardware" pointSize="48"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -446,7 +465,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRd-TB-TCw">
-                                <rect key="frame" x="88.5" y="327" width="198" height="67"/>
+                                <rect key="frame" x="88.5" y="326.5" width="198" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="67" id="lwg-XD-FXd"/>
                                     <constraint firstAttribute="width" constant="198" id="ouP-kM-Jwv"/>
@@ -457,7 +476,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33h-ll-uqh">
-                                <rect key="frame" x="88.5" y="402" width="198" height="67"/>
+                                <rect key="frame" x="88.5" y="401.5" width="198" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="198" id="rNs-eU-crC"/>
                                     <constraint firstAttribute="height" constant="67" id="ufZ-db-Wv9"/>

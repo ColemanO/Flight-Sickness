@@ -12,6 +12,7 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var soundtrackSwitch: UISwitch!
     @IBOutlet weak var soundEffectsSwitch: UISwitch!
+    @IBOutlet weak var settingsView: UIView!
     
     //Hides the back button with a new image that is the back button
     override func viewDidLoad() {
@@ -21,6 +22,19 @@ class SettingsViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = backButton
         soundtrackSwitch.isOn = Settings.soundtrack()
         soundEffectsSwitch.isOn = Settings.soundEffects()
+        
+        let containerView:UIView = UIView(frame:self.settingsView.frame)
+        //self.bckTableView = UITableView(frame: containerView.bounds, style: .plain)
+        containerView.backgroundColor = UIColor.clear
+        containerView.layer.shadowColor = UIColor.darkGray.cgColor
+        containerView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        containerView.layer.shadowOpacity = 0.5
+        containerView.layer.shadowRadius = 2
+        
+        self.settingsView.layer.cornerRadius = 10
+        self.settingsView.layer.masksToBounds = true
+        self.view.addSubview(containerView)
+        containerView.addSubview(self.settingsView)
     }
     
     //Pops off the current view controller
