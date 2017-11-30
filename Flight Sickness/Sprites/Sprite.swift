@@ -21,18 +21,18 @@ extension Sprite{
     }
     
     func createAnimation(atlasName: String) -> [SKTexture]{
-        var diverAnimation = [SKTexture]()
-        let diverAtlas = SKTextureAtlas(named: "\(atlasName)")
-        print("\(atlasName): \(diverAtlas.textureNames.count)")
-        for index in 1...diverAtlas.textureNames.count{
+        var animation = [SKTexture]()
+        let atlas = SKTextureAtlas(named: "\(atlasName)")
+        print("\(atlasName): \(atlas.textureNames.count)")
+        for index in 1...atlas.textureNames.count{
             let imgName = String(format: "\(atlasName)%01d", index)
-            diverAnimation += [diverAtlas.textureNamed(imgName)]
+            animation += [atlas.textureNamed(imgName)]
         }
-        return diverAnimation
+        return animation
     }
     
-    func playAnimation(){ //TODO maybe clean this up and move it to a different file
-        let ani = SKAction.animate(with: animation, timePerFrame: 0.075)
+    func playAnimation(){
+        let ani = SKAction.animate(with: animation, timePerFrame: 0.04)
         let runAnimationForever = SKAction.repeatForever(ani)
         self.getNode().run(runAnimationForever)
     }

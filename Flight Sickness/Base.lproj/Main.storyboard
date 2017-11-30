@@ -176,13 +176,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBp-eL-o3Y">
-                                <rect key="frame" x="104" y="127" width="167" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="DDCHardware-Condensed" family="DDC Hardware" pointSize="48"/>
-                                <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vaj-55-I9h">
                                 <rect key="frame" x="16" y="265" width="343" height="137"/>
                                 <subviews>
@@ -225,11 +218,19 @@
                                     <constraint firstItem="IfU-8I-SRb" firstAttribute="top" secondItem="Vaj-55-I9h" secondAttribute="top" constant="35" id="wsG-hB-ayn"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBp-eL-o3Y">
+                                <rect key="frame" x="104" y="127" width="167" height="62"/>
+                                <fontDescription key="fontDescription" name="DDCHardware-Condensed" family="DDC Hardware" pointSize="48"/>
+                                <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.41489166021347046" green="0.78131741285324097" blue="0.98142677545547485" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Vaj-55-I9h" firstAttribute="centerY" secondItem="yem-EC-P7q" secondAttribute="centerY" id="Bw1-jY-eIx"/>
+                            <constraint firstItem="qBp-eL-o3Y" firstAttribute="centerX" secondItem="yem-EC-P7q" secondAttribute="centerX" id="TJ7-iJ-dkw"/>
                             <constraint firstItem="Vaj-55-I9h" firstAttribute="centerX" secondItem="yem-EC-P7q" secondAttribute="centerX" id="ZGT-VZ-nUF"/>
+                            <constraint firstItem="qBp-eL-o3Y" firstAttribute="top" secondItem="PZZ-IX-Zw7" secondAttribute="top" constant="63" id="zVf-Ir-pas"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PZZ-IX-Zw7"/>
                     </view>
@@ -241,7 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZw-BI-cRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="68" y="823.53823088455783"/>
+            <point key="canvasLocation" x="-122" y="824"/>
         </scene>
         <!--Login Screen-->
         <scene sceneID="aad-Tg-Su1">
