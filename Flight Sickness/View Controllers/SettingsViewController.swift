@@ -13,12 +13,12 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var soundtrackSwitch: UISwitch!
     @IBOutlet weak var soundEffectsSwitch: UISwitch!
     @IBOutlet weak var settingsView: UIView!
-    var cloudGen = CloudGenerator()
+    //var cloudGen = CloudGenerator()
     
     //Hides the back button with a new image that is the back button
     override func viewDidLoad() {
         super.viewDidLoad()
-        cloudGen.genClouds(view: view)
+        //cloudGen.genClouds(view: view)
         let backButton = UIBarButtonItem(image: #imageLiteral(resourceName: "back").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(popCurrentViewController))
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.navigationItem.leftBarButtonItem = backButton

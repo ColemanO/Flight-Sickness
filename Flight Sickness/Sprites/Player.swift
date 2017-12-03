@@ -16,7 +16,7 @@ class Player: Sprite {
     
     required init(node: SKSpriteNode) {
         spriteNode = node
-        animation = createAnimation(atlasName: "player")
+        animation = createAnimation(atlasName: "player_bsign")
         playAnimation()
     }
 }

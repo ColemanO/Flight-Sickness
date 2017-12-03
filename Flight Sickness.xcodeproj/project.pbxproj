@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B26D9371FCF519E006D943D /* person.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1B26D9361FCF519E006D943D /* person.atlas */; };
 		1B26D9391FD06970006D943D /* player.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1B26D9381FD06970006D943D /* player.atlas */; };
 		1B40E4BC1FD43513007D3550 /* CloudGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40E4BB1FD43512007D3550 /* CloudGenerator.swift */; };
+		1B40E4BE1FD4A130007D3550 /* player_bsign.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1B40E4BD1FD4A130007D3550 /* player_bsign.atlas */; };
 		1B6787BF1FA3E8BC00CCA154 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6787BE1FA3E8BC00CCA154 /* GameKit.framework */; };
 		1B6787C31FA3F05500CCA154 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6787C21FA3F05500CCA154 /* HomeViewController.swift */; };
 		1B6787C71FA3F85D00CCA154 /* GameCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6787C61FA3F85D00CCA154 /* GameCenter.swift */; };
@@ -49,9 +49,9 @@
 /* Begin PBXFileReference section */
 		0484F3BCB46C511686653BAF /* Pods_Flight_Sickness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flight_Sickness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0898E3109EBE362643042EDF /* Pods-Flight Sickness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flight Sickness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flight Sickness/Pods-Flight Sickness.debug.xcconfig"; sourceTree = "<group>"; };
-		1B26D9361FCF519E006D943D /* person.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = person.atlas; path = ../../../../person.atlas; sourceTree = "<group>"; };
 		1B26D9381FD06970006D943D /* player.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = player.atlas; sourceTree = "<group>"; };
 		1B40E4BB1FD43512007D3550 /* CloudGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloudGenerator.swift; path = "/Users/colemanoei/Desktop/Classes/iOS/Flight Sickness/Flight Sickness/CloudGenerator.swift"; sourceTree = "<absolute>"; };
+		1B40E4BD1FD4A130007D3550 /* player_bsign.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = player_bsign.atlas; sourceTree = "<group>"; };
 		1B6787BE1FA3E8BC00CCA154 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		1B6787C21FA3F05500CCA154 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1B6787C61FA3F85D00CCA154 /* GameCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenter.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 				3A97A6201FBD48C5007C9B4C /* Music */,
 				1B93E1F11F979FBC0078B4EF /* AppDelegate.swift */,
 				CC3658741FBCD31A00E0342F /* View Controllers */,
-				1B26D9361FCF519E006D943D /* person.atlas */,
+				1B40E4BD1FD4A130007D3550 /* player_bsign.atlas */,
 				1B26D9381FD06970006D943D /* player.atlas */,
 				CC3658751FBCD37A00E0342F /* Sprites */,
 				1B93E1F71F979FBC0078B4EF /* GameScene.swift */,
@@ -282,12 +282,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B6787C81FA4076800CCA154 /* DDCHardware-Compressed.otf in Resources */,
+				1B40E4BE1FD4A130007D3550 /* player_bsign.atlas in Resources */,
 				1B6787C91FA4076800CCA154 /* DDCHardware-Condensed.otf in Resources */,
 				3A80460F1FA90A9A0013B8AE /* GoogleService-Info.plist in Resources */,
 				1B6787CA1FA4076800CCA154 /* DDCHardware-Regular.otf in Resources */,
 				3A4D3E1C1FC524D90044FFAE /* crash.mp3 in Resources */,
 				1B93E1FD1F979FBC0078B4EF /* Main.storyboard in Resources */,
-				1B26D9371FCF519E006D943D /* person.atlas in Resources */,
 				1B26D9391FD06970006D943D /* player.atlas in Resources */,
 				1B93E1F41F979FBC0078B4EF /* GameScene.sks in Resources */,
 				3A97A6221FBD48E8007C9B4C /* background.mp3 in Resources */,

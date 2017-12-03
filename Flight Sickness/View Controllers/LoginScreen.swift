@@ -16,12 +16,12 @@ class LoginScreen: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameLabel: UITextField!
     @IBOutlet weak var passwordLabel: UITextField!
     var alertController:UIAlertController? = nil
-    var cloudGen = CloudGenerator()
+    //var cloudGen = CloudGenerator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cloudGen.genClouds(view: view)
+        //cloudGen.genClouds(view: view)
         
         usernameLabel.delegate = self
         passwordLabel.delegate = self
