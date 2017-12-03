@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/colemanoei/Desktop/Classes/iOS/Flight Sickness/Flight Sickness/CloudGenerator.swift">
+   </FileRef>
+   <FileRef
       location = "group:Flight Sickness.xcodeproj">
    </FileRef>
    <FileRef

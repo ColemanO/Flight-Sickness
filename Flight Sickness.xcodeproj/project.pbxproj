@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B26D9371FCF519E006D943D /* person.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1B26D9361FCF519E006D943D /* person.atlas */; };
 		1B26D9391FD06970006D943D /* player.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1B26D9381FD06970006D943D /* player.atlas */; };
+		1B40E4BC1FD43513007D3550 /* CloudGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40E4BB1FD43512007D3550 /* CloudGenerator.swift */; };
 		1B6787BF1FA3E8BC00CCA154 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6787BE1FA3E8BC00CCA154 /* GameKit.framework */; };
 		1B6787C31FA3F05500CCA154 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6787C21FA3F05500CCA154 /* HomeViewController.swift */; };
 		1B6787C71FA3F85D00CCA154 /* GameCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6787C61FA3F85D00CCA154 /* GameCenter.swift */; };
@@ -50,6 +51,7 @@
 		0898E3109EBE362643042EDF /* Pods-Flight Sickness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flight Sickness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flight Sickness/Pods-Flight Sickness.debug.xcconfig"; sourceTree = "<group>"; };
 		1B26D9361FCF519E006D943D /* person.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = person.atlas; path = ../../../../person.atlas; sourceTree = "<group>"; };
 		1B26D9381FD06970006D943D /* player.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = player.atlas; sourceTree = "<group>"; };
+		1B40E4BB1FD43512007D3550 /* CloudGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloudGenerator.swift; path = "/Users/colemanoei/Desktop/Classes/iOS/Flight Sickness/Flight Sickness/CloudGenerator.swift"; sourceTree = "<absolute>"; };
 		1B6787BE1FA3E8BC00CCA154 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		1B6787C21FA3F05500CCA154 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1B6787C61FA3F85D00CCA154 /* GameCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenter.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				1B93E1F71F979FBC0078B4EF /* GameScene.swift */,
 				1B6787C61FA3F85D00CCA154 /* GameCenter.swift */,
 				CC20EEED1FC4140A00E481F0 /* ObstacleGenerator.swift */,
+				1B40E4BB1FD43512007D3550 /* CloudGenerator.swift */,
 				1B93E1FB1F979FBC0078B4EF /* Main.storyboard */,
 				CCDCE2FF1FA18CF800BC6486 /* Settings.swift */,
 				CC7C64631FCE05CA00429EF5 /* LinkedList.swift */,
@@ -376,6 +379,7 @@
 				1B6787C71FA3F85D00CCA154 /* GameCenter.swift in Sources */,
 				1B6787C31FA3F05500CCA154 /* HomeViewController.swift in Sources */,
 				CC45535A1FC21A0000BD3573 /* Bag.swift in Sources */,
+				1B40E4BC1FD43513007D3550 /* CloudGenerator.swift in Sources */,
 				1B93E1FA1F979FBC0078B4EF /* GameViewController.swift in Sources */,
 				3A53A8131FC24B0700A460ED /* BackgroundViewController.swift in Sources */,
 				1B93E1F21F979FBC0078B4EF /* AppDelegate.swift in Sources */,

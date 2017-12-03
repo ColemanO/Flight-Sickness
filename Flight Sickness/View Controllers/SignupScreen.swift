@@ -17,9 +17,11 @@ class SignupScreen: UIViewController, UITextFieldDelegate {
     var alertController:UIAlertController? = nil
     //Valid characters you can use for login and password info
     let characterset = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+    var cloudGen = CloudGenerator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        cloudGen.genClouds(view: view)
         usernameSignupLabel.delegate = self
         passwordSignupLabel.delegate = self
         let backButton = UIBarButtonItem(image: #imageLiteral(resourceName: "back").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(popCurrentViewController))

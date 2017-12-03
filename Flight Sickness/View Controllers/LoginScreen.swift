@@ -12,12 +12,17 @@ import Firebase
 
 class LoginScreen: UIViewController, UITextFieldDelegate {
     
+    //@IBOutlet weak var cloud: UIImageView!
     @IBOutlet weak var usernameLabel: UITextField!
     @IBOutlet weak var passwordLabel: UITextField!
     var alertController:UIAlertController? = nil
+    var cloudGen = CloudGenerator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        cloudGen.genClouds(view: view)
+        
         usernameLabel.delegate = self
         passwordLabel.delegate = self
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)

@@ -11,8 +11,11 @@ import GameKit
 
 class HomeViewController: UIViewController, GKGameCenterControllerDelegate {
 
+    var cloudGen = CloudGenerator()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        cloudGen.genClouds(view: view)
         //authenticatePlayer()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()

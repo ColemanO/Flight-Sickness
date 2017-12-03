@@ -12,6 +12,7 @@ import Firebase
 class BackgroundViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
     
     @IBOutlet weak var bckTableView: UITableView!
+    var cloudGen = CloudGenerator()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10;
@@ -38,6 +39,7 @@ class BackgroundViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        cloudGen.genClouds(view: view)
         DataStore.shared.loadUsers()
         // Do any additional setup after loading the view.
         let backButton = UIBarButtonItem(image: #imageLiteral(resourceName: "back").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(popCurrentViewController))
