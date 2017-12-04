@@ -98,5 +98,11 @@ class ObstacleGenerator {
             node = next
         }
     }
+    
+    func collectObstacle(_ node: SKNode) {
+        let obstacle = node as! Obstacle
+        obstacle.removeFromParent()
+        //obstacle.physicsBody?.contactTestBitMask = 0
+    }
 }
 

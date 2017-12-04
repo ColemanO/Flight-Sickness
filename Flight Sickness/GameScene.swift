@@ -78,8 +78,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         leftAisle = self.childNode(withName: "leftAisle") as! SKSpriteNode
         
         // set up ObstacleGenerator
-        gen = ObstacleGenerator([Bag.self, Cart.self], [rightAisle.position.x, leftAisle.position.x])
-        
+        gen = ObstacleGenerator([Bag.self, Cart.self, Peanut.self, ToiletPaper.self], [rightAisle.position.x, leftAisle.position.x])
+
         //set up swipe recognizers
         swipeRightRec.addTarget(self, action: #selector(GameScene.swipedRight) )
         swipeRightRec.direction = .right
@@ -211,7 +211,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             gameOver()
             break
         case BitMask.powerUp:
-            print("got power up!")
+            self.gen.collectObstacle(otherBody.node!)
+            switch (otherBody.node!) {
+            case is Peanut:
+                print("got peanut!")
+                break
+            case is ToiletPaper:
+                print("got paper!")
+                break
+            default:
+                break
+            }
         default:
             break
         }

@@ -21,4 +21,9 @@ class Peanut: Obstacle {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func cleanUp() {
+        // reset the test bit
+        //self.physicsBody?.contactTestBitMask = BitMask.player
+    }
 }
