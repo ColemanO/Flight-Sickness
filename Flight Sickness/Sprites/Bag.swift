@@ -16,7 +16,6 @@ class Bag: Obstacle {
         // disable bag's collision before it lands
         self.physicsBody?.contactTestBitMask = 0
         self.startFromTop = false
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -26,8 +25,8 @@ class Bag: Obstacle {
     override func animate() {
         // TODO clean this up
         let scaleUp = SKAction.scale(to: 6, duration: 0.0)
-        let fade = SKAction.fadeIn(withDuration: 1.0)
-        let scaleDown = SKAction.scale(to: 2, duration: 1.0)
+        let fade = SKAction.fadeIn(withDuration: 1.3)
+        let scaleDown = SKAction.scale(to: 2, duration: 1.3)
         let group = SKAction.group([scaleDown, fade])
         let enableContact = SKAction.run {
             // enable collision after it lands
@@ -39,5 +38,10 @@ class Bag: Obstacle {
             group,
             enableContact
             ]))
+    }
+    
+    override func cleanUp() {
+        // reset the test bit
+        self.physicsBody?.contactTestBitMask = 0
     }
 }

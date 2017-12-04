@@ -67,7 +67,8 @@ class ObstacleGenerator {
         if (newObstacle.startFromTop) {
             newObstacle.setPosition(x: lanes[lane], y: topScreen + newObstacle.size.height)
         } else {
-            let y = CGFloat(arc4random_uniform(UInt32(topScreen - bottomScreen + 500))) + bottomScreen
+            let y = CGFloat(arc4random_uniform(UInt32(topScreen - bottomScreen - 300))) + bottomScreen + 300
+
             newObstacle.setPosition(x: lanes[lane], y: y + newObstacle.size.height)
         }
         
@@ -89,6 +90,7 @@ class ObstacleGenerator {
             // if the obstacle is not visible anymore we can collect them
             if (node!.value.position.y < bottomScreen) {
                 node!.value.removeFromParent()
+                node!.value.cleanUp()
                 self.activeObstacles.remove(node: node!)
                 self.freeLists[type(of: node!.value).metatype]!.append(node!)
                 self.freeCounts[type(of: node!.value).metatype]! += 1

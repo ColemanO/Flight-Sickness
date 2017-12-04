@@ -44,4 +44,8 @@ class Obstacle: SKSpriteNode {
     // perform any animations after being generated
     func animate() {
     }
+    
+    // should be called when recycled to reset any state
+    func cleanUp() {
+    }
 }
