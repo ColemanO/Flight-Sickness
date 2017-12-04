@@ -23,12 +23,12 @@ class HomeViewController: UIViewController  {
         super.didReceiveMemoryWarning()
     }
     
-    /*@IBAction func leaderBoardPressed(_ sender: Any) {
-        GameCenter.saveHighscore(number: 17)
+    @IBAction func leaderBoardPressed(_ sender: Any) {
+        /*GameCenter.saveHighscore(number: 17)
         let viewController = self.view.window?.rootViewController
         let gcvc = GKGameCenterViewController()
         gcvc.gameCenterDelegate = self
-        viewController?.present(gcvc, animated: true, completion: nil)
-    }*/
+        viewController?.present(gcvc, animated: true, completion: nil)*/
+    }
     
 }
