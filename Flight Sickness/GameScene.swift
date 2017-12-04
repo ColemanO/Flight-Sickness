@@ -209,6 +209,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             //ran into seat game should be over
             gameOver()
+            break
+        case BitMask.powerUp:
+            print("got power up!")
         default:
             break
         }
