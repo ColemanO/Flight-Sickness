@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1B26D9391FD06970006D943D /* player.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1B26D9381FD06970006D943D /* player.atlas */; };
-		1B40E4BC1FD43513007D3550 /* CloudGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40E4BB1FD43512007D3550 /* CloudGenerator.swift */; };
 		1B40E4BE1FD4A130007D3550 /* player_bsign.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1B40E4BD1FD4A130007D3550 /* player_bsign.atlas */; };
 		1B6787BF1FA3E8BC00CCA154 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6787BE1FA3E8BC00CCA154 /* GameKit.framework */; };
 		1B6787C31FA3F05500CCA154 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6787C21FA3F05500CCA154 /* HomeViewController.swift */; };
@@ -41,6 +40,7 @@
 		CC7C64601FC7465900429EF5 /* Seat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7C645F1FC7465900429EF5 /* Seat.swift */; };
 		CC7C64641FCE05CA00429EF5 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7C64631FCE05CA00429EF5 /* LinkedList.swift */; };
 		CC92E2DB1FC5FF7E0057F766 /* SKSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC92E2DA1FC5FF7E0057F766 /* SKSpriteNode.swift */; };
+		CC9AB3D61FD4CA610080598C /* CloudGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9AB3D51FD4CA610080598C /* CloudGenerator.swift */; };
 		CCDCE3011FA18CF900BC6486 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDCE2FF1FA18CF800BC6486 /* Settings.swift */; };
 		CCDCE3021FA18CF900BC6486 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */; };
 		CCF5CBAA1FC64B1F00EA19DF /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5CBA91FC64B1F00EA19DF /* Obstacle.swift */; };
@@ -50,7 +50,6 @@
 		0484F3BCB46C511686653BAF /* Pods_Flight_Sickness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flight_Sickness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0898E3109EBE362643042EDF /* Pods-Flight Sickness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flight Sickness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flight Sickness/Pods-Flight Sickness.debug.xcconfig"; sourceTree = "<group>"; };
 		1B26D9381FD06970006D943D /* player.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = player.atlas; sourceTree = "<group>"; };
-		1B40E4BB1FD43512007D3550 /* CloudGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloudGenerator.swift; path = "/Users/colemanoei/Desktop/Classes/iOS/Flight Sickness/Flight Sickness/CloudGenerator.swift"; sourceTree = "<absolute>"; };
 		1B40E4BD1FD4A130007D3550 /* player_bsign.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = player_bsign.atlas; sourceTree = "<group>"; };
 		1B6787BE1FA3E8BC00CCA154 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		1B6787C21FA3F05500CCA154 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +83,7 @@
 		CC7C645F1FC7465900429EF5 /* Seat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seat.swift; sourceTree = "<group>"; };
 		CC7C64631FCE05CA00429EF5 /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		CC92E2DA1FC5FF7E0057F766 /* SKSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKSpriteNode.swift; sourceTree = "<group>"; };
+		CC9AB3D51FD4CA610080598C /* CloudGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudGenerator.swift; sourceTree = "<group>"; };
 		CCDCE2FF1FA18CF800BC6486 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CCF5CBA91FC64B1F00EA19DF /* Obstacle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 				1B93E1F71F979FBC0078B4EF /* GameScene.swift */,
 				1B6787C61FA3F85D00CCA154 /* GameCenter.swift */,
 				CC20EEED1FC4140A00E481F0 /* ObstacleGenerator.swift */,
-				1B40E4BB1FD43512007D3550 /* CloudGenerator.swift */,
+				CC9AB3D51FD4CA610080598C /* CloudGenerator.swift */,
 				1B93E1FB1F979FBC0078B4EF /* Main.storyboard */,
 				CCDCE2FF1FA18CF800BC6486 /* Settings.swift */,
 				CC7C64631FCE05CA00429EF5 /* LinkedList.swift */,
@@ -365,6 +365,7 @@
 				CC6E9E5C1FCE464400E87CC1 /* Metatype.swift in Sources */,
 				CCDCE3011FA18CF900BC6486 /* Settings.swift in Sources */,
 				3A8046111FA910490013B8AE /* DataStore.swift in Sources */,
+				CC9AB3D61FD4CA610080598C /* CloudGenerator.swift in Sources */,
 				CC7C64641FCE05CA00429EF5 /* LinkedList.swift in Sources */,
 				CC92E2DB1FC5FF7E0057F766 /* SKSpriteNode.swift in Sources */,
 				1B7D10061FA15EE8009110B4 /* Sprite.swift in Sources */,
@@ -379,7 +380,6 @@
 				1B6787C71FA3F85D00CCA154 /* GameCenter.swift in Sources */,
 				1B6787C31FA3F05500CCA154 /* HomeViewController.swift in Sources */,
 				CC45535A1FC21A0000BD3573 /* Bag.swift in Sources */,
-				1B40E4BC1FD43513007D3550 /* CloudGenerator.swift in Sources */,
 				1B93E1FA1F979FBC0078B4EF /* GameViewController.swift in Sources */,
 				3A53A8131FC24B0700A460ED /* BackgroundViewController.swift in Sources */,
 				1B93E1F21F979FBC0078B4EF /* AppDelegate.swift in Sources */,
