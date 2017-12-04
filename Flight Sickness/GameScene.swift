@@ -36,6 +36,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var viewController: GameViewController!
     private let scoreLabelBuffer:CGFloat = 150
     private var spaceBetweenSeats:CGFloat!
+    private var peanutVar:Int64 = 50
     
     var person:Person!
     var crashPlayer = AVAudioPlayer()
@@ -100,6 +101,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.fontName = "DDCHardware-Condensed"
         scoreLabel.fontSize = 50
         scoreLabel.fontColor = UIColor.white
+        self.scoreLabel.text = String(0)
         self.addChild(scoreLabel)
         
         do {
@@ -148,7 +150,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(obs)
             obs.animate()
         }
-        self.scoreLabel.text = "\(Int(self.cam.position.y) )"
+        //self.scoreLabel.text = "\(Int(self.cam.position.y) )"
+        self.scoreLabel.text = "\(Int(self.scoreLabel.text!)! + (Int(1)))"
     }
 
     func isOffscreen(sprite: SKSpriteNode)->Bool{
@@ -214,6 +217,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.gen.collectObstacle(otherBody.node!)
             switch (otherBody.node!) {
             case is Peanut:
+                self.scoreLabel.text = "\(Int(self.scoreLabel.text!)!.advanced(by: Int(peanutVar)))"
                 print("got peanut!")
                 break
             case is ToiletPaper:
