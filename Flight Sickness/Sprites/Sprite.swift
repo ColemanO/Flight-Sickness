@@ -34,6 +34,6 @@ extension Sprite{
     func playAnimation(){
         let ani = SKAction.animate(with: animation, timePerFrame: 0.04)
         let runAnimationForever = SKAction.repeatForever(ani)
-        self.getNode().run(runAnimationForever)
+        self.getNode().run(runAnimationForever, withKey: "running")
     }
 }

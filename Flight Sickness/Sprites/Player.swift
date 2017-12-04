@@ -16,7 +16,14 @@ class Player: Sprite {
     
     required init(node: SKSpriteNode) {
         spriteNode = node
-        animation = createAnimation(atlasName: "player_bsign")
+        animation = createAnimation(atlasName: "player")
         playAnimation()
+    }
+    func jump(isLeft: Bool){
+        spriteNode.removeAction(forKey: "running")
+        self.spriteNode.texture = SKTexture(image: #imageLiteral(resourceName: "playerjump.png"))
+        if isLeft{
+            spriteNode.xScale = -spriteNode.xScale
+        }
     }
 }

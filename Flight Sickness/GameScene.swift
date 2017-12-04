@@ -64,7 +64,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.getNode().physicsBody?.contactTestBitMask = 0//BitMask.gameStopper
         player.getNode().physicsBody?.usesPreciseCollisionDetection = true
         
-        spaceBetweenSeats = player.getNode().frame.height * 2
+        spaceBetweenSeats = player.getNode().frame.height * 0.7
         
         //set up the camera
         addChild(cam)
@@ -233,13 +233,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //swipes
     @objc func swipedRight() {
-        let moveRight = SKAction.moveTo(x: rightAisle.position.x, duration: 0.1)
-        player.getNode().run(moveRight)
+        player.jump(isLeft: false)
+        let moveRight = SKAction.moveTo(x: rightAisle.position.x - 40, duration: 0.1)
+        let playAni = SKAction.run {
+            self.player.playAnimation()
+        }
+        let sequence = SKAction.sequence([moveRight, playAni])
+        player.getNode().run(sequence)
+        
     }
     
     @objc func swipedLeft() {
-        let moveLeft = SKAction.moveTo(x: leftAisle.position.x, duration: 0.1)
-        player.getNode().run(moveLeft)
+        player.jump(isLeft: true)
+        let moveLeft = SKAction.moveTo(x: leftAisle.position.x - 40, duration: 0.1)
+        let playAni = SKAction.run {
+            self.player.getNode().xScale = -self.player.getNode().xScale
+            self.player.playAnimation()
+        }
+        let sequence = SKAction.sequence([moveLeft, playAni])
+        player.getNode().run(sequence)
     }
 }
 
