@@ -7,16 +7,14 @@
 //
 
 import UIKit
-import GameKit
 
-class HomeViewController: UIViewController, GKGameCenterControllerDelegate {
+class HomeViewController: UIViewController  {
 
     //var cloudGen = CloudGenerator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //cloudGen.genClouds(view: view)
-        //authenticatePlayer()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
     }
@@ -25,30 +23,12 @@ class HomeViewController: UIViewController, GKGameCenterControllerDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func leaderBoardPressed(_ sender: Any) {
+    /*@IBAction func leaderBoardPressed(_ sender: Any) {
         GameCenter.saveHighscore(number: 17)
         let viewController = self.view.window?.rootViewController
         let gcvc = GKGameCenterViewController()
         gcvc.gameCenterDelegate = self
         viewController?.present(gcvc, animated: true, completion: nil)
-    }
+    }*/
     
-    //Game Center
-    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
-        gameCenterViewController.dismiss(animated: true, completion: nil)
-    }
-
-    func authenticatePlayer(){
-        let localPlayer = GKLocalPlayer.localPlayer()
-        localPlayer.authenticateHandler = {
-            (view, error) in
-            if view != nil {
-                self.present(view!, animated: true, completion: nil)
-
-            }
-            else {
-                print(GKLocalPlayer.localPlayer().isAuthenticated)
-            }
-        }
-    }
 }
