@@ -42,6 +42,7 @@
 		CC92E2DB1FC5FF7E0057F766 /* SKSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC92E2DA1FC5FF7E0057F766 /* SKSpriteNode.swift */; };
 		CC9AB3D61FD4CA610080598C /* CloudGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9AB3D51FD4CA610080598C /* CloudGenerator.swift */; };
 		CC9AB3D81FD4D53A0080598C /* Peanut.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9AB3D71FD4D53A0080598C /* Peanut.swift */; };
+		CC9AB3DC1FD4DAE30080598C /* ToiletPaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9AB3DB1FD4DAE30080598C /* ToiletPaper.swift */; };
 		CCDCE3011FA18CF900BC6486 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDCE2FF1FA18CF800BC6486 /* Settings.swift */; };
 		CCDCE3021FA18CF900BC6486 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */; };
 		CCF5CBAA1FC64B1F00EA19DF /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5CBA91FC64B1F00EA19DF /* Obstacle.swift */; };
@@ -86,6 +87,7 @@
 		CC92E2DA1FC5FF7E0057F766 /* SKSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKSpriteNode.swift; sourceTree = "<group>"; };
 		CC9AB3D51FD4CA610080598C /* CloudGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudGenerator.swift; sourceTree = "<group>"; };
 		CC9AB3D71FD4D53A0080598C /* Peanut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Peanut.swift; sourceTree = "<group>"; };
+		CC9AB3DB1FD4DAE30080598C /* ToiletPaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToiletPaper.swift; sourceTree = "<group>"; };
 		CCDCE2FF1FA18CF800BC6486 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CCF5CBA91FC64B1F00EA19DF /* Obstacle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				CC4553591FC21A0000BD3573 /* Bag.swift */,
 				1BE7B5431FBC65840017D99B /* Cart.swift */,
 				CC9AB3D71FD4D53A0080598C /* Peanut.swift */,
+				CC9AB3DB1FD4DAE30080598C /* ToiletPaper.swift */,
 				1B7D10051FA15EE8009110B4 /* Sprite.swift */,
 				1B7D10031FA15E8F009110B4 /* Player.swift */,
 			);
@@ -370,6 +373,7 @@
 				CCDCE3011FA18CF900BC6486 /* Settings.swift in Sources */,
 				3A8046111FA910490013B8AE /* DataStore.swift in Sources */,
 				CC9AB3D61FD4CA610080598C /* CloudGenerator.swift in Sources */,
+				CC9AB3DC1FD4DAE30080598C /* ToiletPaper.swift in Sources */,
 				CC7C64641FCE05CA00429EF5 /* LinkedList.swift in Sources */,
 				CC92E2DB1FC5FF7E0057F766 /* SKSpriteNode.swift in Sources */,
 				1B7D10061FA15EE8009110B4 /* Sprite.swift in Sources */,
