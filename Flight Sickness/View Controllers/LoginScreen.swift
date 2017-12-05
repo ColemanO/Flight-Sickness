@@ -19,6 +19,8 @@ class LoginScreen: UIViewController, UITextFieldDelegate, GKGameCenterController
     var alertController:UIAlertController? = nil
     //var cloudGen = CloudGenerator()
     static var gameCenter:Bool = false
+    fileprivate static let usernameKey = "usKey"
+    fileprivate static let passwordKey = "passKey"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,9 @@ class LoginScreen: UIViewController, UITextFieldDelegate, GKGameCenterController
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         DataStore.shared.loadUsers()
+        self.usernameLabel.text = UserDefaults.standard.string(forKey: LoginScreen.usernameKey)!
+        self.passwordLabel.text = UserDefaults.standard.string(forKey: LoginScreen.passwordKey)!
+        
         // Do any additional setup after loading the view.
     }
     
@@ -50,6 +55,9 @@ class LoginScreen: UIViewController, UITextFieldDelegate, GKGameCenterController
                     {
                         // save username
                         Settings.setUsername(self.usernameLabel.text!)
+                        UserDefaults.standard.set(self.usernameLabel.text!, forKey: LoginScreen.usernameKey)
+                        UserDefaults.standard.set(self.passwordLabel.text!, forKey: LoginScreen.passwordKey)
+                        UserDefaults.standard.synchronize()
                         print("Valid username and password!")
                         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                         let newViewController = storyBoard.instantiateViewController(withIdentifier: "Home") as! UINavigationController
