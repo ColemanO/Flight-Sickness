@@ -26,13 +26,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LEADERBOARD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGp-hI-SfM">
-                                <rect key="frame" x="16" y="81" width="343" height="62"/>
+                                <rect key="frame" x="16" y="77" width="343" height="62"/>
                                 <fontDescription key="fontDescription" name="DDCHardware-Condensed" family="DDC Hardware" pointSize="48"/>
                                 <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMk-TU-7HV">
-                                <rect key="frame" x="16" y="189" width="48" height="22"/>
+                                <rect key="frame" x="16" y="185" width="48" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="A43-cS-IPo"/>
                                     <constraint firstAttribute="width" constant="48" id="OWj-0Z-o1g"/>
@@ -42,7 +42,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1S-WC-czn">
-                                <rect key="frame" x="304" y="189" width="55" height="22"/>
+                                <rect key="frame" x="304" y="185" width="55" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="26s-jY-yYO"/>
                                     <constraint firstAttribute="width" constant="55" id="s6R-VQ-LIe"/>
@@ -52,7 +52,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="s9t-I6-xLJ">
-                                <rect key="frame" x="16" y="219" width="343" height="398"/>
+                                <rect key="frame" x="16" y="215" width="343" height="402"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="backgroundcell" textLabel="sxa-ne-iL9" detailTextLabel="ilX-LL-6xR" style="IBUITableViewCellStyleValue1" id="37W-w2-WpG">
@@ -118,7 +118,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Sickness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nc-aU-pae">
-                                <rect key="frame" x="26" y="190" width="324.5" height="56"/>
+                                <rect key="frame" x="25.5" y="190.5" width="324.5" height="56"/>
                                 <fontDescription key="fontDescription" name="DDCHardware-Condensed" family="DDC Hardware" pointSize="48"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -127,21 +127,21 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdC-hA-npQ">
-                                <rect key="frame" x="98" y="314" width="179" height="53"/>
+                                <rect key="frame" x="98" y="314.5" width="179" height="53"/>
                                 <state key="normal" image="StartButton"/>
                                 <connections>
                                     <segue destination="BV1-FR-VrT" kind="presentation" id="FLn-vK-TxL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="621-l5-FIV">
-                                <rect key="frame" x="121" y="418" width="59" height="59"/>
+                                <rect key="frame" x="121" y="418.5" width="59" height="59"/>
                                 <state key="normal" image="Settings"/>
                                 <connections>
                                     <segue destination="dVr-Hf-TfW" kind="show" id="ScB-Ut-OTI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93Q-Ly-207">
-                                <rect key="frame" x="197" y="420" width="55" height="55"/>
+                                <rect key="frame" x="197" y="420.5" width="55" height="55"/>
                                 <state key="normal" image="Leaderboard"/>
                                 <connections>
                                     <action selector="leaderBoardPressed:" destination="a4X-Pd-3iy" eventType="touchUpInside" id="80h-bM-ch7"/>
@@ -186,7 +186,7 @@
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soundtrack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IfU-8I-SRb">
-                                        <rect key="frame" x="23" y="35" width="86" height="22"/>
+                                        <rect key="frame" x="23" y="35" width="85.5" height="22"/>
                                         <fontDescription key="fontDescription" name="DDCHardware-Condensed" family="DDC Hardware" pointSize="17"/>
                                         <color key="textColor" red="0.5842481255531311" green="0.58435159921646118" blue="0.58424162864685059" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -198,7 +198,7 @@
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sound Effects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feI-Ta-yAb">
-                                        <rect key="frame" x="23" y="79" width="100" height="22"/>
+                                        <rect key="frame" x="23" y="79" width="99.5" height="22"/>
                                         <fontDescription key="fontDescription" name="DDCHardware-Condensed" family="DDC Hardware" pointSize="17"/>
                                         <color key="textColor" red="0.5842481255531311" green="0.58435159921646118" blue="0.58424162864685059" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -219,7 +219,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBp-eL-o3Y">
-                                <rect key="frame" x="104" y="131" width="167" height="62"/>
+                                <rect key="frame" x="104.5" y="127" width="167" height="61.5"/>
                                 <fontDescription key="fontDescription" name="DDCHardware-Condensed" family="DDC Hardware" pointSize="48"/>
                                 <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -285,7 +285,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHn-pe-I6g">
-                                <rect key="frame" x="128.5" y="159" width="119.5" height="56"/>
+                                <rect key="frame" x="128" y="159" width="119.5" height="56"/>
                                 <fontDescription key="fontDescription" name="DDCHardware-Condensed" family="DDC Hardware" pointSize="48"/>
                                 <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -460,7 +460,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLZ-G1-Kup">
-                                <rect key="frame" x="88.5" y="251.5" width="198" height="67"/>
+                                <rect key="frame" x="88.5" y="252" width="198" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="67" id="Gmw-aH-fWb"/>
                                     <constraint firstAttribute="width" constant="198" id="eEd-XY-4i5"/>
@@ -471,7 +471,7 @@
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pause" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lxo-yG-rFZ">
-                                <rect key="frame" x="121" y="153.5" width="133.5" height="56"/>
+                                <rect key="frame" x="121" y="154" width="133.5" height="56"/>
                                 <fontDescription key="fontDescription" name="DDCHardware-Condensed" family="DDC Hardware" pointSize="48"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -480,7 +480,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRd-TB-TCw">
-                                <rect key="frame" x="88.5" y="326.5" width="198" height="67"/>
+                                <rect key="frame" x="88.5" y="327" width="198" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="67" id="lwg-XD-FXd"/>
                                     <constraint firstAttribute="width" constant="198" id="ouP-kM-Jwv"/>
@@ -491,7 +491,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33h-ll-uqh">
-                                <rect key="frame" x="88.5" y="401.5" width="198" height="67"/>
+                                <rect key="frame" x="88.5" y="402" width="198" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="198" id="rNs-eU-crC"/>
                                     <constraint firstAttribute="height" constant="67" id="ufZ-db-Wv9"/>
@@ -540,7 +540,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zvh-hw-W8n" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wfv-oM-zAa">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -558,7 +558,7 @@
                 <navigationController storyboardIdentifier="Home" automaticallyAdjustsScrollViewInsets="NO" id="nhR-67-4K5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TtE-bo-mqS">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
