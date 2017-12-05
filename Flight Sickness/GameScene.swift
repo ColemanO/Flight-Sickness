@@ -104,7 +104,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.fontName = "DDCHardware-Condensed"
         scoreLabel.fontSize = 50
         scoreLabel.fontColor = UIColor.white
-        self.scoreLabel.text = String(0)
+        scoreLabel.zPosition = 2
+        scoreLabel.text = String(0)
         self.addChild(scoreLabel)
         
         toiletSprite = SKSpriteNode(imageNamed: "toiletpaper")
