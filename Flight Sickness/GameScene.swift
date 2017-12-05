@@ -34,12 +34,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var ticks:Int64 = 0
     private var gen:ObstacleGenerator!
     var viewController: GameViewController!
-    private let scoreLabelBuffer:CGFloat = 150
+    private let scoreLabelBuffer:CGFloat = 175
     private var spaceBetweenSeats:CGFloat!
-    private var peanutVar:Int64 = 50
+    private var peanutVar:Int64 = 100
     private var toiletSprite:SKSpriteNode!
     private var isInvuln:Bool = false
     private var counter:Int64 = 0
+    private var plusFifty: SKLabelNode!
     
     var person:Person!
     var crashPlayer = AVAudioPlayer()
@@ -68,6 +69,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.getNode().physicsBody?.usesPreciseCollisionDetection = true
         
         spaceBetweenSeats = player.getNode().frame.height * 0.7
+        
+        plusFifty = SKLabelNode(fontNamed: "DDCHardware-Regular")
+        plusFifty.text = "+\(peanutVar)"
+        plusFifty.fontSize = 75
+        plusFifty.fontColor = SKColor.white
+        plusFifty.position = CGPoint(x: 0, y: 0)
+        plusFifty.zPosition = 1
+        addChild(plusFifty)
+        plusFifty.isHidden = true
         
         //set up the camera
         addChild(cam)
@@ -102,10 +112,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         topSeatIndexToCheck = 0;
         scoreLabel.position = CGPoint(x: 0, y: self.topScreen - scoreLabelBuffer)
         scoreLabel.fontName = "DDCHardware-Condensed"
-        scoreLabel.fontSize = 50
+        scoreLabel.fontSize = 60
         scoreLabel.fontColor = UIColor.white
         scoreLabel.zPosition = 2
         scoreLabel.text = String(0)
+        scoreLabel.zPosition = 1
         self.addChild(scoreLabel)
         
         toiletSprite = SKSpriteNode(imageNamed: "toiletpaper")
@@ -136,6 +147,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         leftAisle.position.y = newCenter
         scoreLabel.position = CGPoint(x: 0, y: self.topScreen - scoreLabelBuffer)
         toiletSprite.position = CGPoint(x: cam.position.x + 2 * scoreLabelBuffer, y: self.topScreen - scoreLabelBuffer/3)
+        plusFifty.position = cam.position
         
         //check if the bottom seat is still on the screen
         let seatToCheck = seats[seatIndexToCheck]
@@ -165,9 +177,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.scoreLabel.text = "\(Int(self.scoreLabel.text!)! + (Int(1)))"
         
         counter+=1
-        if (counter == 100) {
+        if (counter == 500) {
             toiletSprite.isHidden = true
             isInvuln = false
+            player.getNode().alpha = 1
         }
     }
 
@@ -239,12 +252,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             case is Peanut:
                 self.scoreLabel.text = "\(Int(self.scoreLabel.text!)!.advanced(by: Int(peanutVar)))"
                 print("got peanut!")
+                let unhide  = SKAction.run{self.plusFifty.isHidden = false}
+                let visable = SKAction.fadeIn(withDuration: 0)
+                let fade = SKAction.fadeOut(withDuration: 1)
+                
+                let group = SKAction.group([unhide, visable])
+                plusFifty.run(group)
+                plusFifty.run(fade)
                 break
             case is ToiletPaper:
                 isInvuln = true
                 counter = 0
                 //show the toilet paper
-                toiletSprite.isHidden = false
+                player.getNode().alpha = 0.5
+                //toiletSprite.isHidden = false
                 print("got paper!")
                 break
             default:
