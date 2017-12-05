@@ -32,8 +32,11 @@ class LoginScreen: UIViewController, UITextFieldDelegate, GKGameCenterController
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         DataStore.shared.loadUsers()
-        self.usernameLabel.text = UserDefaults.standard.string(forKey: LoginScreen.usernameKey)!
-        self.passwordLabel.text = UserDefaults.standard.string(forKey: LoginScreen.passwordKey)!
+        if let _ = UserDefaults.standard.string(forKey: LoginScreen.usernameKey){
+            self.usernameLabel.text = UserDefaults.standard.string(forKey: LoginScreen.usernameKey)!
+            self.passwordLabel.text = UserDefaults.standard.string(forKey: LoginScreen.passwordKey)!
+            presentHomeView()
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -41,6 +44,12 @@ class LoginScreen: UIViewController, UITextFieldDelegate, GKGameCenterController
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func presentHomeView(){
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "Home") as! UINavigationController
+        self.present(newViewController, animated: true, completion: nil)
     }
     
     @IBAction func btnLoginAction(_ sender: Any) {
@@ -59,9 +68,7 @@ class LoginScreen: UIViewController, UITextFieldDelegate, GKGameCenterController
                         UserDefaults.standard.set(self.passwordLabel.text!, forKey: LoginScreen.passwordKey)
                         UserDefaults.standard.synchronize()
                         print("Valid username and password!")
-                        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "Home") as! UINavigationController
-                        self.present(newViewController, animated: true, completion: nil)
+                        self.presentHomeView()
                     }
                     else {
                         self.presentAlert(title: "Invalid Login", msg: "Invalid username or password")
