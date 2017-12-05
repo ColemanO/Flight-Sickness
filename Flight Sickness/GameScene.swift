@@ -37,6 +37,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private let scoreLabelBuffer:CGFloat = 150
     private var spaceBetweenSeats:CGFloat!
     private var peanutVar:Int64 = 50
+    private var toiletSprite:SKSpriteNode!
+    private var isInvuln:Bool = false
+    private var counter:Int64 = 0
     
     var person:Person!
     var crashPlayer = AVAudioPlayer()
@@ -104,6 +107,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.scoreLabel.text = String(0)
         self.addChild(scoreLabel)
         
+        toiletSprite = SKSpriteNode(imageNamed: "toiletpaper")
+        toiletSprite.size.width = 75
+        toiletSprite.size.height = 75
+        toiletSprite.isHidden = true
+        toiletSprite.position = CGPoint(x: cam.position.x + 2 * scoreLabelBuffer, y: self.topScreen - scoreLabelBuffer/3)
+        self.addChild(toiletSprite)
+        
         do {
             crashPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "crash", ofType: "mp3")!))
             crashPlayer.prepareToPlay()
@@ -114,7 +124,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         catch {
             print(error)
         }
-        
     }
     
     //run after each frame
@@ -125,6 +134,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         rightAisle.position.y = newCenter
         leftAisle.position.y = newCenter
         scoreLabel.position = CGPoint(x: 0, y: self.topScreen - scoreLabelBuffer)
+        toiletSprite.position = CGPoint(x: cam.position.x + 2 * scoreLabelBuffer, y: self.topScreen - scoreLabelBuffer/3)
         
         //check if the bottom seat is still on the screen
         let seatToCheck = seats[seatIndexToCheck]
@@ -152,6 +162,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         //self.scoreLabel.text = "\(Int(self.cam.position.y) )"
         self.scoreLabel.text = "\(Int(self.scoreLabel.text!)! + (Int(1)))"
+        
+        counter+=1
+        if (counter == 100) {
+            toiletSprite.isHidden = true
+            isInvuln = false
+        }
     }
 
     func isOffscreen(sprite: SKSpriteNode)->Bool{
@@ -206,12 +222,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         switch (otherBody.categoryBitMask){
         case BitMask.gameStopper:
-            //Play crash noise
-            if (Settings.soundEffects() && !crashPlayer.isPlaying) {
-                crashPlayer.play()
+            print("Reached Here")
+            if (!isInvuln) {
+                //Play crash noise
+                if (Settings.soundEffects() && !crashPlayer.isPlaying) {
+                    crashPlayer.play()
+                }
+                //ran into seat game should be over
+                gameOver()
             }
-            //ran into seat game should be over
-            gameOver()
             break
         case BitMask.powerUp:
             self.gen.collectObstacle(otherBody.node!)
@@ -221,6 +240,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 print("got peanut!")
                 break
             case is ToiletPaper:
+                isInvuln = true
+                counter = 0
+                //show the toilet paper
+                toiletSprite.isHidden = false
                 print("got paper!")
                 break
             default:
