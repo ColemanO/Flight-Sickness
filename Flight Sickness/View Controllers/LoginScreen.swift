@@ -133,5 +133,10 @@ class LoginScreen: UIViewController, UITextFieldDelegate, GKGameCenterController
         authenticatePlayer()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.hidesBackButton = true
+    }
+    
 }
 

@@ -224,6 +224,16 @@
                                 <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2g-hS-3cg">
+                                <rect key="frame" x="105" y="522" width="167" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutPressed:" destination="dVr-Hf-TfW" eventType="touchUpInside" id="T79-AB-1An"/>
+                                    <segue destination="KZg-A6-nsL" kind="show" id="Akg-mD-CXh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.41489166021347046" green="0.78131741285324097" blue="0.98142677545547485" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -242,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZw-BI-cRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-122" y="824"/>
+            <point key="canvasLocation" x="-122.40000000000001" y="823.53823088455783"/>
         </scene>
         <!--Login Screen-->
         <scene sceneID="aad-Tg-Su1">
@@ -583,4 +593,7 @@
         <image name="create account" width="236" height="56"/>
         <image name="login" width="236" height="56"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Akg-mD-CXh"/>
+    </inferredMetricsTieBreakers>
 </document>

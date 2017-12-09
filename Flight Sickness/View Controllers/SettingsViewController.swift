@@ -53,4 +53,11 @@ class SettingsViewController: UIViewController {
     @IBAction func soundEffectToggle(_ sender: UISwitch) {
         Settings.setSoundEffects(sender.isOn)
     }
+    
+    //Logout Button
+    @IBAction func logoutPressed(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "passKey")
+        UserDefaults.standard.removeObject(forKey: "usKey")
+        UserDefaults.standard.removeObject(forKey: "usernameKey")
+    }
 }
