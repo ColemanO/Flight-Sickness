@@ -12,7 +12,9 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var soundtrackSwitch: UISwitch!
     @IBOutlet weak var soundEffectsSwitch: UISwitch!
+    @IBOutlet weak var hardModeSwitch: UISwitch!
     @IBOutlet weak var settingsView: UIView!
+    
     //var cloudGen = CloudGenerator()
     
     //Hides the back button with a new image that is the back button
@@ -24,7 +26,7 @@ class SettingsViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = backButton
         soundtrackSwitch.isOn = Settings.soundtrack()
         soundEffectsSwitch.isOn = Settings.soundEffects()
-        
+        hardModeSwitch.isOn = Settings.hardMode()
         let containerView:UIView = UIView(frame:self.settingsView.frame)
         //self.bckTableView = UITableView(frame: containerView.bounds, style: .plain)
         containerView.backgroundColor = UIColor.clear
@@ -52,6 +54,10 @@ class SettingsViewController: UIViewController {
     //Toggles the sound effects
     @IBAction func soundEffectToggle(_ sender: UISwitch) {
         Settings.setSoundEffects(sender.isOn)
+    }
+    
+    @IBAction func hardModeToggle(_ sender: UISwitch) {
+        Settings.setHardMode(sender.isOn)
     }
     
     //Logout Button

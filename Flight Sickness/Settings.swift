@@ -13,6 +13,7 @@ class Settings: NSObject {
     fileprivate static let soundtrackKey = "soundtrack"
     fileprivate static let soundEffectsKey = "soundEffects"
     fileprivate static let usernameKey = "usernameKey"
+    fileprivate static let hardModeKey = "hardModeKey"
     
     //Sets the username, soundtrack, and sound effects
     class func setUsername(_ username: String) {
@@ -30,6 +31,12 @@ class Settings: NSObject {
         UserDefaults.standard.synchronize()
     }
     
+    class func setHardMode(_ isOn: Bool) {
+        UserDefaults.standard.set(isOn, forKey: hardModeKey)
+        UserDefaults.standard.synchronize()
+        print("??")
+    }
+    
     class func username() -> String {
         return UserDefaults.standard.string(forKey: usernameKey)!
     }
@@ -38,6 +45,9 @@ class Settings: NSObject {
     }
     class func soundEffects() -> Bool {
         return UserDefaults.standard.bool(forKey: soundEffectsKey)
+    }
+    class func hardMode() -> Bool {
+        return UserDefaults.standard.bool(forKey: hardModeKey)
     }
     
 }

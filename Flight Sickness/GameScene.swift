@@ -58,7 +58,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
-        
+        // FIXME
+        GeneratorConfig.config = GeneratorConfig()
         person = DataStore.shared.findUserBasedOnUsername(username: Settings.username())
         
         //set up the player
