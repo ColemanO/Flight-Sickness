@@ -166,7 +166,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.ticks += 1
         // TODO: add randomness to interval
         // change interval depending on screen size
-        if (self.ticks % 100 == 0) {
+        if (self.ticks % GeneratorConfig.config.generatorTicks == 0) {
+            GeneratorConfig.config.updateTick()
+            //print(GeneratorConfig.config.generatorTicks)
             gen.collectObstacles(bottomScreen: bottomScreen)
             let obs = gen.next(topScreen: self.topScreen, bottomScreen: self.bottomScreen)
             obstacles.append(obs)

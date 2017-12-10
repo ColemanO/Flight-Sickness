@@ -44,6 +44,7 @@
 		CC9AB3D61FD4CA610080598C /* CloudGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9AB3D51FD4CA610080598C /* CloudGenerator.swift */; };
 		CC9AB3D81FD4D53A0080598C /* Peanut.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9AB3D71FD4D53A0080598C /* Peanut.swift */; };
 		CC9AB3DC1FD4DAE30080598C /* ToiletPaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9AB3DB1FD4DAE30080598C /* ToiletPaper.swift */; };
+		CC9AB3DE1FD75ED60080598C /* GeneratorConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9AB3DD1FD75ED60080598C /* GeneratorConfig.swift */; };
 		CCDCE3011FA18CF900BC6486 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDCE2FF1FA18CF800BC6486 /* Settings.swift */; };
 		CCDCE3021FA18CF900BC6486 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */; };
 		CCF5CBAA1FC64B1F00EA19DF /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5CBA91FC64B1F00EA19DF /* Obstacle.swift */; };
@@ -90,6 +91,7 @@
 		CC9AB3D51FD4CA610080598C /* CloudGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudGenerator.swift; sourceTree = "<group>"; };
 		CC9AB3D71FD4D53A0080598C /* Peanut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Peanut.swift; sourceTree = "<group>"; };
 		CC9AB3DB1FD4DAE30080598C /* ToiletPaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToiletPaper.swift; sourceTree = "<group>"; };
+		CC9AB3DD1FD75ED60080598C /* GeneratorConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorConfig.swift; sourceTree = "<group>"; };
 		CCDCE2FF1FA18CF800BC6486 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CCDCE3001FA18CF900BC6486 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CCF5CBA91FC64B1F00EA19DF /* Obstacle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				1B93E1F71F979FBC0078B4EF /* GameScene.swift */,
 				1B6787C61FA3F85D00CCA154 /* GameCenter.swift */,
 				CC20EEED1FC4140A00E481F0 /* ObstacleGenerator.swift */,
+				CC9AB3DD1FD75ED60080598C /* GeneratorConfig.swift */,
 				CC9AB3D51FD4CA610080598C /* CloudGenerator.swift */,
 				1B93E1FB1F979FBC0078B4EF /* Main.storyboard */,
 				CCDCE2FF1FA18CF800BC6486 /* Settings.swift */,
@@ -385,6 +388,7 @@
 				3A179FDE1FA8FF19001A9143 /* SignupScreen.swift in Sources */,
 				CCDCE3021FA18CF900BC6486 /* SettingsViewController.swift in Sources */,
 				CC20EEEE1FC4140A00E481F0 /* ObstacleGenerator.swift in Sources */,
+				CC9AB3DE1FD75ED60080598C /* GeneratorConfig.swift in Sources */,
 				CCF5CBAA1FC64B1F00EA19DF /* Obstacle.swift in Sources */,
 				CC7C64601FC7465900429EF5 /* Seat.swift in Sources */,
 				1B7D10041FA15E8F009110B4 /* Player.swift in Sources */,
