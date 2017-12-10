@@ -11,7 +11,7 @@ import FirebaseDatabase
 import Firebase
 import GameKit
 
-class LoginScreen: UIViewController, UITextFieldDelegate, GKGameCenterControllerDelegate {
+class LoginScreen: UIViewController, UITextFieldDelegate {
     
     //@IBOutlet weak var cloud: UIImageView!
     @IBOutlet weak var usernameLabel: UITextField!
@@ -104,38 +104,6 @@ class LoginScreen: UIViewController, UITextFieldDelegate, GKGameCenterController
     // Called when the user touches on the main view (outside the UITextField).
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-    }
-    
-    //Game Center
-    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
-        gameCenterViewController.dismiss(animated: true, completion: nil)
-    }
-    
-//    func authenticatePlayer(){
-//        let localPlayer = GKLocalPlayer.localPlayer()
-//        localPlayer.authenticateHandler = {
-//            (view, error) in
-//            if view != nil {
-//                self.present(view!, animated: true, completion: nil)
-//                LoginScreen.gameCenter = true
-//            }
-//            else {
-//                print(GKLocalPlayer.localPlayer().isAuthenticated)
-//            }
-//        }
-//    }
-    
-//    class func gameCenterReturn() -> Bool {
-//        return gameCenter
-//    }
-
-    @IBAction func loginGameCenter(_ sender: Any) {
-        //authenticatePlayer()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationItem.hidesBackButton = true
     }
     
 }
