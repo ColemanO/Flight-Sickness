@@ -30,6 +30,8 @@ class GeneratorConfig {
     func updateTick() {
         if self.generatorTicks > self.minTicks {
             self.generatorTicks += self.rate
+        } else {
+            self.generatorTicks = self.minTicks
         }
     }
 }
