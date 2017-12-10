@@ -106,5 +106,10 @@ class LoginScreen: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.hidesBackButton = true
+    }
+    
 }
 
