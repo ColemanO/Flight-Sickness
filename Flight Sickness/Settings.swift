@@ -13,6 +13,7 @@ class Settings: NSObject {
     fileprivate static let soundtrackKey = "soundtrack"
     fileprivate static let soundEffectsKey = "soundEffects"
     fileprivate static let usernameKey = "usernameKey"
+        fileprivate static let gcKey = "gameCenterKey"
     fileprivate static let hardModeKey = "hardModeKey"
     
     //Sets the username, soundtrack, and sound effects
@@ -28,6 +29,11 @@ class Settings: NSObject {
     
     class func setSoundEffects(_ isOn: Bool) {
         UserDefaults.standard.set(isOn, forKey: soundEffectsKey)
+        UserDefaults.standard.synchronize()
+    }
+    
+    class func setGameCenter(_ useGC: Bool){
+        UserDefaults.standard.set(useGC, forKey: gcKey)
         UserDefaults.standard.synchronize()
     }
     
@@ -48,6 +54,10 @@ class Settings: NSObject {
     }
     class func hardMode() -> Bool {
         return UserDefaults.standard.bool(forKey: hardModeKey)
+    }
+    
+    class func gameCenter() -> Bool{
+        return UserDefaults.standard.bool(forKey: gcKey)
     }
     
 }

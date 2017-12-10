@@ -17,18 +17,7 @@ class BackgroundViewController: UIViewController, UITableViewDelegate, UITableVi
     //var cloudGen = CloudGenerator()
     
     @IBAction func gameCenter(_ sender: Any) {
-        authenticatePlayer(completion: {
-            () in
-                let gcvc = GKGameCenterViewController()
-                gcvc.gameCenterDelegate = self
-                self.present(gcvc, animated: true, completion: nil)
-        })
-//            //GameCenter.saveHighscore(number: 3)
-//            //let viewController = self.view.window?.rootViewController
-//            let gcvc = GKGameCenterViewController()
-//            gcvc.gameCenterDelegate = self
-//            self.present(gcvc, animated: true, completion: nil)
-//            //viewController?.present(gcvc, animated: true, completion: nil)
+        authenticatePlayer(true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,6 +45,9 @@ class BackgroundViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if(Settings.gameCenter()){
+            authenticatePlayer(false)
+        }
         //cloudGen.genClouds(view: view)
         DataStore.shared.loadUsers()
         // Do any additional setup after loading the view.
@@ -104,19 +96,29 @@ class BackgroundViewController: UIViewController, UITableViewDelegate, UITableVi
         self.present(gcvc, animated: true, completion: nil)
     }
     
-    func authenticatePlayer(completion: () -> Void){
+    func authenticatePlayer(_ shouldPresent: Bool){
         let localPlayer = GKLocalPlayer.localPlayer()
         localPlayer.authenticateHandler = {
             (view, error) in
             if view != nil {
                 self.present(view!, animated: true, completion: nil)
-                BackgroundViewController.gameCenter = true
+                if(GKLocalPlayer.localPlayer().isAuthenticated){
+                    Settings.setGameCenter(true)
+                }
             }
             else {
                 print(GKLocalPlayer.localPlayer().isAuthenticated)
+                if(GKLocalPlayer.localPlayer().isAuthenticated){
+                    Settings.setGameCenter(true)
+                }
+            }
+            if(shouldPresent){
+                self.presentGCBoard()
             }
         }
-        completion();
+        if(shouldPresent && GKLocalPlayer.localPlayer().isAuthenticated){
+            self.presentGCBoard()
+        }
     }
     
     class func gameCenterReturn() -> Bool {

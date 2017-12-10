@@ -219,7 +219,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //called when the user loses
     func gameOver(){
         print(BackgroundViewController.gameCenter)
-        if(BackgroundViewController.gameCenter){
+        if(Settings.gameCenter()){
             GameCenter.saveHighscore(number: Int(self.scoreLabel.text!)!)
         }
         if (person.score < Int(self.scoreLabel.text!)!) {

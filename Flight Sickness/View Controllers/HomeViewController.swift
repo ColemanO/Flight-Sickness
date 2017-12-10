@@ -14,6 +14,9 @@ class HomeViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if(Settings.gameCenter()){
+            GameCenter.authenticatePlayer(sender: self)
+        }
         //cloudGen.genClouds(view: view)
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()

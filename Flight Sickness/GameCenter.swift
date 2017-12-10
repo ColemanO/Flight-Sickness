@@ -10,8 +10,28 @@ import Foundation
 import GameKit
 
 class GameCenter{
+    
+    class func authenticatePlayer(sender: UIViewController){
+        let localPlayer = GKLocalPlayer.localPlayer()
+        localPlayer.authenticateHandler = {
+            (view, error) in
+            if view != nil {
+                sender.present(view!, animated: true, completion: nil)
+                if(GKLocalPlayer.localPlayer().isAuthenticated){
+                    Settings.setGameCenter(true)
+                }
+            }
+            else {
+                print(GKLocalPlayer.localPlayer().isAuthenticated)
+                if(GKLocalPlayer.localPlayer().isAuthenticated){
+                    Settings.setGameCenter(true)
+                }
+            }
+        }
+    }
+    
     class func saveHighscore(number : Int){
-        print("calling save************")
+        
         if GKLocalPlayer.localPlayer().isAuthenticated {
             let scoreReporter = GKScore(leaderboardIdentifier: "FSL")
         
