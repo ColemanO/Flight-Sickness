@@ -18,7 +18,7 @@ class LoginScreen: UIViewController, UITextFieldDelegate, GKGameCenterController
     @IBOutlet weak var passwordLabel: UITextField!
     var alertController:UIAlertController? = nil
     //var cloudGen = CloudGenerator()
-    static var gameCenter:Bool = false
+    //static var gameCenter:Bool = false
     fileprivate static let usernameKey = "usKey"
     fileprivate static let passwordKey = "passKey"
     
@@ -111,26 +111,26 @@ class LoginScreen: UIViewController, UITextFieldDelegate, GKGameCenterController
         gameCenterViewController.dismiss(animated: true, completion: nil)
     }
     
-    func authenticatePlayer(){
-        let localPlayer = GKLocalPlayer.localPlayer()
-        localPlayer.authenticateHandler = {
-            (view, error) in
-            if view != nil {
-                self.present(view!, animated: true, completion: nil)
-                LoginScreen.gameCenter = true
-            }
-            else {
-                print(GKLocalPlayer.localPlayer().isAuthenticated)
-            }
-        }
-    }
+//    func authenticatePlayer(){
+//        let localPlayer = GKLocalPlayer.localPlayer()
+//        localPlayer.authenticateHandler = {
+//            (view, error) in
+//            if view != nil {
+//                self.present(view!, animated: true, completion: nil)
+//                LoginScreen.gameCenter = true
+//            }
+//            else {
+//                print(GKLocalPlayer.localPlayer().isAuthenticated)
+//            }
+//        }
+//    }
     
-    class func gameCenterReturn() -> Bool {
-        return gameCenter
-    }
+//    class func gameCenterReturn() -> Bool {
+//        return gameCenter
+//    }
 
     @IBAction func loginGameCenter(_ sender: Any) {
-        authenticatePlayer()
+        //authenticatePlayer()
     }
     
     override func viewWillAppear(_ animated: Bool) {

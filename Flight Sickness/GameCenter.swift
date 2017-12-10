@@ -11,6 +11,7 @@ import GameKit
 
 class GameCenter{
     class func saveHighscore(number : Int){
+        print("calling save************")
         if GKLocalPlayer.localPlayer().isAuthenticated {
             let scoreReporter = GKScore(leaderboardIdentifier: "FSL")
         

@@ -8,11 +8,28 @@
 import UIKit
 import FirebaseDatabase
 import Firebase
+import GameKit
 
-class BackgroundViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
+class BackgroundViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, GKGameCenterControllerDelegate {
     
+    static var gameCenter:Bool = false
     @IBOutlet weak var bckTableView: UITableView!
     //var cloudGen = CloudGenerator()
+    
+    @IBAction func gameCenter(_ sender: Any) {
+        authenticatePlayer(completion: {
+            () in
+                let gcvc = GKGameCenterViewController()
+                gcvc.gameCenterDelegate = self
+                self.present(gcvc, animated: true, completion: nil)
+        })
+//            //GameCenter.saveHighscore(number: 3)
+//            //let viewController = self.view.window?.rootViewController
+//            let gcvc = GKGameCenterViewController()
+//            gcvc.gameCenterDelegate = self
+//            self.present(gcvc, animated: true, completion: nil)
+//            //viewController?.present(gcvc, animated: true, completion: nil)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10;
@@ -76,6 +93,41 @@ class BackgroundViewController: UIViewController, UITableViewDelegate, UITableVi
         self.bckTableView.reloadData()
     }
 
+    //Game Center
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        gameCenterViewController.dismiss(animated: true, completion: nil)
+    }
+    
+    func presentGCBoard()->Void{
+        let gcvc = GKGameCenterViewController()
+        gcvc.gameCenterDelegate = self
+        self.present(gcvc, animated: true, completion: nil)
+    }
+    
+    func authenticatePlayer(completion: () -> Void){
+        let localPlayer = GKLocalPlayer.localPlayer()
+        localPlayer.authenticateHandler = {
+            (view, error) in
+            if view != nil {
+                self.present(view!, animated: true, completion: nil)
+                BackgroundViewController.gameCenter = true
+            }
+            else {
+                print(GKLocalPlayer.localPlayer().isAuthenticated)
+            }
+        }
+        completion();
+    }
+    
+    class func gameCenterReturn() -> Bool {
+        return gameCenter
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.hidesBackButton = true
+    }
+    
     /*
     // MARK: - Navigation
 
